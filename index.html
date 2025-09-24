@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verga & Associados | Escritório de Advocacia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'gold': '#C5A572',
+                        'navy': '#0A1A35',
+                        'light-navy': '#1A2D4A',
+                        'cream': '#F8F5F0',
+                        'dark-gold': '#A0865A'
+                    },
+                    fontFamily: {
+                        'serif': ['Crimson Text', 'serif'],
+                        'sans': ['Inter', 'sans-serif']
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.8s ease-in-out',
+                        'slide-up': 'slideUp 0.8s ease-out'
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(30px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            scroll-behavior: smooth;
+        }
+        .hero-pattern {
+            background: linear-gradient(135deg, rgba(10, 26, 53, 0.85) 0%, rgba(26, 45, 74, 0.9) 100%), 
+                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%230A1A35"/><path d="M0 0L100 100M100 0L0 100" stroke="%23C5A572" stroke-width="0.5"/></svg>');
+            background-size: cover;
+        }
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, #C5A572 50%, transparent 100%);
+        }
+        .area-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+            border-left: 4px solid transparent;
+        }
+        .area-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(10, 26, 53, 0.1);
+            border-left: 4px solid #C5A572;
+        }
+        .stat-number {
+            font-size: 3rem;
+            background: linear-gradient(135deg, #C5A572, #A0865A);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+        }
+        .floating-element {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        .testimonial-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            position: relative;
+        }
+        .testimonial-card:before {
+            content: """;
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-size: 80px;
+            color: #C5A572;
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+        .contact-form input, .contact-form textarea, .contact-form select {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        .contact-form input:focus, .contact-form textarea:focus, .contact-form select:focus {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid #C5A572;
+            box-shadow: 0 0 0 2px rgba(197, 165, 114, 0.2);
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #C5A572;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        .logo {
+            font-family: 'Crimson Text', serif;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body class="font-sans bg-cream text-navy">
+    <!-- Header/Navbar -->
+    <header class="fixed w-full z-50 transition-all duration-300 bg-navy/95 backdrop-blur-sm py-4 shadow-lg">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="w-10 h-10 rounded-full bg-gold flex items-center justify-center mr-3">
+                    <i class="fas fa-scale-balanced text-navy text-lg"></i>
+                </div>
+                <span class="logo text-2xl text-white">Verga & Associados</span>
+            </div>
+            <nav class="hidden lg:flex space-x-10">
+                <a href="#quem-somos" class="nav-link text-white font-medium">Quem Somos</a>
+                <a href="#areas-atuacao" class="nav-link text-white font-medium">Áreas de Atuação</a>
+                <a href="#contato" class="nav-link text-white font-medium">Contato</a>
+            </nav>
+            <div class="hidden lg:block">
+                <a href="#contato" class="bg-gold text-navy px-6 py-2 rounded-md font-semibold hover:bg-dark-gold transition-all duration-300 shadow-md">Agendar Consulta</a>
+            </div>
+            <button class="lg:hidden text-white text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-pattern min-h-screen flex items-center pt-20 pb-32 text-white relative overflow-hidden">
+        <div class="absolute top-20 right-10 w-20 h-20 rounded-full bg-gold/20 floating-element"></div>
+        <div class="absolute bottom-40 left-10 w-16 h-16 rounded-full bg-gold/10 floating-element" style="animation-delay: 2s;"></div>
+        <div class="absolute top-1/2 left-1/4 w-12 h-12 rounded-full bg-gold/15 floating-element" style="animation-delay: 4s;"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-3xl animate-fade-in">
+                <h1 class="text-5xl md:text-6xl font-bold mb-6 font-serif leading-tight">Excelência Jurídica com <span class="text-gold">Tradição e Inovação</span></h1>
+                <p class="text-xl mb-8 opacity-90">Há mais de 30 anos oferecendo soluções jurídicas estratégicas para proteger seus interesses com a máxima competência e discrição.</p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#contato" class="bg-gold text-navy px-8 py-3 rounded-md font-semibold hover:bg-dark-gold transition-all duration-300 text-center shadow-lg">Solicitar Consultoria</a>
+                    <a href="#areas-atuacao" class="border border-gold text-gold px-8 py-3 rounded-md font-semibold hover:bg-gold/10 transition-all duration-300 text-center">Conheça Nossas Áreas</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-cream to-transparent"></div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-16 bg-white relative -mt-16 z-20 rounded-t-3xl shadow-lg">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center p-6">
+                    <div class="stat-number mb-2">500+</div>
+                    <p class="text-lg font-medium text-navy">Casos Resolvidos com Sucesso</p>
+                </div>
+                <div class="text-center p-6">
+                    <div class="stat-number mb-2">30+</div>
+                    <p class="text-lg font-medium text-navy">Anos de Experiência no Direito</p>
+                </div>
+                <div class="text-center p-6">
+                    <div class="stat-number mb-2">98%</div>
+                    <p class="text-lg font-medium text-navy">Índice de Satisfação dos Clientes</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quem Somos Section -->
+    <section id="quem-somos" class="py-20 bg-cream">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 font-serif text-navy">Quem Somos</h2>
+                <div class="section-divider w-32 mx-auto my-6"></div>
+                <p class="text-xl text-light-navy max-w-3xl mx-auto">Um escritório com tradição familiar, fundado em princípios éticos e comprometido com a excelência jurídica.</p>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/2 relative">
+                    <div class="rounded-2xl overflow-hidden shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" 
+                             alt="Escritório Verga & Associados" class="w-full h-auto">
+                    </div>
+                    <div class="absolute -bottom-6 -right-6 bg-gold text-navy p-6 rounded-2xl shadow-xl max-w-xs">
+                        <p class="font-serif text-lg italic">"A justiça é a constante e perpétua vontade de dar a cada um o que é seu."</p>
+                        <p class="mt-2 font-semibold">- Dr. Carlos Verga, Fundador</p>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2 animate-slide-up">
+                    <h3 class="text-3xl font-serif font-bold mb-6 text-navy">Tradição e Inovação no Direito Brasileiro</h3>
+                    <p class="text-lg text-light-navy mb-6">Fundado em 1992 pelo Dr. Carlos Verga, nosso escritório combina a solidez de três décadas de atuação com uma abordagem moderna e estratégica para o direito.</p>
+                    
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-start">
+                            <div class="bg-gold/10 p-2 rounded-full mr-4 mt-1">
+                                <i class="fas fa-gem text-gold"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg text-navy">Valores Éticos</h4>
+                                <p class="text-light-navy">Nossa atuação é pautada pela transparência, honestidade e compromisso com a verdade.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-gold/10 p-2 rounded-full mr-4 mt-1">
+                                <i class="fas fa-bullseye text-gold"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg text-navy">Foco no Cliente</h4>
+                                <p class="text-light-navy">Cada caso é tratado com atenção personalizada, entendendo as particularidades de cada cliente.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-gold/10 p-2 rounded-full mr-4 mt-1">
+                                <i class="fas fa-chart-line text-gold"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg text-navy">Resultados Comprovados</h4>
+                                <p class="text-light-navy">Estratégias jurídicas eficazes que geram resultados consistentes e duradouros.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#contato" class="inline-flex items-center text-gold font-semibold hover:text-dark-gold transition-colors duration-300">
+                        Agende uma reunião conosco
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Áreas de Atuação Section -->
+    <section id="areas-atuacao" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 font-serif text-navy">Áreas de Atuação</h2>
+                <div class="section-divider w-32 mx-auto my-6"></div>
+                <p class="text-xl text-light-navy max-w-3xl mx-auto">Especialistas em diversas áreas do direito, oferecendo soluções completas e integradas para nossos clientes.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Direito Tributário e Aduaneiro -->
+                <div class="area-card rounded-2xl p-8 shadow-md">
+                    <div class="w-14 h-14 rounded-full bg-gold/10 flex items-center justify-center mb-6">
+                        <i class="fas fa-file-invoice-dollar text-2xl text-gold"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-navy">Direito Tributário e Aduaneiro</h3>
+                    <p class="text-light-navy mb-6">Assessoria completa em questões fiscais, planejamento tributário estratégico, defesa em processos administrativos e judiciais, consultoria aduaneira e compliance fiscal.</p>
+                    <a href="#contato" class="text-gold font-semibold flex items-center">
+                        Saiba mais
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+
+                <!-- Direito Empresarial -->
+                <div class="area-card rounded-2xl p-8 shadow-md">
+                    <div class="w-14 h-14 rounded-full bg-gold/10 flex items-center justify-center mb-6">
+                        <i class="fas fa-building text-2xl text-gold"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-navy">Direito Empresarial</h3>
+                    <p class="text-light-navy mb-6">Atuação em contratos empresariais, recuperação judicial e extrajudicial, fusões e aquisições, due diligence, compliance e governança corporativa.</p>
+                    <a href="#contato" class="text-gold font-semibold flex items-center">
+                        Saiba mais
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+
+                <!-- Direito do Trabalho -->
+                <div class="area-card rounded-2xl p-8 shadow-md">
+                    <div class="w-14 h-14 rounded-full bg-gold/10 flex items-center justify-center mb-6">
+                        <i class="fas fa-briefcase text-2xl text-gold"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-navy">Direito do Trabalho</h3>
+                    <p class="text-light-navy mb-6">Assessoria trabalhista preventiva e contenciosa, defesa em ações judiciais, consultoria em relações de trabalho, terceirização e planos de incentivo.</p>
+                    <a href="#contato" class="text-gold font-semibold flex items-center">
+                        Saiba mais
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+
+                <!-- Direito Societário -->
+                <div class="area-card rounded-2xl p-8 shadow-md">
+                    <div class="w-14 h-14 rounded-full bg-gold/10 flex items-center justify-center mb-6">
+                        <i class="fas fa-handshake text-2xl text-gold"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-navy">Direito Societário</h3>
+                    <p class="text-light-navy mb-6">Constituição, reorganização e dissolução de sociedades, pactos societários, due diligence e questões relacionadas a sócios e acionistas.</p>
+                    <a href="#contato" class="text-gold font-semibold flex items-center">
+                        Saiba mais
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+
+                <!-- Direito Civil -->
+                <div class="area-card rounded-2xl p-8 shadow-md">
+                    <div class="w-14 h-14 rounded-full bg-gold/10 flex items-center justify-center mb-6">
+                        <i class="fas fa-balance-scale text-2xl text-gold"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-navy">Direito Civil</h3>
+                    <p class="text-light-navy mb-6">Atuação em questões contratuais, responsabilidade civil, direitos do consumidor, família e sucessões, propriedade e posse.</p>
+                    <a href="#contato" class="text-gold font-semibold flex items-center">
+                        Saiba mais
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+
+                <!-- Gestão de Contratos -->
+                <div class="area-card rounded-2xl p-8 shadow-md">
+                    <div class="w-14 h-14 rounded-full bg-gold/10 flex items-center justify-center mb-6">
+                        <i class="fas fa-file-contract text-2xl text-gold"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-navy">Gestão de Contratos</h3>
+                    <p class="text-light-navy mb-6">Elaboração, análise, negociação e administração de contratos, minimizando riscos e garantindo a segurança jurídica das operações.</p>
+                    <a href="#contato" class="text-gold font-semibold flex items-center">
+                        Saiba mais
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Consultivo -->
+            <div class="mt-16 bg-navy rounded-2xl p-10 text-center text-white relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-40 h-40 bg-gold/10 rounded-full -translate-y-20 translate-x-20"></div>
+                <div class="absolute bottom-0 left-0 w-32 h-32 bg-gold/10 rounded-full translate-y-16 -translate-x-16"></div>
+                
+                <div class="relative z-10 max-w-3xl mx-auto">
+                    <div class="w-20 h-20 rounded-full bg-gold/20 flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-comments text-3xl text-gold"></i>
+                    </div>
+                    <h3 class="text-3xl font-bold mb-4 font-serif">Consultivo Jurídico Estratégico</h3>
+                    <p class="text-xl mb-6 opacity-90">Prestação de consultoria jurídica estratégica para empresas e indivíduos, orientando sobre os melhores caminhos a seguir em questões legais complexas e preventivas.</p>
+                    <a href="#contato" class="bg-gold text-navy px-8 py-3 rounded-md font-semibold hover:bg-dark-gold transition-all duration-300 inline-block">Solicitar Consultoria</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato Section -->
+    <section id="contato" class="py-20 bg-navy text-white relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full opacity-5">
+            <div class="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-gold"></div>
+            <div class="absolute bottom-1/3 right-1/4 w-48 h-48 rounded-full bg-gold"></div>
+        </div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 font-serif">Entre em Contato</h2>
+                <div class="section-divider w-32 mx-auto my-6 bg-gold"></div>
+                <p class="text-xl opacity-90 max-w-3xl mx-auto">Estamos à disposição para esclarecer suas dúvidas e oferecer a melhor solução para suas necessidades jurídicas.</p>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-2/5">
+                    <h3 class="text-2xl font-serif font-bold mb-8">Informações de Contato</h3>
+                    
+                    <div class="space-y-6 mb-10">
+                        <div class="flex items-start">
+                            <div class="bg-gold/10 p-3 rounded-full mr-4">
+                                <i class="fas fa-map-marker-alt text-gold"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg">Endereço</h4>
+                                <p class="opacity-90">Av. Paulista, 1000 - 10º andar<br>Bela Vista, São Paulo - SP<br>CEP: 01310-100</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-gold/10 p-3 rounded-full mr-4">
+                                <i class="fas fa-phone text-gold"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg">Telefone</h4>
+                                <p class="opacity-90">(11) 1234-5678</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-gold/10 p-3 rounded-full mr-4">
+                                <i class="fas fa-envelope text-gold"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg">E-mail</h4>
+                                <p class="opacity-90">contato@vergaassociados.com.br</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-gold/10 p-3 rounded-full mr-4">
+                                <i class="fas fa-clock text-gold"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg">Horário de Atendimento</h4>
+                                <p class="opacity-90">Segunda a Sexta: 8h às 18h<br>Sábado: 9h às 12h (com agendamento)</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gold/10 rounded-2xl p-6">
+                        <h4 class="font-semibold text-lg mb-4">Agende uma Consulta</h4>
+                        <p class="opacity-90 mb-4">Oferecemos a primeira consulta de avaliação sem custo para analisarmos seu caso.</p>
+                        <a href="tel:+551112345678" class="bg-gold text-navy px-6 py-2 rounded-md font-semibold hover:bg-dark-gold transition-all duration-300 inline-block">Ligar Agora</a>
+                    </div>
+                </div>
+                
+                <div class="lg:w-3/5">
+                    <form class="contact-form bg-light-navy/30 rounded-2xl p-8 backdrop-blur-sm">
+                        <h3 class="text-2xl font-serif font-bold mb-6">Envie sua Mensagem</h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label for="nome" class="block mb-2 font-medium">Nome Completo *</label>
+                                <input type="text" id="nome" class="w-full px-4 py-3 rounded-lg text-white placeholder-gray-400" placeholder="Seu nome completo" required>
+                            </div>
+                            <div>
+                                <label for="email" class="block mb-2 font-medium">E-mail *</label>
+                                <input type="email" id="email" class="w-full px-4 py-3 rounded-lg text-white placeholder-gray-400" placeholder="seu@email.com" required>
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label for="telefone" class="block mb-2 font-medium">Telefone *</label>
+                                <input type="tel" id="telefone" class="w-full px-4 py-3 rounded-lg text-white placeholder-gray-400" placeholder="(11) 99999-9999" required>
+                            </div>
+                            <div>
+                                <label for="assunto" class="block mb-2 font-medium">Área de Interesse *</label>
+                                <select id="assunto" class="w-full px-4 py-3 rounded-lg text-white" required>
+                                    <option value="" disabled selected>Selecione uma área</option>
+                                    <option value="tributario">Direito Tributário e Aduaneiro</option>
+                                    <option value="empresarial">Direito Empresarial</option>
+                                    <option value="trabalho">Direito do Trabalho</option>
+                                    <option value="societario">Direito Societário</option>
+                                    <option value="civil">Direito Civil</option>
+                                    <option value="contratos">Gestão de Contratos</option>
+                                    <option value="consultivo">Consultivo</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="mensagem" class="block mb-2 font-medium">Mensagem *</label>
+                            <textarea id="mensagem" rows="5" class="w-full px-4 py-3 rounded-lg text-white placeholder-gray-400" placeholder="Descreva brevemente sua necessidade..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="bg-gold text-navy px-8 py-3 rounded-lg font-semibold hover:bg-dark-gold transition-all duration-300 w-full">Enviar Mensagem</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-navy py-12 border-t border-gold/20">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 rounded-full bg-gold flex items-center justify-center mr-3">
+                            <i class="fas fa-scale-balanced text-navy"></i>
+                        </div>
+                        <span class="logo text-2xl text-white">Verga & Associados</span>
+                    </div>
+                    <p class="mt-2 text-gray-400">Excelência jurídica com tradição e inovação</p>
+                </div>
+                
+                <div class="flex space-x-6 mb-6 md:mb-0">
+                    <a href="#" class="text-gray-400 hover:text-gold transition-colors duration-300 text-xl">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-gold transition-colors duration-300 text-xl">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-gold transition-colors duration-300 text-xl">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+                
+                <div class="text-center md:text-right">
+                    <p class="text-gray-400">© 2023 Verga & Associados. Todos os direitos reservados.</p>
+                    <p class="text-gray-500 text-sm mt-1">CNPJ: 12.345.678/0001-90 • OAB/SP: 123.456</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.classList.add('shadow-xl');
+            } else {
+                header.classList.remove('shadow-xl');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Form submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
