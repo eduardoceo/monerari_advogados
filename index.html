@@ -3,521 +3,1044 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verga & Associados | Escritório de Advocacia</title>
+    <title>Monenari Advocacia - Advogados Associados</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'gold': '#C5A572',
-                        'navy': '#0A1A35',
-                        'light-navy': '#1A2D4A',
-                        'cream': '#F8F5F0',
-                        'dark-gold': '#A0865A'
-                    },
-                    fontFamily: {
-                        'serif': ['Crimson Text', 'serif'],
-                        'sans': ['Inter', 'sans-serif']
-                    },
-                    animation: {
-                        'fade-in': 'fadeIn 0.8s ease-in-out',
-                        'slide-up': 'slideUp 0.8s ease-out'
-                    },
-                    keyframes: {
-                        fadeIn: {
-                            '0%': { opacity: '0' },
-                            '100%': { opacity: '1' }
-                        },
-                        slideUp: {
-                            '0%': { transform: 'translateY(30px)', opacity: '0' },
-                            '100%': { transform: 'translateY(0)', opacity: '1' }
-                        }
-                    }
-                }
-            }
-        }
-    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-blue: #0a1f3d;
+            --secondary-gold: #b89a5c;
+            --light-gold: #e8d9b9;
+            --light-bg: #f8f9fa;
+        }
+        
         body {
-            scroll-behavior: smooth;
+            font-family: 'Inter', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
         }
-        .hero-pattern {
-            background: linear-gradient(135deg, rgba(10, 26, 53, 0.85) 0%, rgba(26, 45, 74, 0.9) 100%), 
-                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%230A1A35"/><path d="M0 0L100 100M100 0L0 100" stroke="%23C5A572" stroke-width="0.5"/></svg>');
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, rgba(10, 31, 61, 0.9) 0%, rgba(10, 31, 61, 0.8) 100%), url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
             background-size: cover;
-        }
-        .section-divider {
-            height: 1px;
-            background: linear-gradient(90deg, transparent 0%, #C5A572 50%, transparent 100%);
-        }
-        .area-card {
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
-            border-left: 4px solid transparent;
-        }
-        .area-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(10, 26, 53, 0.1);
-            border-left: 4px solid #C5A572;
-        }
-        .stat-number {
-            font-size: 3rem;
-            background: linear-gradient(135deg, #C5A572, #A0865A);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 700;
-        }
-        .floating-element {
-            animation: float 6s ease-in-out infinite;
-        }
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-            100% { transform: translateY(0px); }
-        }
-        .testimonial-card {
-            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            background-position: center;
+            background-attachment: fixed;
             position: relative;
         }
-        .testimonial-card:before {
-            content: """;
-            position: absolute;
-            top: -20px;
-            left: 20px;
-            font-size: 80px;
-            color: #C5A572;
-            font-family: Georgia, serif;
-            line-height: 1;
-        }
-        .contact-form input, .contact-form textarea, .contact-form select {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
-        }
-        .contact-form input:focus, .contact-form textarea:focus, .contact-form select:focus {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid #C5A572;
-            box-shadow: 0 0 0 2px rgba(197, 165, 114, 0.2);
-        }
-        .nav-link {
-            position: relative;
-        }
-        .nav-link:after {
+        
+        .hero-section::before {
             content: '';
             position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
+            top: 0;
             left: 0;
-            background-color: #C5A572;
-            transition: width 0.3s ease;
-        }
-        .nav-link:hover:after {
             width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(184, 154, 92, 0.1) 0%, transparent 50%);
+            pointer-events: none;
         }
-        .logo {
-            font-family: 'Crimson Text', serif;
+        
+        .section-divider {
+            height: 2px;
+            width: 80px;
+            background: var(--secondary-gold);
+            margin: 1.5rem auto;
+        }
+        
+        .practice-card {
+            transition: all 0.3s ease;
+            border-top: 3px solid transparent;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .practice-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(184, 154, 92, 0.1), transparent);
+            transition: left 0.5s;
+        }
+        
+        .practice-card:hover::before {
+            left: 100%;
+        }
+        
+        .practice-card:hover {
+            transform: translateY(-5px);
+            border-top: 3px solid var(--secondary-gold);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+        
+        .contact-form input, .contact-form textarea, .contact-form select {
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s;
+            border-radius: 4px;
+        }
+        
+        .contact-form input:focus, .contact-form textarea:focus, .contact-form select:focus {
+            border-color: var(--secondary-gold);
+            box-shadow: 0 0 0 3px rgba(184, 154, 92, 0.1);
+            outline: none;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-blue);
+            color: white;
+            transition: all 0.3s;
+            border-radius: 4px;
+            font-weight: 500;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary-gold);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary-gold);
+            color: var(--primary-blue);
+            transition: all 0.3s;
+            border-radius: 4px;
+            font-weight: 500;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-secondary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn-secondary:hover::before {
+            left: 100%;
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--primary-blue);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .gold-accent {
+            color: var(--secondary-gold);
+        }
+        
+        .blue-bg {
+            background-color: var(--primary-blue);
+        }
+        
+        .gold-bg {
+            background-color: var(--secondary-gold);
+        }
+        
+        .light-bg {
+            background-color: var(--light-bg);
+        }
+        
+        .navbar {
+            transition: all 0.3s;
+            backdrop-filter: blur(10px);
+        }
+        
+        .navbar.scrolled {
+            background-color: rgba(10, 31, 61, 0.95);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+        
+        .map-container {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        /* Estilos para os números */
+        .stats-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            position: relative;
+            padding: 4rem 0;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+        
+        .stat-number {
+            font-size: 3.5rem;
             font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+            display: block;
+            line-height: 1;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            color: #4a5568;
+            font-weight: 500;
+            text-transform: uppercase;
             letter-spacing: 1px;
+        }
+        
+        .stat-plus {
+            font-size: 2.5rem;
+            color: var(--secondary-gold);
+            margin-right: 0.3rem;
+            vertical-align: super;
+        }
+        
+        /* Animações */
+        @keyframes countUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-count {
+            animation: countUp 1s ease-out forwards;
+        }
+        
+        /* Destaques e melhorias visuais */
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--secondary-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: white;
+            font-size: 1.8rem;
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50%;
+            height: 3px;
+            background: var(--secondary-gold);
+        }
+        
+        .testimonial-card {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .footer-links a {
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary-gold);
+        }
+        
+        /* Melhorias de espaçamento e organização */
+        .content-section {
+            padding: 5rem 0;
+        }
+        
+        .content-section:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        .practice-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-gold);
+            margin-bottom: 1rem;
+        }
+        
+        /* Novos estilos para melhorias */
+        .floating-card {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        .floating-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 50%, #f1f5f9 100%);
+        }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .highlight-box {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+        
+        .highlight-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--secondary-gold);
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(184, 154, 92, 0.4);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(184, 154, 92, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(184, 154, 92, 0);
+            }
+        }
+        
+        .service-tag {
+            display: inline-block;
+            background: rgba(184, 154, 92, 0.1);
+            color: var(--primary-blue);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            margin: 0.25rem;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            border: 1px solid transparent;
+        }
+        
+        .service-tag:hover {
+            background: var(--secondary-gold);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        
+        .floating-badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: var(--secondary-gold);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .stagger-item {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .stagger-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.5s ease;
+        }
+        
+        /* Estilos para a seção "Por que nos escolhem" */
+        .why-choose-section {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #1a365d 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .why-choose-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1551836026-d5c8c1a7d6b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+        }
+        
+        .benefit-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+            border-color: var(--secondary-gold);
+        }
+        
+        .benefit-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(184, 154, 92, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: var(--secondary-gold);
+            font-size: 2rem;
+            border: 2px solid rgba(184, 154, 92, 0.3);
+        }
+        
+        /* Estilos para a seção de serviços simplificada */
+        .services-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+        }
+        
+        .services-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .services-tab {
+            background: white;
+            border: 2px solid var(--secondary-gold);
+            color: var(--primary-blue);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .services-tab.active, .services-tab:hover {
+            background: var(--secondary-gold);
+            color: white;
+        }
+        
+        .services-content {
+            display: none;
+        }
+        
+        .services-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .service-category {
+            margin-bottom: 2rem;
+        }
+        
+        .service-category h4 {
+            color: var(--primary-blue);
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--secondary-gold);
+            display: inline-block;
         }
     </style>
 </head>
-<body class="font-sans bg-cream text-navy">
-    <!-- Header/Navbar -->
-    <header class="fixed w-full z-50 transition-all duration-300 bg-navy/95 backdrop-blur-sm py-4 shadow-lg">
-        <div class="container mx-auto px-6 flex justify-between items-center">
-            <div class="flex items-center">
-                <div class="w-10 h-10 rounded-full bg-gold flex items-center justify-center mr-3">
-                    <i class="fas fa-scale-balanced text-navy text-lg"></i>
+<body class="bg-white">
+    <!-- Header e Navegação -->
+    <header class="fixed w-full z-50">
+        <nav class="navbar py-4 px-6 md:px-12 blue-bg">
+            <div class="container mx-auto flex justify-between items-center">
+                <div class="flex items-center">
+                    <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center mr-3 shadow-md pulse-animation">
+                        <span class="text-xl font-bold" style="color: var(--primary-blue);">M</span>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold text-white">MONENARI ADVOCACIA</h1>
+                        <p class="text-xs text-gray-300">Advogados Associados</p>
+                    </div>
                 </div>
-                <span class="logo text-2xl text-white">Verga & Associados</span>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="#quem-somos" class="text-white hover:text-gold-300 transition duration-300 font-medium relative group">
+                        Quem Somos
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gold-300 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#areas-atuacao" class="text-white hover:text-gold-300 transition duration-300 font-medium relative group">
+                        Áreas de Atuação
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gold-300 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#porque-nos-escolhem" class="text-white hover:text-gold-300 transition duration-300 font-medium relative group">
+                        Por que nos Escolhem
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gold-300 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#contato" class="text-white hover:text-gold-300 transition duration-300 font-medium relative group">
+                        Contato
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gold-300 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                </div>
+                
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-white text-2xl">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
             </div>
-            <nav class="hidden lg:flex space-x-10">
-                <a href="#quem-somos" class="nav-link text-white font-medium">Quem Somos</a>
-                <a href="#areas-atuacao" class="nav-link text-white font-medium">Áreas de Atuação</a>
-                <a href="#contato" class="nav-link text-white font-medium">Contato</a>
-            </nav>
-            <div class="hidden lg:block">
-                <a href="#contato" class="bg-gold text-navy px-6 py-2 rounded-md font-semibold hover:bg-dark-gold transition-all duration-300 shadow-md">Agendar Consulta</a>
+            
+            <!-- Menu Mobile -->
+            <div id="mobile-menu" class="hidden md:hidden blue-bg py-4 px-6">
+                <div class="flex flex-col space-y-4">
+                    <a href="#quem-somos" class="text-white hover:text-gold-300 transition duration-300 font-medium">Quem Somos</a>
+                    <a href="#areas-atuacao" class="text-white hover:text-gold-300 transition duration-300 font-medium">Áreas de Atuação</a>
+                    <a href="#porque-nos-escolhem" class="text-white hover:text-gold-300 transition duration-300 font-medium">Por que nos Escolhem</a>
+                    <a href="#contato" class="text-white hover:text-gold-300 transition duration-300 font-medium">Contato</a>
+                </div>
             </div>
-            <button class="lg:hidden text-white text-2xl">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
+        </nav>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero-pattern min-h-screen flex items-center pt-20 pb-32 text-white relative overflow-hidden">
-        <div class="absolute top-20 right-10 w-20 h-20 rounded-full bg-gold/20 floating-element"></div>
-        <div class="absolute bottom-40 left-10 w-16 h-16 rounded-full bg-gold/10 floating-element" style="animation-delay: 2s;"></div>
-        <div class="absolute top-1/2 left-1/4 w-12 h-12 rounded-full bg-gold/15 floating-element" style="animation-delay: 4s;"></div>
-        
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="max-w-3xl animate-fade-in">
-                <h1 class="text-5xl md:text-6xl font-bold mb-6 font-serif leading-tight">Excelência Jurídica com <span class="text-gold">Tradição e Inovação</span></h1>
-                <p class="text-xl mb-8 opacity-90">Há mais de 30 anos oferecendo soluções jurídicas estratégicas para proteger seus interesses com a máxima competência e discrição.</p>
-                <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="#contato" class="bg-gold text-navy px-8 py-3 rounded-md font-semibold hover:bg-dark-gold transition-all duration-300 text-center shadow-lg">Solicitar Consultoria</a>
-                    <a href="#areas-atuacao" class="border border-gold text-gold px-8 py-3 rounded-md font-semibold hover:bg-gold/10 transition-all duration-300 text-center">Conheça Nossas Áreas</a>
-                </div>
-            </div>
-        </div>
-        
-        <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-cream to-transparent"></div>
-    </section>
-
-    <!-- Stats Section -->
-    <section class="py-16 bg-white relative -mt-16 z-20 rounded-t-3xl shadow-lg">
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="text-center p-6">
-                    <div class="stat-number mb-2">500+</div>
-                    <p class="text-lg font-medium text-navy">Casos Resolvidos com Sucesso</p>
-                </div>
-                <div class="text-center p-6">
-                    <div class="stat-number mb-2">30+</div>
-                    <p class="text-lg font-medium text-navy">Anos de Experiência no Direito</p>
-                </div>
-                <div class="text-center p-6">
-                    <div class="stat-number mb-2">98%</div>
-                    <p class="text-lg font-medium text-navy">Índice de Satisfação dos Clientes</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Quem Somos Section -->
-    <section id="quem-somos" class="py-20 bg-cream">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold mb-4 font-serif text-navy">Quem Somos</h2>
-                <div class="section-divider w-32 mx-auto my-6"></div>
-                <p class="text-xl text-light-navy max-w-3xl mx-auto">Um escritório com tradição familiar, fundado em princípios éticos e comprometido com a excelência jurídica.</p>
+    <section class="hero-section pt-32 pb-20 text-white">
+        <div class="container mx-auto px-6 md:px-12 text-center">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight fade-in">Excelência Jurídica com <span class="gold-accent">Tradição</span></h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto opacity-90 fade-in">Atuamos com comprometimento e expertise para oferecer soluções jurídicas personalizadas e eficientes.</p>
+            <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-6 fade-in">
+                <a href="#contato" class="btn-secondary py-3 px-8 rounded font-semibold inline-block">Entre em Contato</a>
+                <a href="#areas-atuacao" class="border border-white text-white py-3 px-8 rounded font-semibold inline-block hover:bg-white hover:text-blue-900 transition duration-300">Nossas Áreas</a>
             </div>
             
-            <div class="flex flex-col lg:flex-row items-center gap-12">
-                <div class="lg:w-1/2 relative">
-                    <div class="rounded-2xl overflow-hidden shadow-2xl">
-                        <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" 
-                             alt="Escritório Verga & Associados" class="w-full h-auto">
-                    </div>
-                    <div class="absolute -bottom-6 -right-6 bg-gold text-navy p-6 rounded-2xl shadow-xl max-w-xs">
-                        <p class="font-serif text-lg italic">"A justiça é a constante e perpétua vontade de dar a cada um o que é seu."</p>
-                        <p class="mt-2 font-semibold">- Dr. Carlos Verga, Fundador</p>
+            <!-- Badge de atuação nacional -->
+            <div class="mt-12 bg-white bg-opacity-10 backdrop-blur-sm rounded-full py-2 px-6 inline-block fade-in">
+                <span class="text-white font-medium"><i class="fas fa-map-marker-alt mr-2 gold-accent"></i> Atuamos em todo o Brasil</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quem Somos -->
+    <section id="quem-somos" class="content-section light-bg">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4" style="color: var(--primary-blue);">Quem Somos</h2>
+                <div class="section-divider"></div>
+                <p class="max-w-3xl mx-auto text-lg text-gray-600">Mais de 20 anos de tradição e excelência no mercado jurídico</p>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row items-center gap-10">
+                <div class="lg:w-1/2">
+                    <div class="floating-card">
+                        <img src="https://images.unsplash.com/photo-1589391886645-d51941baf7fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Escritório Monenari Advocacia" class="rounded-lg w-full">
                     </div>
                 </div>
                 
-                <div class="lg:w-1/2 animate-slide-up">
-                    <h3 class="text-3xl font-serif font-bold mb-6 text-navy">Tradição e Inovação no Direito Brasileiro</h3>
-                    <p class="text-lg text-light-navy mb-6">Fundado em 1992 pelo Dr. Carlos Verga, nosso escritório combina a solidez de três décadas de atuação com uma abordagem moderna e estratégica para o direito.</p>
+                <div class="lg:w-1/2">
+                    <h3 class="text-2xl font-bold mb-6" style="color: var(--primary-blue);">Tradição e Inovação no Direito</h3>
+                    <p class="mb-4 text-gray-700">A Monenari Advocacia é um escritório de advocacia com mais de 20 anos de atuação no mercado jurídico, combinando a tradição de um atendimento personalizado com as mais modernas ferramentas do direito.</p>
+                    <p class="mb-6 text-gray-700">Nossa missão é oferecer soluções jurídicas eficientes e estratégicas, sempre pautadas pela ética, transparência e comprometimento com os interesses de nossos clientes.</p>
                     
-                    <div class="space-y-4 mb-8">
-                        <div class="flex items-start">
-                            <div class="bg-gold/10 p-2 rounded-full mr-4 mt-1">
-                                <i class="fas fa-gem text-gold"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-lg text-navy">Valores Éticos</h4>
-                                <p class="text-light-navy">Nossa atuação é pautada pela transparência, honestidade e compromisso com a verdade.</p>
-                            </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                        <div class="flex items-center stagger-item">
+                            <i class="fas fa-award gold-accent text-xl mr-3"></i>
+                            <span class="font-medium">Excelência Jurídica</span>
                         </div>
-                        
-                        <div class="flex items-start">
-                            <div class="bg-gold/10 p-2 rounded-full mr-4 mt-1">
-                                <i class="fas fa-bullseye text-gold"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-lg text-navy">Foco no Cliente</h4>
-                                <p class="text-light-navy">Cada caso é tratado com atenção personalizada, entendendo as particularidades de cada cliente.</p>
-                            </div>
+                        <div class="flex items-center stagger-item">
+                            <i class="fas fa-handshake gold-accent text-xl mr-3"></i>
+                            <span class="font-medium">Comprometimento</span>
                         </div>
-                        
-                        <div class="flex items-start">
-                            <div class="bg-gold/10 p-2 rounded-full mr-4 mt-1">
-                                <i class="fas fa-chart-line text-gold"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-lg text-navy">Resultados Comprovados</h4>
-                                <p class="text-light-navy">Estratégias jurídicas eficazes que geram resultados consistentes e duradouros.</p>
-                            </div>
+                        <div class="flex items-center stagger-item">
+                            <i class="fas fa-lightbulb gold-accent text-xl mr-3"></i>
+                            <span class="font-medium">Soluções Inovadoras</span>
+                        </div>
+                        <div class="flex items-center stagger-item">
+                            <i class="fas fa-shield-alt gold-accent text-xl mr-3"></i>
+                            <span class="font-medium">Confiança e Segurança</span>
                         </div>
                     </div>
                     
-                    <a href="#contato" class="inline-flex items-center text-gold font-semibold hover:text-dark-gold transition-colors duration-300">
-                        Agende uma reunião conosco
-                        <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
+                    <!-- Seção Advogado Cível em Joinville -->
+                    <div class="highlight-box bg-white p-6 mt-8">
+                        <h4 class="text-xl font-bold mb-4 gold-accent">Advogado Cível em Joinville</h4>
+                        <p class="text-gray-700">
+                            Se você está enfrentando questões relacionadas a juros abusivos, acidentes de trânsito traumáticos, multas injustas, indenizações negadas, contratos desleais, relações de consumo desfavoráveis, pensões em disputa ou um doloroso processo de divórcio, não se preocupe mais! Encontre o apoio e a expertise de um advogado cível qualificado para enfrentar esses desafios com confiança e determinação.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Áreas de Atuação Section -->
-    <section id="areas-atuacao" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold mb-4 font-serif text-navy">Áreas de Atuação</h2>
-                <div class="section-divider w-32 mx-auto my-6"></div>
-                <p class="text-xl text-light-navy max-w-3xl mx-auto">Especialistas em diversas áreas do direito, oferecendo soluções completas e integradas para nossos clientes.</p>
+    <!-- Por que nos Escolhem -->
+    <section id="porque-nos-escolhem" class="content-section why-choose-section text-white">
+        <div class="container mx-auto px-6 md:px-12 relative z-10">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Por que os clientes nos escolhem</h2>
+                <div class="section-divider"></div>
+                <p class="max-w-2xl mx-auto opacity-90">Conheça os diferenciais que nos tornam a escolha certa para suas necessidades jurídicas</p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Direito Tributário e Aduaneiro -->
-                <div class="area-card rounded-2xl p-8 shadow-md">
-                    <div class="w-14 h-14 rounded-full bg-gold/10 flex items-center justify-center mb-6">
-                        <i class="fas fa-file-invoice-dollar text-2xl text-gold"></i>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="benefit-card text-center stagger-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-bolt"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-4 text-navy">Direito Tributário e Aduaneiro</h3>
-                    <p class="text-light-navy mb-6">Assessoria completa em questões fiscais, planejamento tributário estratégico, defesa em processos administrativos e judiciais, consultoria aduaneira e compliance fiscal.</p>
-                    <a href="#contato" class="text-gold font-semibold flex items-center">
-                        Saiba mais
-                        <i class="fas fa-arrow-right ml-2"></i>
+                    <h3 class="text-xl font-bold mb-3">Disponibilidade Imediata</h3>
+                    <p class="opacity-90">Atendimento rápido e ágil, com respostas em tempo hábil para suas necessidades jurídicas.</p>
+                </div>
+                
+                <div class="benefit-card text-center stagger-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-laptop-house"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Atendimento Flexível</h3>
+                    <p class="opacity-90">Online e presencial durante o horário comercial, adaptando-se à sua disponibilidade.</p>
+                </div>
+                
+                <div class="benefit-card text-center stagger-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Suporte 24/7</h3>
+                    <p class="opacity-90">Suporte e apoio todos os dias da semana via WhatsApp para emergências e dúvidas urgentes.</p>
+                </div>
+                
+                <div class="benefit-card text-center stagger-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Alta Qualidade</h3>
+                    <p class="opacity-90">Prezamos pela excelência no atendimento, com experiência em diversas áreas do direito.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Áreas de Atuação -->
+    <section id="areas-atuacao" class="content-section services-section">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4" style="color: var(--primary-blue);">Áreas de Atuação</h2>
+                <div class="section-divider"></div>
+                <p class="max-w-2xl mx-auto text-gray-600">Oferecemos expertise em diversas áreas do direito, com atendimento personalizado e estratégico</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <!-- Direito Tributário -->
+                <div class="practice-card bg-white text-gray-800 p-6 rounded-lg shadow-md flex flex-col">
+                    <div class="practice-icon">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Direito Tributário</h3>
+                    <p class="mb-4 flex-grow">Atuação em planejamento tributário, consultoria e contencioso administrativo e judicial.</p>
+                    <a href="#" class="gold-accent font-semibold flex items-center mt-auto">
+                        Saiba mais <i class="fas fa-arrow-right ml-2"></i>
                     </a>
                 </div>
-
+                
+                <!-- Direito Aduaneiro -->
+                <div class="practice-card bg-white text-gray-800 p-6 rounded-lg shadow-md flex flex-col">
+                    <div class="practice-icon">
+                        <i class="fas fa-ship"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Direito Aduaneiro</h3>
+                    <p class="mb-4 flex-grow">Assessoria em importação, exportação e regulamentação de operações de comércio exterior.</p>
+                    <a href="#" class="gold-accent font-semibold flex items-center mt-auto">
+                        Saiba mais <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
                 <!-- Direito Empresarial -->
-                <div class="area-card rounded-2xl p-8 shadow-md">
-                    <div class="w-14 h-14 rounded-full bg-gold/10 flex items-center justify-center mb-6">
-                        <i class="fas fa-building text-2xl text-gold"></i>
+                <div class="practice-card bg-white text-gray-800 p-6 rounded-lg shadow-md flex flex-col">
+                    <div class="practice-icon">
+                        <i class="fas fa-building"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-4 text-navy">Direito Empresarial</h3>
-                    <p class="text-light-navy mb-6">Atuação em contratos empresariais, recuperação judicial e extrajudicial, fusões e aquisições, due diligence, compliance e governança corporativa.</p>
-                    <a href="#contato" class="text-gold font-semibold flex items-center">
-                        Saiba mais
-                        <i class="fas fa-arrow-right ml-2"></i>
+                    <h3 class="text-xl font-bold mb-3">Direito Empresarial</h3>
+                    <p class="mb-4 flex-grow">Consultoria jurídica empresarial, contratos, fusões, aquisições e reestruturações.</p>
+                    <a href="#" class="gold-accent font-semibold flex items-center mt-auto">
+                        Saiba mais <i class="fas fa-arrow-right ml-2"></i>
                     </a>
                 </div>
-
+                
                 <!-- Direito do Trabalho -->
-                <div class="area-card rounded-2xl p-8 shadow-md">
-                    <div class="w-14 h-14 rounded-full bg-gold/10 flex items-center justify-center mb-6">
-                        <i class="fas fa-briefcase text-2xl text-gold"></i>
+                <div class="practice-card bg-white text-gray-800 p-6 rounded-lg shadow-md flex flex-col">
+                    <div class="practice-icon">
+                        <i class="fas fa-briefcase"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-4 text-navy">Direito do Trabalho</h3>
-                    <p class="text-light-navy mb-6">Assessoria trabalhista preventiva e contenciosa, defesa em ações judiciais, consultoria em relações de trabalho, terceirização e planos de incentivo.</p>
-                    <a href="#contato" class="text-gold font-semibold flex items-center">
-                        Saiba mais
-                        <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
-                </div>
-
-                <!-- Direito Societário -->
-                <div class="area-card rounded-2xl p-8 shadow-md">
-                    <div class="w-14 h-14 rounded-full bg-gold/10 flex items-center justify-center mb-6">
-                        <i class="fas fa-handshake text-2xl text-gold"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4 text-navy">Direito Societário</h3>
-                    <p class="text-light-navy mb-6">Constituição, reorganização e dissolução de sociedades, pactos societários, due diligence e questões relacionadas a sócios e acionistas.</p>
-                    <a href="#contato" class="text-gold font-semibold flex items-center">
-                        Saiba mais
-                        <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
-                </div>
-
-                <!-- Direito Civil -->
-                <div class="area-card rounded-2xl p-8 shadow-md">
-                    <div class="w-14 h-14 rounded-full bg-gold/10 flex items-center justify-center mb-6">
-                        <i class="fas fa-balance-scale text-2xl text-gold"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4 text-navy">Direito Civil</h3>
-                    <p class="text-light-navy mb-6">Atuação em questões contratuais, responsabilidade civil, direitos do consumidor, família e sucessões, propriedade e posse.</p>
-                    <a href="#contato" class="text-gold font-semibold flex items-center">
-                        Saiba mais
-                        <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
-                </div>
-
-                <!-- Gestão de Contratos -->
-                <div class="area-card rounded-2xl p-8 shadow-md">
-                    <div class="w-14 h-14 rounded-full bg-gold/10 flex items-center justify-center mb-6">
-                        <i class="fas fa-file-contract text-2xl text-gold"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4 text-navy">Gestão de Contratos</h3>
-                    <p class="text-light-navy mb-6">Elaboração, análise, negociação e administração de contratos, minimizando riscos e garantindo a segurança jurídica das operações.</p>
-                    <a href="#contato" class="text-gold font-semibold flex items-center">
-                        Saiba mais
-                        <i class="fas fa-arrow-right ml-2"></i>
+                    <h3 class="text-xl font-bold mb-3">Direito do Trabalho</h3>
+                    <p class="mb-4 flex-grow">Assessoria em relações trabalhistas, contratos, dissídios e compliance trabalhista.</p>
+                    <a href="#" class="gold-accent font-semibold flex items-center mt-auto">
+                        Saiba mais <i class="fas fa-arrow-right ml-2"></i>
                     </a>
                 </div>
             </div>
             
-            <!-- Consultivo -->
-            <div class="mt-16 bg-navy rounded-2xl p-10 text-center text-white relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-40 h-40 bg-gold/10 rounded-full -translate-y-20 translate-x-20"></div>
-                <div class="absolute bottom-0 left-0 w-32 h-32 bg-gold/10 rounded-full translate-y-16 -translate-x-16"></div>
+            <!-- Serviços detalhados com abas -->
+            <div class="bg-white rounded-xl shadow-lg p-8 mt-8">
+                <h3 class="text-2xl font-bold mb-6 text-center" style="color: var(--primary-blue);">Nossos Serviços Especializados</h3>
                 
-                <div class="relative z-10 max-w-3xl mx-auto">
-                    <div class="w-20 h-20 rounded-full bg-gold/20 flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-comments text-3xl text-gold"></i>
-                    </div>
-                    <h3 class="text-3xl font-bold mb-4 font-serif">Consultivo Jurídico Estratégico</h3>
-                    <p class="text-xl mb-6 opacity-90">Prestação de consultoria jurídica estratégica para empresas e indivíduos, orientando sobre os melhores caminhos a seguir em questões legais complexas e preventivas.</p>
-                    <a href="#contato" class="bg-gold text-navy px-8 py-3 rounded-md font-semibold hover:bg-dark-gold transition-all duration-300 inline-block">Solicitar Consultoria</a>
+                <div class="services-tabs">
+                    <div class="services-tab active" data-tab="contratos">Contratos</div>
+                    <div class="services-tab" data-tab="indenizacoes">Indenizações</div>
+                    <div class="services-tab" data-tab="transito">Trânsito</div>
+                    <div class="services-tab" data-tab="familia">Família</div>
                 </div>
+                
+                <div class="services-content active" id="contratos-content">
+                    <div class="service-category">
+                        <h4>Contratos</h4>
+                        <div class="flex flex-wrap">
+                            <span class="service-tag">Juros Abusivo</span>
+                            <span class="service-tag">Renegociação</span>
+                            <span class="service-tag">Parcelamento</span>
+                            <span class="service-tag">Quebra de contrato</span>
+                            <span class="service-tag">Garantias</span>
+                            <span class="service-tag">Financiamento</span>
+                            <span class="service-tag">Análise Contratual</span>
+                            <span class="service-tag">Reequilíbrio contratual</span>
+                            <span class="service-tag">Contratos Bancários</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="services-content" id="indenizacoes-content">
+                    <div class="service-category">
+                        <h4>Indenizações</h4>
+                        <div class="flex flex-wrap">
+                            <span class="service-tag">Pagamento em dobro</span>
+                            <span class="service-tag">Ofensas e danos morais</span>
+                            <span class="service-tag">Dano Material</span>
+                            <span class="service-tag">Patrimônio</span>
+                            <span class="service-tag">Estética, corporal</span>
+                            <span class="service-tag">Multa</span>
+                            <span class="service-tag">Urgência</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="services-content" id="transito-content">
+                    <div class="service-category">
+                        <h4>Trânsito</h4>
+                        <div class="flex flex-wrap">
+                            <span class="service-tag">Acidente de Trânsito</span>
+                            <span class="service-tag">Reparação Veicular</span>
+                            <span class="service-tag">Acionamento do Seguro</span>
+                            <span class="service-tag">Recuperação Veicular</span>
+                            <span class="service-tag">Lucro Cessante</span>
+                            <span class="service-tag">Perdas e Danos</span>
+                            <span class="service-tag">Defesa de multa</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="services-content" id="familia-content">
+                    <div class="service-category">
+                        <h4>Família</h4>
+                        <div class="flex flex-wrap">
+                            <span class="service-tag">Divorcio</span>
+                            <span class="service-tag">Separação</span>
+                            <span class="service-tag">Partilha de bens</span>
+                            <span class="service-tag">Pensão alimentícia</span>
+                            <span class="service-tag">Guarda</span>
+                            <span class="service-tag">Pensão por morte</span>
+                            <span class="service-tag">Divorcio Consensual</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-10">
+                <a href="#contato" class="btn-primary py-3 px-8 rounded font-semibold inline-block">Fale Conosco</a>
             </div>
         </div>
     </section>
 
-    <!-- Contato Section -->
-    <section id="contato" class="py-20 bg-navy text-white relative overflow-hidden">
-        <div class="absolute top-0 left-0 w-full h-full opacity-5">
-            <div class="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-gold"></div>
-            <div class="absolute bottom-1/3 right-1/4 w-48 h-48 rounded-full bg-gold"></div>
-        </div>
-        
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold mb-4 font-serif">Entre em Contato</h2>
-                <div class="section-divider w-32 mx-auto my-6 bg-gold"></div>
-                <p class="text-xl opacity-90 max-w-3xl mx-auto">Estamos à disposição para esclarecer suas dúvidas e oferecer a melhor solução para suas necessidades jurídicas.</p>
+    <!-- Mapa -->
+    <section class="py-16 light-bg">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4" style="color: var(--primary-blue);">Nossa Localização</h2>
+                <div class="section-divider"></div>
+                <p class="max-w-2xl mx-auto text-gray-600">Estamos localizados em ponto estratégico para melhor atendê-lo</p>
             </div>
             
-            <div class="flex flex-col lg:flex-row gap-12">
-                <div class="lg:w-2/5">
-                    <h3 class="text-2xl font-serif font-bold mb-8">Informações de Contato</h3>
-                    
-                    <div class="space-y-6 mb-10">
-                        <div class="flex items-start">
-                            <div class="bg-gold/10 p-3 rounded-full mr-4">
-                                <i class="fas fa-map-marker-alt text-gold"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-lg">Endereço</h4>
-                                <p class="opacity-90">Av. Paulista, 1000 - 10º andar<br>Bela Vista, São Paulo - SP<br>CEP: 01310-100</p>
-                            </div>
+            <div class="map-container">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.356835935569!2d-46.65502272468401!3d-23.55818457879916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sAv.%20Paulista%2C%201000%20-%20Bela%20Vista%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001310-100!5e0!3m2!1spt-BR!2sbr!4v1690000000000!5m2!1spt-BR!2sbr"
+                    width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+            <div class="text-center mt-6">
+                <p class="text-gray-600 mb-4">xxxx</p>
+                <a href="https://goo.gl/maps/EXAMPLE" target="_blank" class="btn-primary inline-block py-2 px-6 rounded">
+                    <i class="fas fa-directions mr-2"></i> Obter Direções
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato" class="content-section">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4" style="color: var(--primary-blue);">Entre em Contato</h2>
+                <div class="section-divider"></div>
+                <p class="max-w-2xl mx-auto text-gray-600">Estamos à disposição para esclarecer dúvidas e oferecer a melhor solução</p>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row gap-10">
+                <div class="lg:w-1/2">
+                    <form class="contact-form space-y-6 bg-white p-8 rounded-lg shadow-md floating-card">
+                        <div>
+                            <label for="nome" class="block mb-2 font-semibold text-gray-700">Nome Completo</label>
+                            <input type="text" id="nome" class="w-full p-3 rounded border" required>
                         </div>
                         
-                        <div class="flex items-start">
-                            <div class="bg-gold/10 p-3 rounded-full mr-4">
-                                <i class="fas fa-phone text-gold"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-lg">Telefone</h4>
-                                <p class="opacity-90">(11) 1234-5678</p>
-                            </div>
+                        <div>
+                            <label for="email" class="block mb-2 font-semibold text-gray-700">E-mail</label>
+                            <input type="email" id="email" class="w-full p-3 rounded border" required>
                         </div>
                         
-                        <div class="flex items-start">
-                            <div class="bg-gold/10 p-3 rounded-full mr-4">
-                                <i class="fas fa-envelope text-gold"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-lg">E-mail</h4>
-                                <p class="opacity-90">contato@vergaassociados.com.br</p>
-                            </div>
+                        <div>
+                            <label for="telefone" class="block mb-2 font-semibold text-gray-700">Telefone</label>
+                            <input type="tel" id="telefone" class="w-full p-3 rounded border">
                         </div>
                         
-                        <div class="flex items-start">
-                            <div class="bg-gold/10 p-3 rounded-full mr-4">
-                                <i class="fas fa-clock text-gold"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-lg">Horário de Atendimento</h4>
-                                <p class="opacity-90">Segunda a Sexta: 8h às 18h<br>Sábado: 9h às 12h (com agendamento)</p>
-                            </div>
+                        <div>
+                            <label for="assunto" class="block mb-2 font-semibold text-gray-700">Assunto</label>
+                            <select id="assunto" class="w-full p-3 rounded border">
+                                <option value="">Selecione uma área de interesse</option>
+                                <option value="tributario">Direito Tributário</option>
+                                <option value="aduaneiro">Direito Aduaneiro</option>
+                                <option value="empresarial">Direito Empresarial</option>
+                                <option value="trabalho">Direito do Trabalho</option>
+                                <option value="societario">Direito Societário</option>
+                                <option value="civil">Direito Civil</option>
+                                <option value="contratos">Gestão de Contratos</option>
+                                <option value="consultivo">Consultivo</option>
+                                <option value="outro">Outro</option>
+                            </select>
                         </div>
-                    </div>
-                    
-                    <div class="bg-gold/10 rounded-2xl p-6">
-                        <h4 class="font-semibold text-lg mb-4">Agende uma Consulta</h4>
-                        <p class="opacity-90 mb-4">Oferecemos a primeira consulta de avaliação sem custo para analisarmos seu caso.</p>
-                        <a href="tel:+551112345678" class="bg-gold text-navy px-6 py-2 rounded-md font-semibold hover:bg-dark-gold transition-all duration-300 inline-block">Ligar Agora</a>
-                    </div>
+                        
+                        <div>
+                            <label for="mensagem" class="block mb-2 font-semibold text-gray-700">Mensagem</label>
+                            <textarea id="mensagem" rows="5" class="w-full p-3 rounded border" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary py-3 px-8 rounded font-semibold w-full">Enviar Mensagem</button>
+                    </form>
                 </div>
                 
-                <div class="lg:w-3/5">
-                    <form class="contact-form bg-light-navy/30 rounded-2xl p-8 backdrop-blur-sm">
-                        <h3 class="text-2xl font-serif font-bold mb-6">Envie sua Mensagem</h3>
+                <div class="lg:w-1/2">
+                    <div class="bg-white p-8 rounded-lg shadow-md h-full floating-card">
+                        <h3 class="text-2xl font-bold mb-6" style="color: var(--primary-blue);">Informações de Contato</h3>
                         
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                            <div>
-                                <label for="nome" class="block mb-2 font-medium">Nome Completo *</label>
-                                <input type="text" id="nome" class="w-full px-4 py-3 rounded-lg text-white placeholder-gray-400" placeholder="Seu nome completo" required>
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <i class="fas fa-map-marker-alt gold-accent text-xl mr-4 mt-1"></i>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Endereço</h4>
+                                    <p class="text-gray-600">xxxxx<br>xxxxx</p>
+                                </div>
                             </div>
-                            <div>
-                                <label for="email" class="block mb-2 font-medium">E-mail *</label>
-                                <input type="email" id="email" class="w-full px-4 py-3 rounded-lg text-white placeholder-gray-400" placeholder="seu@email.com" required>
+                            
+                            <div class="flex items-start">
+                                <i class="fas fa-phone gold-accent text-xl mr-4 mt-1"></i>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Telefone</h4>
+                                    <p class="text-gray-600">xxxxx</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <i class="fas fa-envelope gold-accent text-xl mr-4 mt-1"></i>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">E-mail</h4>
+                                    <p class="text-gray-600">contato@monenariadvocacia.com.br</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <i class="fas fa-clock gold-accent text-xl mr-4 mt-1"></i>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Horário de Atendimento</h4>
+                                    <p class="text-gray-600">Segunda a Sexta: 8h às 18h<br>Sábado: 8h às 12h</p>
+                                </div>
                             </div>
                         </div>
                         
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                            <div>
-                                <label for="telefone" class="block mb-2 font-medium">Telefone *</label>
-                                <input type="tel" id="telefone" class="w-full px-4 py-3 rounded-lg text-white placeholder-gray-400" placeholder="(11) 99999-9999" required>
-                            </div>
-                            <div>
-                                <label for="assunto" class="block mb-2 font-medium">Área de Interesse *</label>
-                                <select id="assunto" class="w-full px-4 py-3 rounded-lg text-white" required>
-                                    <option value="" disabled selected>Selecione uma área</option>
-                                    <option value="tributario">Direito Tributário e Aduaneiro</option>
-                                    <option value="empresarial">Direito Empresarial</option>
-                                    <option value="trabalho">Direito do Trabalho</option>
-                                    <option value="societario">Direito Societário</option>
-                                    <option value="civil">Direito Civil</option>
-                                    <option value="contratos">Gestão de Contratos</option>
-                                    <option value="consultivo">Consultivo</option>
-                                </select>
+                        <div class="mt-8">
+                            <h4 class="font-semibold mb-4 text-gray-800">Siga-nos</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="blue-bg text-white p-3 rounded-full w-12 h-12 flex items-center justify-center transition transform hover:-translate-y-1">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="blue-bg text-white p-3 rounded-full w-12 h-12 flex items-center justify-center transition transform hover:-translate-y-1">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="blue-bg text-white p-3 rounded-full w-12 h-12 flex items-center justify-center transition transform hover:-translate-y-1">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
                             </div>
                         </div>
-                        
-                        <div class="mb-6">
-                            <label for="mensagem" class="block mb-2 font-medium">Mensagem *</label>
-                            <textarea id="mensagem" rows="5" class="w-full px-4 py-3 rounded-lg text-white placeholder-gray-400" placeholder="Descreva brevemente sua necessidade..." required></textarea>
-                        </div>
-                        
-                        <button type="submit" class="bg-gold text-navy px-8 py-3 rounded-lg font-semibold hover:bg-dark-gold transition-all duration-300 w-full">Enviar Mensagem</button>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-navy py-12 border-t border-gold/20">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-6 md:mb-0">
-                    <div class="flex items-center">
-                        <div class="w-10 h-10 rounded-full bg-gold flex items-center justify-center mr-3">
-                            <i class="fas fa-scale-balanced text-navy"></i>
+    <footer class="blue-bg text-white py-12">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center mr-3">
+                            <span class="font-bold text-lg" style="color: var(--primary-blue);">M</span>
                         </div>
-                        <span class="logo text-2xl text-white">Verga & Associados</span>
+                        <div>
+                            <h2 class="text-xl font-bold">MONENARI ADVOCACIA</h2>
+                            <p class="text-sm text-gray-300">Advogados Associados</p>
+                        </div>
                     </div>
-                    <p class="mt-2 text-gray-400">Excelência jurídica com tradição e inovação</p>
+                    <p class="text-gray-300 mb-4">Excelência jurídica com mais de 20 anos de tradição e compromisso com nossos clientes.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-white transition"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-white transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
+                    </div>
                 </div>
                 
-                <div class="flex space-x-6 mb-6 md:mb-0">
-                    <a href="#" class="text-gray-400 hover:text-gold transition-colors duration-300 text-xl">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-gold transition-colors duration-300 text-xl">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-gold transition-colors duration-300 text-xl">
-                        <i class="fab fa-instagram"></i>
-                    </a>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Links Rápidos</h3>
+                    <div class="footer-links flex flex-col space-y-2">
+                        <a href="#quem-somos" class="text-gray-300">Quem Somos</a>
+                        <a href="#areas-atuacao" class="text-gray-300">Áreas de Atuação</a>
+                        <a href="#contato" class="text-gray-300">Contato</a>
+                    </div>
                 </div>
                 
-                <div class="text-center md:text-right">
-                    <p class="text-gray-400">© 2023 Verga & Associados. Todos os direitos reservados.</p>
-                    <p class="text-gray-500 text-sm mt-1">CNPJ: 12.345.678/0001-90 • OAB/SP: 123.456</p>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Contato</h3>
+                    <div class="text-gray-300 space-y-2">
+                        <p><i class="fas fa-map-marker-alt mr-2"></i> xxxxx</p>
+                        <p><i class="fas fa-phone mr-2"></i> xxxxxx</p>
+                        <p><i class="fas fa-envelope mr-2"></i> contato@monenari.com.br</p>
+                    </div>
                 </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Monenari Advocacia. Todos os direitos reservados.</p>
+                <p class="mt-2"><i class="fas fa-map-marker-alt mr-1"></i> Atuamos em todo o Brasil</p>
             </div>
         </div>
     </footer>
 
+    <!-- Scripts -->
     <script>
-        // Header scroll effect
+        // Navbar scroll effect
         window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.classList.add('shadow-xl');
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
             } else {
-                header.classList.remove('shadow-xl');
+                navbar.classList.remove('scrolled');
             }
+        });
+
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
         });
 
         // Smooth scrolling for anchor links
@@ -526,12 +1049,16 @@
                 e.preventDefault();
                 
                 const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
+                if (targetId === '#') return;
                 
                 const targetElement = document.querySelector(targetId);
-                if(targetElement) {
+                if (targetElement) {
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    mobileMenu.classList.add('hidden');
+                    
                     window.scrollTo({
-                        top: targetElement.offsetTop - 100,
+                        top: targetElement.offsetTop - 80,
                         behavior: 'smooth'
                     });
                 }
@@ -539,10 +1066,66 @@
         });
 
         // Form submission
-        document.querySelector('form').addEventListener('submit', function(e) {
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
             e.preventDefault();
             alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
             this.reset();
+        });
+
+        // Animação de entrada para elementos
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8 &&
+                rect.bottom >= 0
+            );
+        }
+
+        function handleScrollAnimation() {
+            const elements = document.querySelectorAll('.fade-in, .stagger-item');
+            
+            elements.forEach((element, index) => {
+                if (isElementInViewport(element)) {
+                    if (element.classList.contains('stagger-item')) {
+                        setTimeout(() => {
+                            element.classList.add('visible');
+                        }, index * 100);
+                    } else {
+                        element.classList.add('visible');
+                    }
+                }
+            });
+        }
+
+        // Inicializar animações na carga da página
+        window.addEventListener('load', handleScrollAnimation);
+        window.addEventListener('scroll', handleScrollAnimation);
+
+        // Inicializar elementos com classe fade-in
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.classList.add('visible');
+        });
+
+        // Sistema de abas para serviços
+        document.querySelectorAll('.services-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                // Remover classe active de todas as abas
+                document.querySelectorAll('.services-tab').forEach(t => {
+                    t.classList.remove('active');
+                });
+                
+                // Adicionar classe active à aba clicada
+                this.classList.add('active');
+                
+                // Esconder todos os conteúdos
+                document.querySelectorAll('.services-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+                
+                // Mostrar conteúdo correspondente
+                const tabId = this.getAttribute('data-tab');
+                document.getElementById(`${tabId}-content`).classList.add('active');
+            });
         });
     </script>
 </body>
