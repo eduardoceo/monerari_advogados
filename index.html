@@ -35,7 +35,7 @@
         }
 
         .hero-section {
-            background: linear-gradient(135deg, rgba(10, 31, 61, 0.9) 0%, rgba(10, 31, 61, 0.8) 100%), url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background: linear-gradient(135deg, rgba(10, 31, 61, 0.85) 0%, rgba(10, 31, 61, 0.75) 100%), url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -49,23 +49,26 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(45deg, rgba(184, 154, 92, 0.1) 0%, transparent 50%);
+            background: linear-gradient(45deg, rgba(184, 154, 92, 0.15) 0%, transparent 50%);
             pointer-events: none;
         }
 
         .section-divider {
-            height: 2px;
-            width: 80px;
+            height: 3px;
+            width: 100px;
             background: var(--secondary-gold);
             margin: 1.5rem auto;
+            border-radius: 2px;
         }
 
         .practice-card {
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             border-top: 3px solid transparent;
             height: 100%;
             position: relative;
             overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
 
         .practice-card::before {
@@ -75,8 +78,8 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(184, 154, 92, 0.1), transparent);
-            transition: left 0.5s;
+            background: linear-gradient(90deg, transparent, rgba(184, 154, 92, 0.15), transparent);
+            transition: left 0.6s;
         }
 
         .practice-card:hover::before {
@@ -84,9 +87,9 @@
         }
 
         .practice-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px);
             border-top: 3px solid var(--secondary-gold);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
         }
 
         .contact-form input,
@@ -94,25 +97,27 @@
         .contact-form select {
             border: 1px solid #e2e8f0;
             transition: all 0.3s;
-            border-radius: 4px;
+            border-radius: 8px;
+            padding: 12px 16px;
         }
 
         .contact-form input:focus,
         .contact-form textarea:focus,
         .contact-form select:focus {
             border-color: var(--secondary-gold);
-            box-shadow: 0 0 0 3px rgba(184, 154, 92, 0.1);
+            box-shadow: 0 0 0 3px rgba(184, 154, 92, 0.15);
             outline: none;
         }
 
         .btn-primary {
-            background-color: var(--primary-blue);
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #1a365d 100%);
             color: white;
-            transition: all 0.3s;
-            border-radius: 4px;
-            font-weight: 500;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border-radius: 8px;
+            font-weight: 600;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 4px 15px rgba(10, 31, 61, 0.2);
         }
 
         .btn-primary::before {
@@ -123,7 +128,7 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s;
+            transition: left 0.6s;
         }
 
         .btn-primary:hover::before {
@@ -131,19 +136,20 @@
         }
 
         .btn-primary:hover {
-            background-color: var(--secondary-gold);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(135deg, #1a365d 0%, var(--primary-blue) 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(10, 31, 61, 0.3);
         }
 
         .btn-secondary {
-            background-color: var(--secondary-gold);
+            background: linear-gradient(135deg, var(--secondary-gold) 0%, #d4b77d 100%);
             color: var(--primary-blue);
-            transition: all 0.3s;
-            border-radius: 4px;
-            font-weight: 500;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border-radius: 8px;
+            font-weight: 600;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 4px 15px rgba(184, 154, 92, 0.2);
         }
 
         .btn-secondary::before {
@@ -153,8 +159,8 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.6s;
         }
 
         .btn-secondary:hover::before {
@@ -162,10 +168,10 @@
         }
 
         .btn-secondary:hover {
-            background-color: var(--primary-blue);
+            background: linear-gradient(135deg, #d4b77d 0%, var(--secondary-gold) 100%);
             color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(184, 154, 92, 0.3);
         }
 
         .gold-accent {
@@ -187,20 +193,21 @@
         .navbar {
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             backdrop-filter: blur(10px);
+            background-color: rgba(10, 31, 61, 0.95);
         }
 
         .navbar.scrolled {
             background-color: rgba(10, 31, 61, 0.98);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
             padding: 0.75rem 0;
         }
 
-         .nav-link {
+        .nav-link {
             position: relative;
             padding: 0.5rem 0;
             transition: all 0.3s ease;
         }
-        
+
         .nav-link::after {
             content: '';
             position: absolute;
@@ -212,39 +219,40 @@
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             transform: translateX(-50%);
         }
-        
+
         .nav-link:hover::after,
         .nav-link.active::after {
             width: 100%;
         }
 
-         .mobile-menu {
+        .mobile-menu {
             animation: slideDown 0.3s ease-out;
         }
 
-         @keyframes slideDown {
+        @keyframes slideDown {
             from {
                 opacity: 0;
                 transform: translateY(-10px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-        
+
         .logo-container {
             transition: all 0.3s ease;
         }
-        
+
         .navbar.scrolled .logo-container {
             transform: scale(0.95);
         }
 
         .map-container {
-            border-radius: 8px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
 
         /* Estilos para os números */
@@ -302,16 +310,17 @@
 
         /* Destaques e melhorias visuais */
         .feature-icon {
-            width: 70px;
-            height: 70px;
-            background: var(--secondary-gold);
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--secondary-gold) 0%, #d4b77d 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 1.5rem;
             color: white;
-            font-size: 1.8rem;
+            font-size: 2rem;
+            box-shadow: 0 5px 15px rgba(184, 154, 92, 0.3);
         }
 
         .section-title {
@@ -332,14 +341,15 @@
 
         .testimonial-card {
             background: white;
-            border-radius: 8px;
+            border-radius: 12px;
             padding: 2rem;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: transform 0.4s;
         }
 
         .testimonial-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
         }
 
         .footer-links a {
@@ -352,7 +362,7 @@
 
         /* Melhorias de espaçamento e organização */
         .content-section {
-            padding: 5rem 0;
+            padding: 6rem 0;
         }
 
         .content-section:nth-child(even) {
@@ -360,22 +370,23 @@
         }
 
         .practice-icon {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             color: var(--secondary-gold);
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         /* Novos estilos para melhorias */
         .floating-card {
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border-radius: 16px;
             overflow: hidden;
         }
 
         .floating-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+            transform: translateY(-12px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
         }
 
         .gradient-bg {
@@ -392,6 +403,8 @@
             position: relative;
             overflow: hidden;
             border-radius: 12px;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
 
         .highlight-box::before {
@@ -399,9 +412,9 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 5px;
+            width: 6px;
             height: 100%;
-            background: var(--secondary-gold);
+            background: linear-gradient(to bottom, var(--secondary-gold) 0%, #d4b77d 100%);
         }
 
         .pulse-animation {
@@ -426,18 +439,20 @@
             display: inline-block;
             background: rgba(184, 154, 92, 0.1);
             color: var(--primary-blue);
-            padding: 0.5rem 1rem;
+            padding: 0.6rem 1.2rem;
             border-radius: 50px;
-            margin: 0.25rem;
+            margin: 0.3rem;
             font-size: 0.9rem;
             transition: all 0.3s;
             border: 1px solid transparent;
+            font-weight: 500;
         }
 
         .service-tag:hover {
             background: var(--secondary-gold);
             color: white;
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(184, 154, 92, 0.2);
         }
 
         .service-grid {
@@ -508,28 +523,29 @@
             background: url('https://images.unsplash.com/photo-1551836026-d5c8c1a7d6b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
             background-size: cover;
             background-position: center;
-            opacity: 0.1;
+            opacity: 0.08;
         }
 
         .benefit-card {
             background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 12px;
-            padding: 2rem;
-            transition: all 0.3s ease;
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 16px;
+            padding: 2.5rem 1.5rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             height: 100%;
         }
 
         .benefit-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
             background: rgba(255, 255, 255, 0.15);
             border-color: var(--secondary-gold);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
         }
 
         .benefit-icon {
-            width: 80px;
-            height: 80px;
+            width: 90px;
+            height: 90px;
             background: rgba(184, 154, 92, 0.2);
             border-radius: 50%;
             display: flex;
@@ -537,8 +553,9 @@
             justify-content: center;
             margin: 0 auto 1.5rem;
             color: var(--secondary-gold);
-            font-size: 2rem;
+            font-size: 2.2rem;
             border: 2px solid rgba(184, 154, 92, 0.3);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
         /* Estilos para a seção de serviços simplificada */
@@ -558,17 +575,20 @@
             background: white;
             border: 2px solid var(--secondary-gold);
             color: var(--primary-blue);
-            padding: 0.75rem 1.5rem;
+            padding: 0.9rem 1.8rem;
             border-radius: 50px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
         }
 
         .services-tab.active,
         .services-tab:hover {
             background: var(--secondary-gold);
             color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(184, 154, 92, 0.3);
         }
 
         .services-content {
@@ -596,25 +616,246 @@
 
         .service-category h4 {
             color: var(--primary-blue);
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            margin-bottom: 1.2rem;
             padding-bottom: 0.5rem;
             border-bottom: 2px solid var(--secondary-gold);
             display: inline-block;
         }
+
+        /* Novos estilos adicionados */
+        .hero-badge {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            padding: 0.8rem 1.8rem;
+            display: inline-block;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .social-icon {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .social-icon:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .nav-link-mobile {
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            padding: 0.8rem 1rem;
+        }
+
+        .nav-link-mobile:hover {
+            background: rgba(255, 255, 255, 0.1);
+            padding-left: 1.5rem;
+        }
+
+        .contact-info-item {
+            transition: all 0.3s ease;
+            padding: 1rem;
+            border-radius: 8px;
+        }
+
+        .contact-info-item:hover {
+            background: rgba(184, 154, 92, 0.05);
+            transform: translateX(5px);
+        }
+
+        /* Estilos para serviços empresariais */
+        .service-enterprise-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 2rem;
+            height: 100%;
+        }
+
+        .service-enterprise-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(184, 154, 92, 0.1), transparent);
+            transition: left 0.6s;
+        }
+
+        .service-enterprise-card:hover::before {
+            left: 100%;
+        }
+
+        .service-enterprise-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+            border-color: var(--secondary-gold);
+        }
+
+        .service-enterprise-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(10, 31, 61, 0.05);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: var(--primary-blue);
+            font-size: 1.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .service-enterprise-card:hover .service-enterprise-icon {
+            background: var(--secondary-gold);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .service-enterprise-tag {
+            display: inline-block;
+            background: rgba(10, 31, 61, 0.08);
+            color: var(--primary-blue);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+            margin: 0.25rem;
+        }
+
+        .service-enterprise-tag:hover {
+            background: var(--primary-blue);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(10, 31, 61, 0.2);
+        }
+
+        /* Melhorias nas abas existentes */
+        .services-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 12px;
+        }
+
+        .services-tab {
+            background: white;
+            border: 2px solid var(--secondary-gold);
+            color: var(--primary-blue);
+            padding: 0.9rem 1.8rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            flex: 1;
+            min-width: 140px;
+            text-align: center;
+        }
+
+        .services-tab.active,
+        .services-tab:hover {
+            background: var(--secondary-gold);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(184, 154, 92, 0.3);
+        }
+
+        .services-content {
+            display: none;
+            animation: fadeInUp 0.5s ease;
+        }
+
+        .services-content.active {
+            display: block;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .services-tab {
+                flex: 0 0 calc(50% - 0.5rem);
+                min-width: auto;
+                padding: 0.7rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .service-enterprise-card {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Estilos para a seção de Dúvidas Frequentes */
+.faq-item.active .faq-question {
+    background-color: rgba(10, 31, 61, 0.05);
+}
+
+.faq-item.active .faq-question i {
+    transform: rotate(180deg);
+}
+
+.faq-item:not(.active) .faq-answer {
+    max-height: 0;
+    opacity: 0;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 500px;
+    opacity: 1;
+}
+
+.faq-question {
+    transition: all 0.3s ease;
+}
+
+.faq-question:hover {
+    background-color: rgba(10, 31, 61, 0.05);
+}
+
+.faq-answer {
+    transition: all 0.5s ease;
+    max-height: 0;
+    opacity: 0;
+}
+
     </style>
 </head>
 
 <body class="bg-white">
-     <!-- Header e Navegação -->
+    <!-- Header e Navegação -->
     <header class="fixed w-full z-50">
-        <nav class="navbar py-4 px-6 md:px-12 bg-[#0a1f3d]">
+        <nav class="navbar py-4 px-6 md:px-12">
             <div class="container mx-auto flex justify-between items-center">
                 <!-- Logo -->
                 <div class="logo-container w-34 h-24 flex items-center">
                     <!-- Imagem real da logo -->
-                    <img src="imagens/logo.png" alt="Monenari Advocacia" class="w-full h-full object-contain drop-shadow-sm">
-                    
+                    <img src="imagens/logo.png" alt="Monenari Advocacia"
+                        class="w-full h-full object-contain drop-shadow-sm">
+
                     <!-- Fallback caso a imagem não carregue -->
                     <div class="fallback-logo hidden flex-col items-center justify-center">
                         <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center mr-3 shadow-md">
@@ -626,30 +867,35 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Menu Desktop -->
                 <div class="hidden lg:flex space-x-8">
-                    <a href="#quem-somos" class="nav-link text-white hover:text-[#c9a96a] transition-all duration-300 font-medium text-sm uppercase tracking-wide">
+                    <a href="#quem-somos"
+                        class="nav-link text-white hover:text-[#c9a96a] transition-all duration-300 font-medium text-sm uppercase tracking-wide">
                         Quem Somos
                     </a>
-                    <a href="#areas-atuacao" class="nav-link text-white hover:text-[#c9a96a] transition-all duration-300 font-medium text-sm uppercase tracking-wide">
+                    <a href="#areas-atuacao"
+                        class="nav-link text-white hover:text-[#c9a96a] transition-all duration-300 font-medium text-sm uppercase tracking-wide">
                         Áreas de Atuação
                     </a>
-                    <a href="#numeros" class="nav-link text-white hover:text-[#c9a96a] transition-all duration-300 font-medium text-sm uppercase tracking-wide">
+                    <a href="#numeros"
+                        class="nav-link text-white hover:text-[#c9a96a] transition-all duration-300 font-medium text-sm uppercase tracking-wide">
                         Nossos Números
                     </a>
-                    <a href="#porque-nos-escolhem" class="nav-link text-white hover:text-[#c9a96a] transition-all duration-300 font-medium text-sm uppercase tracking-wide">
+                    <a href="#porque-nos-escolhem"
+                        class="nav-link text-white hover:text-[#c9a96a] transition-all duration-300 font-medium text-sm uppercase tracking-wide">
                         Por que nos Escolher
                     </a>
-                    <a href="#contato" class="nav-link text-white hover:text-[#c9a96a] transition-all duration-300 font-medium text-sm uppercase tracking-wide">
+                    <a href="#contato"
+                        class="nav-link text-white hover:text-[#c9a96a] transition-all duration-300 font-medium text-sm uppercase tracking-wide">
                         Contato
                     </a>
                 </div>
 
-                <!-- Botão WhatsApp -->
+                <!-- Botão WhatsApp (apenas desktop) -->
                 <div class="hidden lg:flex items-center">
-                    <a href="https://wa.me/5511999999999" target="_blank" 
-                       class="bg-[#25D366] hover:bg-[#128C7E] text-white px-4 py-2 rounded-lg font-medium flex items-center space-x-2 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                    <a href="https://wa.me/5511999999999" target="_blank"
+                        class="bg-[#25D366] hover:bg-[#128C7E] text-white px-4 py-2 rounded-lg font-medium flex items-center space-x-2 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
                         <i class="fab fa-whatsapp text-lg"></i>
                         <span class="text-sm">Fale Conosco</span>
                     </a>
@@ -657,11 +903,9 @@
 
                 <!-- Botão Menu Mobile -->
                 <div class="lg:hidden flex items-center space-x-4">
-                    <a href="https://wa.me/5511999999999" target="_blank" 
-                       class="bg-[#25D366] hover:bg-[#128C7E] text-white p-2 rounded-lg transition-all duration-300 shadow-lg">
-                        <i class="fab fa-whatsapp text-lg"></i>
-                    </a>
-                    <button id="mobile-menu-button" class="text-white p-2 rounded-lg hover:bg-white/10 transition-colors duration-300">
+                    <!-- Botão WhatsApp removido da navbar mobile conforme solicitado -->
+                    <button id="mobile-menu-button"
+                        class="text-white p-2 rounded-lg hover:bg-white/10 transition-colors duration-300">
                         <i class="fas fa-bars text-xl"></i>
                     </button>
                 </div>
@@ -669,37 +913,44 @@
 
             <!-- Menu Mobile -->
             <div id="mobile-menu" class="hidden lg:hidden mobile-menu bg-[#0a1f3d] border-t border-white/10 py-4 px-6">
-                <div class="flex flex-col space-y-4">
-                    <a href="#quem-somos" class="nav-link-mobile text-white hover:text-[#c9a96a] transition-all duration-300 font-medium py-3 border-b border-white/5">
+                <div class="flex flex-col space-y-2">
+                    <a href="#quem-somos"
+                        class="nav-link-mobile text-white hover:text-[#c9a96a] transition-all duration-300 font-medium py-3 border-b border-white/5">
                         <i class="fas fa-building mr-3 w-5 text-center"></i>
                         Quem Somos
                     </a>
-                    <a href="#areas-atuacao" class="nav-link-mobile text-white hover:text-[#c9a96a] transition-all duration-300 font-medium py-3 border-b border-white/5">
+                    <a href="#areas-atuacao"
+                        class="nav-link-mobile text-white hover:text-[#c9a96a] transition-all duration-300 font-medium py-3 border-b border-white/5">
                         <i class="fas fa-gavel mr-3 w-5 text-center"></i>
                         Áreas de Atuação
                     </a>
-                    <a href="#numeros" class="nav-link-mobile text-white hover:text-[#c9a96a] transition-all duration-300 font-medium py-3 border-b border-white/5">
+                    <a href="#numeros"
+                        class="nav-link-mobile text-white hover:text-[#c9a96a] transition-all duration-300 font-medium py-3 border-b border-white/5">
                         <i class="fas fa-chart-bar mr-3 w-5 text-center"></i>
                         Nossos Números
                     </a>
-                    <a href="#porque-nos-escolhem" class="nav-link-mobile text-white hover:text-[#c9a96a] transition-all duration-300 font-medium py-3 border-b border-white/5">
+                    <a href="#porque-nos-escolhem"
+                        class="nav-link-mobile text-white hover:text-[#c9a96a] transition-all duration-300 font-medium py-3 border-b border-white/5">
                         <i class="fas fa-star mr-3 w-5 text-center"></i>
                         Por que nos Escolher
                     </a>
-                    <a href="#contato" class="nav-link-mobile text-white hover:text-[#c9a96a] transition-all duration-300 font-medium py-3">
+                    <a href="#contato"
+                        class="nav-link-mobile text-white hover:text-[#c9a96a] transition-all duration-300 font-medium py-3">
                         <i class="fas fa-phone mr-3 w-5 text-center"></i>
                         Contato
                     </a>
                 </div>
-                
+
                 <!-- Contato rápido no mobile -->
                 <div class="mt-6 pt-6 border-t border-white/10">
                     <div class="flex space-x-3">
-                        <a href="tel:+551112345678" class="flex-1 bg-white/10 hover:bg-white/20 text-white text-center py-3 rounded-lg transition-colors duration-300">
+                        <a href="tel:+551112345678"
+                            class="flex-1 bg-white/10 hover:bg-white/20 text-white text-center py-3 rounded-lg transition-colors duration-300">
                             <i class="fas fa-phone mr-2"></i>
                             Ligar
                         </a>
-                        <a href="https://wa.me/5511999999999" target="_blank" class="flex-1 bg-[#25D366] hover:bg-[#128C7E] text-white text-center py-3 rounded-lg transition-colors duration-300">
+                        <a href="https://wa.me/5511999999999" target="_blank"
+                            class="flex-1 bg-[#25D366] hover:bg-[#128C7E] text-white text-center py-3 rounded-lg transition-colors duration-300">
                             <i class="fab fa-whatsapp mr-2"></i>
                             WhatsApp
                         </a>
@@ -709,28 +960,29 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero-section pt-32 pb-20 text-white">
-        <div class="container mx-auto px-6 md:px-12 text-center">
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight fade-in">Excelência Jurídica com
-                <span class="gold-accent">Tradição</span></h1>
-            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto opacity-90 fade-in">Atuamos com comprometimento e
-                expertise para oferecer soluções jurídicas personalizadas e eficientes.</p>
-            <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-6 fade-in">
-                <a href="#contato" class="btn-secondary py-3 px-8 rounded font-semibold inline-block">Entre em
-                    Contato</a>
-                <a href="#areas-atuacao"
-                    class="border border-white text-white py-3 px-8 rounded font-semibold inline-block hover:bg-white hover:text-blue-900 transition duration-300">Nossas
-                    Áreas</a>
-            </div>
-
-            <!-- Badge de atuação nacional -->
-            <div class="mt-12 bg-white bg-opacity-10 backdrop-blur-sm rounded-full py-2 px-6 inline-block fade-in">
-                <span class="text-white font-medium"><i class="fas fa-map-marker-alt mr-2 gold-accent"></i> Atuamos em
-                    todo o Brasil</span>
-            </div>
+   <!-- Hero Section -->
+<section class="hero-section pt-48 pb-20 text-white">
+    <div class="container mx-auto px-6 md:px-12 text-center">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight fade-in">Excelência Jurídica com
+            <span class="gold-accent">Tradição</span> e <span class="gold-accent">Inovação</span>
+        </h1>
+        <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto opacity-90 fade-in">Atuamos com comprometimento e
+            expertise para oferecer soluções jurídicas personalizadas e eficientes para nossos clientes.</p>
+        <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-6 fade-in">
+            <a href="#contato" class="btn-secondary py-3 px-8 rounded font-semibold inline-block">Entre em
+                Contato</a>
+            <a href="#areas-atuacao"
+                class="border-2 border-white text-white py-3 px-8 rounded font-semibold inline-block hover:bg-white hover:text-blue-900 transition duration-300">Nossas
+                Áreas</a>
         </div>
-    </section>
+
+        <!-- Badge de atuação nacional -->
+        <div class="mt-12 hero-badge fade-in">
+            <span class="text-white font-medium"><i class="fas fa-map-marker-alt mr-2 gold-accent"></i> Atuamos em
+                todo o Brasil</span>
+        </div>
+    </div>
+</section>
 
     <!-- Quem Somos -->
     <section id="quem-somos" class="content-section light-bg">
@@ -910,10 +1162,108 @@
                 </div>
             </div>
 
-            <!-- Serviços detalhados com abas -->
-            <div class="bg-white rounded-xl shadow-lg p-8 mt-8">
-                <h3 class="text-2xl font-bold mb-6 text-center" style="color: var(--primary-blue);">Nossos Serviços
-                    Especializados</h3>
+            <!-- Seção de Serviços para Empresas -->
+            <div class="bg-white rounded-xl shadow-lg p-8 mt-8 floating-card">
+                <h3 class="text-2xl font-bold mb-6 text-center" style="color: var(--primary-blue);">Serviços
+                    Especializados para Empresas</h3>
+
+                <div class="services-tabs">
+                    <div class="services-tab active" data-tab="contratos-empresas">Contratos</div>
+                    <div class="services-tab" data-tab="tributario">Tributário</div>
+                    <div class="services-tab" data-tab="societario">Societário</div>
+                    <div class="services-tab" data-tab="trabalhista">Trabalhista</div>
+                </div>
+
+                <div class="services-content active" id="contratos-empresas-content">
+                    <div class="service-category">
+                        <h4>Contratos Empresariais</h4>
+                        <div class="flex flex-wrap">
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"></span>
+                            <span class="service-tag"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="services-content" id="tributario-content">
+                    <div class="service-category">
+                        <h4>Direito Tributário</h4>
+                        <div class="flex flex-wrap">
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"></span>
+                            <span class="service-tag"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="services-content" id="societario-content">
+                    <div class="service-category">
+                        <h4>Direito Societário</h4>
+                        <div class="flex flex-wrap">
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"></span>
+                            <span class="service-tag"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="services-content" id="trabalhista-content">
+                    <div class="service-category">
+                        <h4>Direito Trabalhista</h4>
+                        <div class="flex flex-wrap">
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"></span>
+                            <span class="service-tag"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Destaque para Empresas -->
+                <div class="bg-gradient-to-r from-blue-50 to-gold-50 border border-blue-200 rounded-xl p-6 mt-8">
+                    <div class="flex flex-col md:flex-row items-center justify-between">
+                        <div class="mb-4 md:mb-0">
+                            <h4 class="text-lg font-bold text-blue-900 mb-2">Soluções Completas para seu Negócio</h4>
+                            <p class="text-gray-600">Atendimento especializado para empresas de todos os portes</p>
+                        </div>
+                        <a href="#contato" class="btn-primary py-3 px-6 rounded font-semibold whitespace-nowrap">
+                            <i class="fas fa-building mr-2"></i>Consultoria Empresarial
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Serviços para Pessoas Físicas -->
+            <div class="bg-white rounded-xl shadow-lg p-8 mt-8 floating-card">
+                <h3 class="text-2xl font-bold mb-6 text-center" style="color: var(--primary-blue);">Serviços
+                    Especializados para Pessoas</h3>
 
                 <div class="services-tabs">
                     <div class="services-tab active" data-tab="contratos">Contratos</div>
@@ -926,15 +1276,16 @@
                     <div class="service-category">
                         <h4>Contratos</h4>
                         <div class="flex flex-wrap">
-                            <span class="service-tag">Juros Abusivo</span>
-                            <span class="service-tag">Renegociação</span>
-                            <span class="service-tag">Parcelamento</span>
-                            <span class="service-tag">Quebra de contrato</span>
-                            <span class="service-tag">Garantias</span>
-                            <span class="service-tag">Financiamento</span>
-                            <span class="service-tag">Análise Contratual</span>
-                            <span class="service-tag">Reequilíbrio contratual</span>
-                            <span class="service-tag">Contratos Bancários</span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"></span>
+                            <span class="service-tag"></span>
                         </div>
                     </div>
                 </div>
@@ -943,13 +1294,16 @@
                     <div class="service-category">
                         <h4>Indenizações</h4>
                         <div class="flex flex-wrap">
-                            <span class="service-tag">Pagamento em dobro</span>
-                            <span class="service-tag">Ofensas e danos morais</span>
-                            <span class="service-tag">Dano Material</span>
-                            <span class="service-tag">Patrimônio</span>
-                            <span class="service-tag">Estética, corporal</span>
-                            <span class="service-tag">Multa</span>
-                            <span class="service-tag">Urgência</span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"></span>
+                            <span class="service-tag"></span>
                         </div>
                     </div>
                 </div>
@@ -958,13 +1312,16 @@
                     <div class="service-category">
                         <h4>Trânsito</h4>
                         <div class="flex flex-wrap">
-                            <span class="service-tag">Acidente de Trânsito</span>
-                            <span class="service-tag">Reparação Veicular</span>
-                            <span class="service-tag">Acionamento do Seguro</span>
-                            <span class="service-tag">Recuperação Veicular</span>
-                            <span class="service-tag">Lucro Cessante</span>
-                            <span class="service-tag">Perdas e Danos</span>
-                            <span class="service-tag">Defesa de multa</span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"></span>
+                            <span class="service-tag"></span>
                         </div>
                     </div>
                 </div>
@@ -973,13 +1330,16 @@
                     <div class="service-category">
                         <h4>Família</h4>
                         <div class="flex flex-wrap">
-                            <span class="service-tag">Divorcio</span>
-                            <span class="service-tag">Separação</span>
-                            <span class="service-tag">Partilha de bens</span>
-                            <span class="service-tag">Pensão alimentícia</span>
-                            <span class="service-tag">Guarda</span>
-                            <span class="service-tag">Pensão por morte</span>
-                            <span class="service-tag">Divorcio Consensual</span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"></span>
+                            <span class="service-tag"></span>
                         </div>
                     </div>
                 </div>
@@ -1004,17 +1364,14 @@
 
             <div class="map-container">
                 <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.356835935569!2d-46.65502272468401!3d-23.55818457879916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sAv.%20Paulista%2C%201000%20-%20Bela%20Vista%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001310-100!5e0!3m2!1spt-BR!2sbr!4v1690000000000!5m2!1spt-BR!2sbr"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3576.179059921168!2d-48.85504632491157!3d-26.32070076872816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94deb058f500168b%3A0x95befdc9d9c5a18c!2sR.%20Anita%20Garibaldi%2C%20904%20-%20Anita%20Garibaldi%2C%20Joinville%20-%20SC%2C%2089203-301!5e0!3m2!1spt-BR!2sbr!4v1760464748569!5m2!1spt-BR!2sbr "
                     width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade">
                 </iframe>
             </div>
             <div class="text-center mt-6">
-                <p class="text-gray-600 mb-4">xxxx</p>
-                <a href="https://goo.gl/maps/EXAMPLE" target="_blank"
-                    class="btn-primary inline-block py-2 px-6 rounded">
-                    <i class="fas fa-directions mr-2"></i> Obter Direções
-                </a>
+                <p class="text-gray-600 mb-4">R. Anita Garibaldi, 904, Anita Garibaldi
+                    Joinville/SC - 89203-301</p>
             </div>
         </div>
     </section>
@@ -1079,36 +1436,38 @@
                         <h3 class="text-2xl font-bold mb-6" style="color: var(--primary-blue);">Informações de Contato
                         </h3>
 
-                        <div class="space-y-6">
-                            <div class="flex items-start">
+                        <div class="space-y-4">
+                            <div class="contact-info-item flex items-start">
                                 <i class="fas fa-map-marker-alt gold-accent text-xl mr-4 mt-1"></i>
                                 <div>
                                     <h4 class="font-semibold text-gray-800">Endereço</h4>
-                                    <p class="text-gray-600">xxxxx<br>xxxxx</p>
+                                    <p class="text-gray-600">R. Anita Garibaldi, 904
+                                        Anita Garibaldi, Joinville - SC</p>
                                 </div>
                             </div>
 
-                            <div class="flex items-start">
+                            <div class="contact-info-item flex items-start">
                                 <i class="fas fa-phone gold-accent text-xl mr-4 mt-1"></i>
                                 <div>
-                                    <h4 class="font-semibold text-gray-800">Telefone</h4>
-                                    <p class="text-gray-600">xxxxx</p>
+                                    <h4 class="font-semibold text-gray-800">Telefone/WhatsApp</h4>
+                                    <p class="text-gray-600">(47) 3804-7322 <br>
+                                        (47) 99905-8740</p>
                                 </div>
                             </div>
 
-                            <div class="flex items-start">
+                            <div class="contact-info-item flex items-start">
                                 <i class="fas fa-envelope gold-accent text-xl mr-4 mt-1"></i>
                                 <div>
                                     <h4 class="font-semibold text-gray-800">E-mail</h4>
-                                    <p class="text-gray-600">contato@monenariadvocacia.com.br</p>
+                                    <p class="text-gray-600">monenari.adv@gmail.com</p>
                                 </div>
                             </div>
 
-                            <div class="flex items-start">
+                            <div class="contact-info-item flex items-start">
                                 <i class="fas fa-clock gold-accent text-xl mr-4 mt-1"></i>
                                 <div>
                                     <h4 class="font-semibold text-gray-800">Horário de Atendimento</h4>
-                                    <p class="text-gray-600">Segunda a Sexta: 8h às 18h<br>Sábado: 8h às 12h</p>
+                                    <p class="text-gray-600">Segunda a Sexta: 9h às 17h</p>
                                 </div>
                             </div>
                         </div>
@@ -1117,20 +1476,222 @@
                             <h4 class="font-semibold mb-4 text-gray-800">Siga-nos</h4>
                             <div class="flex space-x-4">
                                 <a href="#"
-                                    class="blue-bg text-white p-3 rounded-full w-12 h-12 flex items-center justify-center transition transform hover:-translate-y-1">
+                                    class="social-icon blue-bg text-white p-3 rounded-full w-12 h-12 flex items-center justify-center">
                                     <i class="fab fa-linkedin-in"></i>
                                 </a>
                                 <a href="#"
-                                    class="blue-bg text-white p-3 rounded-full w-12 h-12 flex items-center justify-center transition transform hover:-translate-y-1">
+                                    class="social-icon blue-bg text-white p-3 rounded-full w-12 h-12 flex items-center justify-center">
                                     <i class="fab fa-instagram"></i>
                                 </a>
                                 <a href="#"
-                                    class="blue-bg text-white p-3 rounded-full w-12 h-12 flex items-center justify-center transition transform hover:-translate-y-1">
+                                    class="social-icon blue-bg text-white p-3 rounded-full w-12 h-12 flex items-center justify-center">
                                     <i class="fab fa-facebook-f"></i>
                                 </a>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Dúvidas Frequentes -->
+    <section id="duvidas-frequentes" class="content-section light-bg">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4" style="color: var(--primary-blue);">Dúvidas Frequentes
+                </h2>
+                <div class="section-divider"></div>
+                <p class="max-w-2xl mx-auto text-gray-600">Encontre respostas para as perguntas mais comuns sobre nossos
+                    serviços jurídicos</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <!-- FAQ Item 1 -->
+                <div
+                    class="faq-item bg-white rounded-xl shadow-lg mb-6 overflow-hidden transition-all duration-300 hover:shadow-xl">
+                    <button
+                        class="faq-question w-full text-left p-6 flex justify-between items-center cursor-pointer transition-all duration-300 hover:bg-blue-50">
+                        <h3 class="text-lg md:text-xl font-semibold text-blue-900 pr-4">
+                            De quais documentos eu preciso para entrar com uma ação?
+                        </h3>
+                        <i class="fas fa-chevron-down text-gold-500 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer overflow-hidden transition-all duration-300">
+                        <div class="p-6 pt-0 border-t border-gray-100">
+                            <p class="text-gray-700 leading-relaxed">
+                                Normalmente você irá precisar apresentar ao seu advogado um documento com foto,
+                                comprovante de residência,
+                                precisará ainda assinar o contrato de honorários, uma procuração, declaração de
+                                hipossuficiência
+                                (para requerer a justiça gratuita – necessário que traga o comprovante de renda dos
+                                últimos 3 meses)
+                                e o mais importante, as provas!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div
+                    class="faq-item bg-white rounded-xl shadow-lg mb-6 overflow-hidden transition-all duration-300 hover:shadow-xl">
+                    <button
+                        class="faq-question w-full text-left p-6 flex justify-between items-center cursor-pointer transition-all duration-300 hover:bg-blue-50">
+                        <h3 class="text-lg md:text-xl font-semibold text-blue-900 pr-4">
+                            Se eu não gosto do meu atual advogado, eu posso trocar?
+                        </h3>
+                        <i class="fas fa-chevron-down text-gold-500 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer overflow-hidden transition-all duration-300">
+                        <div class="p-6 pt-0 border-t border-gray-100">
+                            <p class="text-gray-700 leading-relaxed">
+                                Sim, os clientes que não se sentirem satisfeitos com os seus atuais advogados podem
+                                realizar a troca,
+                                entretanto, o antigo advogado deve ser informado com antecedência e ainda, o novo
+                                advogado irá cobrar
+                                valores para continuação dos serviços já prestados.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div
+                    class="faq-item bg-white rounded-xl shadow-lg mb-6 overflow-hidden transition-all duration-300 hover:shadow-xl">
+                    <button
+                        class="faq-question w-full text-left p-6 flex justify-between items-center cursor-pointer transition-all duration-300 hover:bg-blue-50">
+                        <h3 class="text-lg md:text-xl font-semibold text-blue-900 pr-4">
+                            Como um advogado cível pode me ajudar?
+                        </h3>
+                        <i class="fas fa-chevron-down text-gold-500 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer overflow-hidden transition-all duration-300">
+                        <div class="p-6 pt-0 border-t border-gray-100">
+                            <p class="text-gray-700 leading-relaxed">
+                                Um advogado cível trata de todos os negócios e relações entre pessoas e ainda aborda
+                                algumas relações
+                                entre pessoas físicas e pessoas jurídicas. Nesse sentido, o advogado civilista pode te
+                                auxiliar em
+                                contratos, relações com vizinhos ou clientes, relações familiares, inventário ou
+                                partilha de bens e
+                                até mesmo em relações à bancos, todas estas áreas estão incluídas no direito cível!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div
+                    class="faq-item bg-white rounded-xl shadow-lg mb-6 overflow-hidden transition-all duration-300 hover:shadow-xl">
+                    <button
+                        class="faq-question w-full text-left p-6 flex justify-between items-center cursor-pointer transition-all duration-300 hover:bg-blue-50">
+                        <h3 class="text-lg md:text-xl font-semibold text-blue-900 pr-4">
+                            Como será a comunicação entre nós durante o processo?
+                        </h3>
+                        <i class="fas fa-chevron-down text-gold-500 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer overflow-hidden transition-all duration-300">
+                        <div class="p-6 pt-0 border-t border-gray-100">
+                            <p class="text-gray-700 leading-relaxed">
+                                A comunicação acompanha a demanda e as possibilidade do cliente, ou seja, caso seja
+                                melhor ao cliente
+                                um atendimento presencial, nos colocamos à disposição para atendê-lo. Caso prefira um
+                                atendimento 100%
+                                remoto, contamos inclusive com "Whatsapp" 24 horas por dia. Providenciamos todo o
+                                acompanhamento
+                                necessário ao cliente!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 5 -->
+                <div
+                    class="faq-item bg-white rounded-xl shadow-lg mb-6 overflow-hidden transition-all duration-300 hover:shadow-xl">
+                    <button
+                        class="faq-question w-full text-left p-6 flex justify-between items-center cursor-pointer transition-all duration-300 hover:bg-blue-50">
+                        <h3 class="text-lg md:text-xl font-semibold text-blue-900 pr-4">
+                            Quanto tempo demora o processo?
+                        </h3>
+                        <i class="fas fa-chevron-down text-gold-500 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer overflow-hidden transition-all duration-300">
+                        <div class="p-6 pt-0 border-t border-gray-100">
+                            <p class="text-gray-700 leading-relaxed">
+                                Esta pergunta varia muito com os problemas enfrentados pelo cliente e ainda tende a
+                                variar conforme
+                                a área do direito, a cidade em que o processo vai tramitar e até mesmo o tipo de ação
+                                que será realizada.
+                                Existem processos que são resolvidos em 6 meses e existem processos que demoram cerca de
+                                5 anos para
+                                serem finalizados. Atualmente os processos tendem a ser mais rápidos.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 6 -->
+                <div
+                    class="faq-item bg-white rounded-xl shadow-lg mb-6 overflow-hidden transition-all duration-300 hover:shadow-xl">
+                    <button
+                        class="faq-question w-full text-left p-6 flex justify-between items-center cursor-pointer transition-all duration-300 hover:bg-blue-50">
+                        <h3 class="text-lg md:text-xl font-semibold text-blue-900 pr-4">
+                            Quais as etapas/próximos passos após a primeira agenda com o Advogado?
+                        </h3>
+                        <i class="fas fa-chevron-down text-gold-500 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer overflow-hidden transition-all duration-300">
+                        <div class="p-6 pt-0 border-t border-gray-100">
+                            <p class="text-gray-700 leading-relaxed">
+                                O primeiro contato com o advogado serve para que possamos identificar o seu problema e
+                                buscar uma
+                                solução jurídica prática (não necessariamente entrar com uma ação). Feita esta análise,
+                                será necessária
+                                a assinatura e a entrega de certa documentação. Durante o prosseguimento do processo, o
+                                advogado que
+                                te atender, irá direcionando todas as necessidades solicitadas pelo Juiz, facilitando o
+                                processo.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 7 -->
+                <div
+                    class="faq-item bg-white rounded-xl shadow-lg mb-6 overflow-hidden transition-all duration-300 hover:shadow-xl">
+                    <button
+                        class="faq-question w-full text-left p-6 flex justify-between items-center cursor-pointer transition-all duration-300 hover:bg-blue-50">
+                        <h3 class="text-lg md:text-xl font-semibold text-blue-900 pr-4">
+                            Como funciona o atendimento do escritório?
+                        </h3>
+                        <i class="fas fa-chevron-down text-gold-500 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer overflow-hidden transition-all duration-300">
+                        <div class="p-6 pt-0 border-t border-gray-100">
+                            <p class="text-gray-700 leading-relaxed">
+                                O atendimento no escritório é 100% personalizado ao cliente, sem prazo de duração, nosso
+                                objetivo é
+                                esclarecer as dúvidas e resolver os problemas dos clientes. Em um primeiro momento
+                                buscamos identificar
+                                problemas e encontrar a melhor solução para estes. É muito importante que o cliente, ao
+                                comparecer
+                                no escritório, traga todos os documentos que ache relevante para o seu
+                                problema/processo.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Section -->
+            <div class="text-center mt-12">
+                <div class="bg-gradient-to-r from-blue-50 to-gold-50 rounded-2xl p-8 max-w-2xl mx-auto">
+                    <h3 class="text-2xl font-bold text-blue-900 mb-4">Ainda tem dúvidas?</h3>
+                    <p class="text-gray-600 mb-6">Entre em contato conosco para esclarecer todas as suas questões</p>
+                    <a href="#contato" class="btn-primary py-3 px-8 rounded font-semibold inline-block">
+                        <i class="fas fa-envelope mr-2"></i>Fale Conosco
+                    </a>
                 </div>
             </div>
         </div>
@@ -1190,6 +1751,29 @@
 
     <!-- Scripts -->
     <script>
+
+
+        // Sistema de FAQ interativo
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function () {
+                const faqItem = this.parentElement;
+                const isActive = faqItem.classList.contains('active');
+
+                // Fechar todas as FAQs
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+
+                // Abrir a FAQ clicada se não estava ativa
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+
+        // Abrir a primeira FAQ por padrão
+        document.querySelector('.faq-item')?.classList.add('active');
+
         // Navbar scroll effect
         window.addEventListener('scroll', function () {
             const navbar = document.querySelector('.navbar');
