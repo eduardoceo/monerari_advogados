@@ -1,0 +1,306 @@
+<!-- Áreas de Atuação -->
+    <section id="areas-atuacao" class="content-section services-section">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4" style="color: var(--primary-blue);">Áreas de Atuação
+                </h2>
+                <div class="section-divider"></div>
+                <p class="max-w-2xl mx-auto text-gray-600">Oferecemos expertise em diversas áreas do direito, com
+                    atendimento personalizado e estratégico</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <!-- Direito Tributário -->
+                <div class="practice-card bg-white text-gray-800 p-6 rounded-lg shadow-md flex flex-col">
+                    <div class="practice-icon">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Direito Tributário</h3>
+                    <p class="mb-4 flex-grow">Atuação em planejamento tributário, consultoria e contencioso
+                        administrativo e judicial.</p>
+                    <a href="#" class="gold-accent font-semibold flex items-center mt-auto">
+                        Saiba mais <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+
+                <!-- Direito Aduaneiro -->
+                <div class="practice-card bg-white text-gray-800 p-6 rounded-lg shadow-md flex flex-col">
+                    <div class="practice-icon">
+                        <i class="fas fa-ship"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Direito Aduaneiro</h3>
+                    <p class="mb-4 flex-grow">Assessoria em importação, exportação e regulamentação de operações de
+                        comércio exterior.</p>
+                    <a href="#" class="gold-accent font-semibold flex items-center mt-auto">
+                        Saiba mais <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+
+                <!-- Direito Empresarial -->
+                <div class="practice-card bg-white text-gray-800 p-6 rounded-lg shadow-md flex flex-col">
+                    <div class="practice-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Direito Empresarial</h3>
+                    <p class="mb-4 flex-grow">Consultoria jurídica empresarial, contratos, fusões, aquisições e
+                        reestruturações.</p>
+                    <a href="#" class="gold-accent font-semibold flex items-center mt-auto">
+                        Saiba mais <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+
+                <!-- Direito do Trabalho -->
+                <div class="practice-card bg-white text-gray-800 p-6 rounded-lg shadow-md flex flex-col">
+                    <div class="practice-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Direito do Trabalho</h3>
+                    <p class="mb-4 flex-grow">Assessoria em relações trabalhistas, contratos, dissídios e compliance
+                        trabalhista.</p>
+                    <a href="#" class="gold-accent font-semibold flex items-center mt-auto">
+                        Saiba mais <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Seção de Serviços para Empresas -->
+            <div class="bg-white rounded-xl shadow-lg p-8 mt-8 floating-card">
+                <h3 class="text-2xl font-bold mb-6 text-center" style="color: var(--primary-blue);">Serviços
+                    Especializados para Empresas</h3>
+
+                <div class="services-tabs">
+                    <div class="services-tab active" data-tab="contratos-empresas">Contratos</div>
+                    <div class="services-tab" data-tab="tributario">Tributário</div>
+                    <div class="services-tab" data-tab="societario">Societário</div>
+                    <div class="services-tab" data-tab="trabalhista">Trabalhista</div>
+                </div>
+
+                <div class="services-content active" id="contratos-empresas-content">
+                    <div class="service-category">
+                        <h4>Contratos Empresariais</h4>
+                        <div class="flex flex-wrap">
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"></span>
+                            <span class="service-tag"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="services-content" id="tributario-content">
+                    <div class="service-category">
+                        <h4>Direito Tributário</h4>
+                        <div class="flex flex-wrap">
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"></span>
+                            <span class="service-tag"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="services-content" id="societario-content">
+                    <div class="service-category">
+                        <h4>Direito Societário</h4>
+                        <div class="flex flex-wrap">
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"></span>
+                            <span class="service-tag"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="services-content" id="trabalhista-content">
+                    <div class="service-category">
+                        <h4>Direito Trabalhista</h4>
+                        <div class="flex flex-wrap">
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"></span>
+                            <span class="service-tag"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Destaque para Empresas -->
+                <div class="bg-gradient-to-r from-blue-50 to-gold-50 border border-blue-200 rounded-xl p-6 mt-8">
+                    <div class="flex flex-col md:flex-row items-center justify-between">
+                        <div class="mb-4 md:mb-0">
+                            <h4 class="text-lg font-bold text-blue-900 mb-2">Soluções Completas para seu Negócio</h4>
+                            <p class="text-gray-600">Atendimento especializado para empresas de todos os portes</p>
+                        </div>
+                        <a href="#contato" class="btn-primary py-3 px-6 rounded font-semibold whitespace-nowrap">
+                            <i class="fas fa-building mr-2"></i>Consultoria Empresarial
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Serviços para Pessoas Físicas -->
+            <div class="bg-white rounded-xl shadow-lg p-8 mt-8 floating-card">
+                <h3 class="text-2xl font-bold mb-6 text-center" style="color: var(--primary-blue);">Serviços
+                    Especializados para Pessoas</h3>
+
+                <div class="services-tabs">
+                    <div class="services-tab active" data-tab="contratos">Contratos</div>
+                    <div class="services-tab" data-tab="indenizacoes">Indenizações</div>
+                    <div class="services-tab" data-tab="transito">Trânsito</div>
+                    <div class="services-tab" data-tab="familia">Família</div>
+                </div>
+
+                <div class="services-content active" id="contratos-content">
+                    <div class="service-category">
+                        <h4>Contratos</h4>
+                        <div class="flex flex-wrap">
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"></span>
+                            <span class="service-tag"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="services-content" id="indenizacoes-content">
+                    <div class="service-category">
+                        <h4>Indenizações</h4>
+                        <div class="flex flex-wrap">
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"></span>
+                            <span class="service-tag"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="services-content" id="transito-content">
+                    <div class="service-category">
+                        <h4>Trânsito</h4>
+                        <div class="flex flex-wrap">
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"></span>
+                            <span class="service-tag"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="services-content" id="familia-content">
+                    <div class="service-category">
+                        <h4>Família</h4>
+                        <div class="flex flex-wrap">
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"> </span>
+                            <span class="service-tag"></span>
+                            <span class="service-tag"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-10">
+                <a href="#contato" class="btn-primary py-3 px-8 rounded font-semibold inline-block">Fale Conosco</a>
+            </div>
+        </div>
+    </section>
+
+
+
+
+     <!-- Por que nos Escolhem -->
+    <section id="porque-nos-escolhem" class="content-section why-choose-section text-white">
+        <div class="container mx-auto px-6 md:px-12 relative z-10">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Por que os clientes nos escolhem</h2>
+                <div class="section-divider"></div>
+                <p class="max-w-2xl mx-auto opacity-90">Conheça os diferenciais que nos tornam a escolha certa para suas
+                    necessidades jurídicas</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="benefit-card text-center stagger-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Disponibilidade Imediata</h3>
+                    <p class="opacity-90">Atendimento rápido e ágil, com respostas em tempo hábil para suas necessidades
+                        jurídicas.</p>
+                </div>
+
+                <div class="benefit-card text-center stagger-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-laptop-house"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Atendimento Flexível</h3>
+                    <p class="opacity-90">Online e presencial durante o horário comercial, adaptando-se à sua
+                        disponibilidade.</p>
+                </div>
+
+                <div class="benefit-card text-center stagger-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Suporte 24/7</h3>
+                    <p class="opacity-90">Suporte e apoio todos os dias da semana via WhatsApp para emergências e
+                        dúvidas urgentes.</p>
+                </div>
+
+                <div class="benefit-card text-center stagger-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Alta Qualidade</h3>
+                    <p class="opacity-90">Prezamos pela excelência no atendimento, com experiência em diversas áreas do
+                        direito.</p>
+                </div>
+            </div>
+        </div>
+    </section>
