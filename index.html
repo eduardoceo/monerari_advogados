@@ -44,14 +44,18 @@
             transform: translateX(-50%) translateY(10px);
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
-            border-radius: 12px;
-            padding: 1rem;
-            min-width: 280px;
+            border-radius: 16px;
+            padding: 1.5rem;
+            width: 800px;
+            max-width: 90vw;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
             opacity: 0;
             visibility: hidden;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             border: 1px solid rgba(255, 255, 255, 0.2);
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.75rem;
         }
 
         .dropdown-menu::before {
@@ -80,45 +84,46 @@
         }
 
         .dropdown-mobile.open {
-            max-height: 400px;
+            max-height: 600px;
         }
 
         .dropdown-item {
             display: flex;
-            align-items: center;
-            padding: 0.8rem 1rem;
-            border-radius: 8px;
+            align-items: flex-start;
+            padding: 1rem;
+            border-radius: 10px;
             transition: all 0.3s ease;
             color: var(--primary-blue);
             text-decoration: none;
-            margin-bottom: 0.25rem;
+            margin-bottom: 0;
+            min-height: 80px;
         }
 
         .dropdown-item:hover {
             background: rgba(184, 154, 92, 0.1);
-            transform: translateX(5px);
-        }
-
-        .dropdown-item:last-child {
-            margin-bottom: 0;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
         .dropdown-icon {
-            width: 24px;
-            height: 24px;
+            width: 32px;
+            height: 32px;
             background: rgba(184, 154, 92, 0.1);
-            border-radius: 6px;
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-right: 12px;
             color: var(--secondary-gold);
             transition: all 0.3s ease;
+            flex-shrink: 0;
+            margin-top: 2px;
         }
 
         .dropdown-item:hover .dropdown-icon {
             background: var(--secondary-gold);
             color: white;
+            transform: scale(1.1);
         }
 
         .dropdown-arrow {
@@ -140,10 +145,85 @@
                 border: none;
                 padding: 0;
                 margin-top: 0.5rem;
+                width: 100%;
+                grid-template-columns: 1fr;
+                max-height: 300px;
+                overflow-y: hidden;
+            }
+
+            .dropdown-menu.expanded {
+                max-height: 60vh;
+                overflow-y: auto;
             }
 
             .dropdown-menu::before {
                 display: none;
+            }
+
+            .dropdown-item {
+                min-height: auto;
+                padding: 0.7rem 1rem;
+                margin-bottom: 0.25rem;
+            }
+
+            .dropdown-item.hidden-mobile {
+                display: none;
+            }
+
+            .dropdown-menu.expanded .dropdown-item.hidden-mobile {
+                display: flex;
+            }
+
+            .see-more-btn {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0.8rem 1rem;
+                background: rgba(255, 255, 255, 0.1);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                border-radius: 8px;
+                color: white;
+                font-size: 0.9rem;
+                font-weight: 500;
+                margin-top: 0.5rem;
+                transition: all 0.3s ease;
+                cursor: pointer;
+                width: 100%;
+            }
+
+            .see-more-btn:hover {
+                background: rgba(255, 255, 255, 0.2);
+                color: #c9a96a;
+            }
+
+            .see-more-btn i {
+                margin-left: 0.5rem;
+                transition: transform 0.3s ease;
+            }
+
+            .see-more-btn.expanded i {
+                transform: rotate(180deg);
+            }
+        }
+
+        /* Ajustes para telas menores */
+        @media (max-width: 768px) {
+            .dropdown-menu {
+                max-height: 250px;
+            }
+
+            .dropdown-menu.expanded {
+                max-height: 50vh;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .dropdown-menu {
+                max-height: 200px;
+            }
+
+            .dropdown-menu.expanded {
+                max-height: 45vh;
             }
         }
 
@@ -1046,28 +1126,8 @@
                                     <i class="fas fa-file-invoice-dollar"></i>
                                 </div>
                                 <div>
-                                    <div class="font-semibold">Direito Tributário</div>
+                                    <div class="font-semibold">Tributário</div>
                                     <div class="text-xs text-gray-600 mt-1">Planejamento e contencioso</div>
-                                </div>
-                            </a>
-
-                            <a href="direito-aduaneiro.html" class="dropdown-item">
-                                <div class="dropdown-icon">
-                                    <i class="fas fa-ship"></i>
-                                </div>
-                                <div>
-                                    <div class="font-semibold">Direito Aduaneiro</div>
-                                    <div class="text-xs text-gray-600 mt-1">Comércio exterior</div>
-                                </div>
-                            </a>
-
-                            <a href="direito-empresarial.html" class="dropdown-item">
-                                <div class="dropdown-icon">
-                                    <i class="fas fa-building"></i>
-                                </div>
-                                <div>
-                                    <div class="font-semibold">Direito Empresarial</div>
-                                    <div class="text-xs text-gray-600 mt-1">Consultoria e contratos</div>
                                 </div>
                             </a>
 
@@ -1076,8 +1136,118 @@
                                     <i class="fas fa-briefcase"></i>
                                 </div>
                                 <div>
-                                    <div class="font-semibold">Direito do Trabalho</div>
+                                    <div class="font-semibold">Trabalhista</div>
                                     <div class="text-xs text-gray-600 mt-1">Relações trabalhistas</div>
+                                </div>
+                            </a>
+
+                            <a href="direito-societario.html" class="dropdown-item">
+                                <div class="dropdown-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold">Societário</div>
+                                    <div class="text-xs text-gray-600 mt-1">Sociedades e negócios</div>
+                                </div>
+                            </a>
+
+                            <a href="direito-lgpd.html" class="dropdown-item">
+                                <div class="dropdown-icon">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold">LGPD</div>
+                                    <div class="text-xs text-gray-600 mt-1">Proteção de dados</div>
+                                </div>
+                            </a>
+
+                            <a href="direito-empresarial.html" class="dropdown-item">
+                                <div class="dropdown-icon">
+                                    <i class="fas fa-building"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold">Empresarial</div>
+                                    <div class="text-xs text-gray-600 mt-1">Consultoria e contratos</div>
+                                </div>
+                            </a>
+
+                            <a href="direito-compliance.html" class="dropdown-item">
+                                <div class="dropdown-icon">
+                                    <i class="fas fa-clipboard-check"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold">Compliance</div>
+                                    <div class="text-xs text-gray-600 mt-1">Conformidade regulatória</div>
+                                </div>
+                            </a>
+
+                            <a href="contencioso-civel.html" class="dropdown-item">
+                                <div class="dropdown-icon">
+                                    <i class="fas fa-balance-scale"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold">Contencioso Cível</div>
+                                    <div class="text-xs text-gray-600 mt-1">Litígios civis</div>
+                                </div>
+                            </a>
+
+                            <a href="contencioso-estrategico.html" class="dropdown-item">
+                                <div class="dropdown-icon">
+                                    <i class="fas fa-chess"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold">Contencioso Estratégico</div>
+                                    <div class="text-xs text-gray-600 mt-1">Soluções estratégicas</div>
+                                </div>
+                            </a>
+
+                            <a href="direito-aduaneiro.html" class="dropdown-item">
+                                <div class="dropdown-icon">
+                                    <i class="fas fa-ship"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold">Aduaneiro e Comércio Internacional</div>
+                                    <div class="text-xs text-gray-600 mt-1">Comércio exterior</div>
+                                </div>
+                            </a>
+
+                            <a href="direito-contratos.html" class="dropdown-item">
+                                <div class="dropdown-icon">
+                                    <i class="fas fa-file-contract"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold">Contratos</div>
+                                    <div class="text-xs text-gray-600 mt-1">Elaboração e revisão</div>
+                                </div>
+                            </a>
+
+                            <a href="direito-consultivo.html" class="dropdown-item">
+                                <div class="dropdown-icon">
+                                    <i class="fas fa-comments"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold">Consultivo</div>
+                                    <div class="text-xs text-gray-600 mt-1">Orientação jurídica</div>
+                                </div>
+                            </a>
+
+                            <a href="recuperacao-creditos.html" class="dropdown-item">
+                                <div class="dropdown-icon">
+                                    <i class="fas fa-hand-holding-usd"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold">Recuperação de Créditos</div>
+                                    <div class="text-xs text-gray-600 mt-1">Cobrança e execução</div>
+                                </div>
+                            </a>
+
+                            <a href="esg-sustentabilidade.html" class="dropdown-item">
+                                <div class="dropdown-icon">
+                                    <i class="fas fa-leaf"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold">ESG e Sustentabilidade Corporativa</div>
+                                    <div class="text-xs text-gray-600 mt-1">Sustentabilidade empresarial</div>
                                 </div>
                             </a>
                         </div>
@@ -1118,58 +1288,156 @@
                         Quem Somos
                     </a>
                     <!-- Dropdown Mobile Áreas de Atuação -->
-                    <div class="dropdown-mobile-container">
-                        <button id="dropdown-mobile-button"
-                            class="nav-link-mobile text-white hover:text-[#c9a96a] transition-all duration-300 font-medium py-3 border-b border-white/5 w-full text-left flex justify-between items-center">
-                            <div class="flex items-center">
-                                <i class="fas fa-gavel mr-3 w-5 text-center"></i>
-                                Áreas de Atuação
-                            </div>
-                            <i class="fas fa-chevron-down text-xs dropdown-arrow transition-transform duration-300"></i>
-                        </button>
+<div class="dropdown-mobile-container">
+    <button id="dropdown-mobile-button"
+        class="nav-link-mobile text-white hover:text-[#c9a96a] transition-all duration-300 font-medium py-3 border-b border-white/5 w-full text-left flex justify-between items-center">
+        <div class="flex items-center">
+            <i class="fas fa-gavel mr-3 w-5 text-center"></i>
+            Áreas de Atuação
+        </div>
+        <i class="fas fa-chevron-down text-xs dropdown-arrow transition-transform duration-300"></i>
+    </button>
 
-                        <div id="dropdown-mobile" class="dropdown-mobile bg-white/5 rounded-lg mt-2 ml-8">
-                            <a href="direito-tributario.html" class="dropdown-item text-white hover:text-[#c9a96a]">
-                                <div class="dropdown-icon bg-white/10">
-                                    <i class="fas fa-file-invoice-dollar"></i>
-                                </div>
-                                <div>
-                                    <div class="font-semibold">Direito Tributário</div>
-                                    <div class="text-xs text-gray-300 mt-1">Planejamento e contencioso</div>
-                                </div>
-                            </a>
+    <div id="dropdown-mobile" class="dropdown-mobile bg-white/5 rounded-lg mt-2 ml-8">
+        <!-- Primeiros 5 itens visíveis -->
+        <a href="direito-tributario.html" class="dropdown-item text-white hover:text-[#c9a96a]">
+            <div class="dropdown-icon bg-white/10">
+                <i class="fas fa-file-invoice-dollar"></i>
+            </div>
+            <div>
+                <div class="font-semibold">Tributário</div>
+                <div class="text-xs text-gray-300 mt-1">Planejamento e contencioso</div>
+            </div>
+        </a>
 
-                            <a href="direito-aduaneiro.html" class="dropdown-item text-white hover:text-[#c9a96a]">
-                                <div class="dropdown-icon bg-white/10">
-                                    <i class="fas fa-ship"></i>
-                                </div>
-                                <div>
-                                    <div class="font-semibold">Direito Aduaneiro</div>
-                                    <div class="text-xs text-gray-300 mt-1">Comércio exterior</div>
-                                </div>
-                            </a>
+        <a href="direito-trabalho.html" class="dropdown-item text-white hover:text-[#c9a96a]">
+            <div class="dropdown-icon bg-white/10">
+                <i class="fas fa-briefcase"></i>
+            </div>
+            <div>
+                <div class="font-semibold">Trabalhista</div>
+                <div class="text-xs text-gray-300 mt-1">Relações trabalhistas</div>
+            </div>
+        </a>
 
-                            <a href="direito-empresarial.html" class="dropdown-item text-white hover:text-[#c9a96a]">
-                                <div class="dropdown-icon bg-white/10">
-                                    <i class="fas fa-building"></i>
-                                </div>
-                                <div>
-                                    <div class="font-semibold">Direito Empresarial</div>
-                                    <div class="text-xs text-gray-300 mt-1">Consultoria e contratos</div>
-                                </div>
-                            </a>
+        <a href="direito-societario.html" class="dropdown-item text-white hover:text-[#c9a96a]">
+            <div class="dropdown-icon bg-white/10">
+                <i class="fas fa-users"></i>
+            </div>
+            <div>
+                <div class="font-semibold">Societário</div>
+                <div class="text-xs text-gray-300 mt-1">Sociedades e negócios</div>
+            </div>
+        </a>
 
-                            <a href="direito-trabalho.html" class="dropdown-item text-white hover:text-[#c9a96a]">
-                                <div class="dropdown-icon bg-white/10">
-                                    <i class="fas fa-briefcase"></i>
-                                </div>
-                                <div>
-                                    <div class="font-semibold">Direito do Trabalho</div>
-                                    <div class="text-xs text-gray-300 mt-1">Relações trabalhistas</div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
+        <a href="direito-lgpd.html" class="dropdown-item text-white hover:text-[#c9a96a]">
+            <div class="dropdown-icon bg-white/10">
+                <i class="fas fa-shield-alt"></i>
+            </div>
+            <div>
+                <div class="font-semibold">LGPD</div>
+                <div class="text-xs text-gray-300 mt-1">Proteção de dados</div>
+            </div>
+        </a>
+
+        <a href="direito-empresarial.html" class="dropdown-item text-white hover:text-[#c9a96a]">
+            <div class="dropdown-icon bg-white/10">
+                <i class="fas fa-building"></i>
+            </div>
+            <div>
+                <div class="font-semibold">Empresarial</div>
+                <div class="text-xs text-gray-300 mt-1">Consultoria e contratos</div>
+            </div>
+        </a>
+
+        <!-- Itens ocultos inicialmente -->
+        <a href="direito-compliance.html" class="dropdown-item text-white hover:text-[#c9a96a] hidden-mobile">
+            <div class="dropdown-icon bg-white/10">
+                <i class="fas fa-clipboard-check"></i>
+            </div>
+            <div>
+                <div class="font-semibold">Compliance</div>
+                <div class="text-xs text-gray-300 mt-1">Conformidade regulatória</div>
+            </div>
+        </a>
+
+        <a href="contencioso-civel.html" class="dropdown-item text-white hover:text-[#c9a96a] hidden-mobile">
+            <div class="dropdown-icon bg-white/10">
+                <i class="fas fa-balance-scale"></i>
+            </div>
+            <div>
+                <div class="font-semibold">Contencioso Cível</div>
+                <div class="text-xs text-gray-300 mt-1">Litígios civis</div>
+            </div>
+        </a>
+
+        <a href="contencioso-estrategico.html" class="dropdown-item text-white hover:text-[#c9a96a] hidden-mobile">
+            <div class="dropdown-icon bg-white/10">
+                <i class="fas fa-chess"></i>
+            </div>
+            <div>
+                <div class="font-semibold">Contencioso Estratégico</div>
+                <div class="text-xs text-gray-300 mt-1">Soluções estratégicas</div>
+            </div>
+        </a>
+
+        <a href="direito-aduaneiro.html" class="dropdown-item text-white hover:text-[#c9a96a] hidden-mobile">
+            <div class="dropdown-icon bg-white/10">
+                <i class="fas fa-ship"></i>
+            </div>
+            <div>
+                <div class="font-semibold">Aduaneiro e Comércio Internacional</div>
+                <div class="text-xs text-gray-300 mt-1">Comércio exterior</div>
+            </div>
+        </a>
+
+        <a href="direito-contratos.html" class="dropdown-item text-white hover:text-[#c9a96a] hidden-mobile">
+            <div class="dropdown-icon bg-white/10">
+                <i class="fas fa-file-contract"></i>
+            </div>
+            <div>
+                <div class="font-semibold">Contratos</div>
+                <div class="text-xs text-gray-300 mt-1">Elaboração e revisão</div>
+            </div>
+        </a>
+
+        <a href="direito-consultivo.html" class="dropdown-item text-white hover:text-[#c9a96a] hidden-mobile">
+            <div class="dropdown-icon bg-white/10">
+                <i class="fas fa-comments"></i>
+            </div>
+            <div>
+                <div class="font-semibold">Consultivo</div>
+                <div class="text-xs text-gray-300 mt-1">Orientação jurídica</div>
+            </div>
+        </a>
+
+        <a href="recuperacao-creditos.html" class="dropdown-item text-white hover:text-[#c9a96a] hidden-mobile">
+            <div class="dropdown-icon bg-white/10">
+                <i class="fas fa-hand-holding-usd"></i>
+            </div>
+            <div>
+                <div class="font-semibold">Recuperação de Créditos</div>
+                <div class="text-xs text-gray-300 mt-1">Cobrança e execução</div>
+            </div>
+        </a>
+
+        <a href="esg-sustentabilidade.html" class="dropdown-item text-white hover:text-[#c9a96a] hidden-mobile">
+            <div class="dropdown-icon bg-white/10">
+                <i class="fas fa-leaf"></i>
+            </div>
+            <div>
+                <div class="font-semibold">ESG e Sustentabilidade Corporativa</div>
+                <div class="text-xs text-gray-300 mt-1">Sustentabilidade empresarial</div>
+            </div>
+        </a>
+
+        <!-- Botão Ver Mais -->
+        <button class="see-more-btn" onclick="toggleSeeMore(this)">
+            Ver mais áreas
+            <i class="fas fa-chevron-down"></i>
+        </button>
+    </div>
+</div>
 
                     <a href="#contato"
                         class="nav-link-mobile text-white hover:text-[#c9a96a] transition-all duration-300 font-medium py-3">
@@ -1200,7 +1468,8 @@
     <!-- Hero Section -->
     <section class="hero-section pt-48 pb-20 text-white">
         <div class="container mx-auto px-6 md:px-12 text-center">
-            <h1 class="text-white text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight fade-in">Soluções jurídicas
+            <h1 class="text-white text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight fade-in">Soluções
+                jurídicas
                 <span class="gold-accent">ágeis,</span> <span class="gold-accent">estratégicas e objetivas</span>
             </h1>
             <p class="text-xl md:text-2xl mb-8 max-w-5xl mx-auto opacity-90 fade-in">Atuamos estrategicamente
@@ -1272,59 +1541,126 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-                <!-- Direito Tributário -->
-                <div class="practice-card bg-white text-gray-800 p-6 rounded-lg shadow-md flex flex-col">
-                    <div class="practice-icon">
-                        <i class="fas fa-file-invoice-dollar"></i>
+                <!-- Tributário -->
+                <a href="direito-tributario.html"
+                    class="practice-card bg-white text-gray-800 p-6 rounded-lg shadow-md flex flex-col items-center justify-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                    <div class="practice-icon mb-4">
+                        <i class="fas fa-file-invoice-dollar text-3xl" style="color: var(--primary-blue);"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Direito Tributário</h3>
-                    <p class="mb-4 flex-grow">Atuação em planejamento tributário, consultoria e contencioso
-                        administrativo e judicial.</p>
-                    <a href="direito-tributario.html" class="gold-accent font-semibold flex items-center mt-auto">
-                        Saiba mais <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
-                </div>
+                    <h3 class="text-xl font-bold text-center">Tributário</h3>
+                </a>
 
-                <!-- Direito Aduaneiro -->
-                <div class="practice-card bg-white text-gray-800 p-6 rounded-lg shadow-md flex flex-col">
-                    <div class="practice-icon">
-                        <i class="fas fa-ship"></i>
+                <!-- Trabalhista -->
+                <a href="direito-trabalho.html"
+                    class="practice-card bg-white text-gray-800 p-6 rounded-lg shadow-md flex flex-col items-center justify-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                    <div class="practice-icon mb-4">
+                        <i class="fas fa-briefcase text-3xl" style="color: var(--primary-blue);"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Direito Aduaneiro</h3>
-                   
-                    <a href="direito-aduaneiro.html" class="gold-accent font-semibold flex items-center mt-auto">
-                        Saiba mais <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
-                </div>
+                    <h3 class="text-xl font-bold text-center">Trabalhista</h3>
+                </a>
 
-                <!-- Direito Empresarial -->
-                <div class="practice-card bg-white text-gray-800 p-6 rounded-lg shadow-md flex flex-col">
-                    <div class="practice-icon">
-                        <i class="fas fa-building"></i>
+                <!-- Societário -->
+                <a href="direito-societario.html"
+                    class="practice-card bg-white text-gray-800 p-6 rounded-lg shadow-md flex flex-col items-center justify-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                    <div class="practice-icon mb-4">
+                        <i class="fas fa-users text-3xl" style="color: var(--primary-blue);"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Direito Empresarial</h3>
-                    <p class="mb-4 flex-grow">Consultoria jurídica empresarial, contratos, fusões, aquisições e
-                        reestruturações.</p>
-                    <a href="direito-empresarial.html" class="gold-accent font-semibold flex items-center mt-auto">
-                        Saiba mais <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
-                </div>
+                    <h3 class="text-xl font-bold text-center">Societário</h3>
+                </a>
 
-                <!-- Direito do Trabalho -->
-                <div class="practice-card bg-white text-gray-800 p-6 rounded-lg shadow-md flex flex-col">
-                    <div class="practice-icon">
-                        <i class="fas fa-briefcase"></i>
+                <!-- LGPD -->
+                <a href="direito-lgpd.html"
+                    class="practice-card bg-white text-gray-800 p-6 rounded-lg shadow-md flex flex-col items-center justify-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                    <div class="practice-icon mb-4">
+                        <i class="fas fa-shield-alt text-3xl" style="color: var(--primary-blue);"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Direito do Trabalho</h3>
-                    <p class="mb-4 flex-grow">Assessoria em relações trabalhistas, contratos, dissídios e compliance
-                        trabalhista.</p>
-                    <a href="direito-trabalho.html" class="gold-accent font-semibold flex items-center mt-auto">
-                        Saiba mais <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
-                </div>
+                    <h3 class="text-xl font-bold text-center">LGPD</h3>
+                </a>
+
+                <!-- Empresarial -->
+                <a href="direito-empresarial.html"
+                    class="practice-card bg-white text-gray-800 p-6 rounded-lg shadow-md flex flex-col items-center justify-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                    <div class="practice-icon mb-4">
+                        <i class="fas fa-building text-3xl" style="color: var(--primary-blue);"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center">Empresarial</h3>
+                </a>
+
+                <!-- Compliance -->
+                <a href="direito-compliance.html"
+                    class="practice-card bg-white text-gray-800 p-6 rounded-lg shadow-md flex flex-col items-center justify-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                    <div class="practice-icon mb-4">
+                        <i class="fas fa-clipboard-check text-3xl" style="color: var(--primary-blue);"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center">Compliance</h3>
+                </a>
+
+                <!-- Contencioso Cível -->
+                <a href="contencioso-civel.html"
+                    class="practice-card bg-white text-gray-800 p-6 rounded-lg shadow-md flex flex-col items-center justify-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                    <div class="practice-icon mb-4">
+                        <i class="fas fa-balance-scale text-3xl" style="color: var(--primary-blue);"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center">Contencioso Cível</h3>
+                </a>
+
+                <!-- Contencioso Estratégico -->
+                <a href="contencioso-estrategico.html"
+                    class="practice-card bg-white text-gray-800 p-6 rounded-lg shadow-md flex flex-col items-center justify-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                    <div class="practice-icon mb-4">
+                        <i class="fas fa-chess text-3xl" style="color: var(--primary-blue);"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center">Contencioso Estratégico</h3>
+                </a>
+
+                <!-- Aduaneiro e Comércio Internacional -->
+                <a href="direito-aduaneiro.html"
+                    class="practice-card bg-white text-gray-800 p-6 rounded-lg shadow-md flex flex-col items-center justify-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                    <div class="practice-icon mb-4">
+                        <i class="fas fa-ship text-3xl" style="color: var(--primary-blue);"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center">Aduaneiro e Comércio Internacional</h3>
+                </a>
+
+                <!-- Contratos -->
+                <a href="direito-contratos.html"
+                    class="practice-card bg-white text-gray-800 p-6 rounded-lg shadow-md flex flex-col items-center justify-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                    <div class="practice-icon mb-4">
+                        <i class="fas fa-file-contract text-3xl" style="color: var(--primary-blue);"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center">Contratos</h3>
+                </a>
+
+                <!-- Consultivo -->
+                <a href="direito-consultivo.html"
+                    class="practice-card bg-white text-gray-800 p-6 rounded-lg shadow-md flex flex-col items-center justify-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                    <div class="practice-icon mb-4">
+                        <i class="fas fa-comments text-3xl" style="color: var(--primary-blue);"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center">Consultivo</h3>
+                </a>
+
+                <!-- Recuperação de Créditos -->
+                <a href="recuperacao-creditos.html"
+                    class="practice-card bg-white text-gray-800 p-6 rounded-lg shadow-md flex flex-col items-center justify-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                    <div class="practice-icon mb-4">
+                        <i class="fas fa-hand-holding-usd text-3xl" style="color: var(--primary-blue);"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center">Recuperação de Créditos</h3>
+                </a>
+
+                <!-- ESG e Sustentabilidade Corporativa -->
+                <a href="esg-sustentabilidade.html"
+                    class="practice-card bg-white text-gray-800 p-6 rounded-lg shadow-md flex flex-col items-center justify-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                    <div class="practice-icon mb-4">
+                        <i class="fas fa-leaf text-3xl" style="color: var(--primary-blue);"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center">ESG e Sustentabilidade Corporativa</h3>
+                </a>
             </div>
         </div>
     </section>
+
 
     <!-- Mapa -->
     <section class="py-16 light-bg">
@@ -1349,74 +1685,70 @@
             </div>
         </div>
     </section>
-    
-    <!-- Seção de Avaliações Google com Elfsight -->
-<section class="content-section light-bg py-16">
-    <div class="container mx-auto px-6 md:px-12">
-        <div class="text-center mb-12">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4">Avaliações no Google</h2>
-            <p class="text-xl text-gray-600 max-w-2xl mx-auto">O que nossos clientes dizem sobre nossos serviços</p>
-            
-            <!-- Rating Geral -->
-            <div class="flex items-center justify-center mt-8 space-x-6">
-                <div class="flex items-center bg-white rounded-full px-6 py-3 shadow-lg">
-                    <div class="flex text-yellow-400 mr-3">
-                        <i class="fas fa-star text-lg"></i>
-                        <i class="fas fa-star text-lg"></i>
-                        <i class="fas fa-star text-lg"></i>
-                        <i class="fas fa-star text-lg"></i>
-                        <i class="fas fa-star-half-alt text-lg"></i>
-                    </div>
-                    <span class="text-xl font-bold text-gray-800">4.8</span>
-                    <span class="text-gray-600 ml-2">(42 avaliações)</span>
-                </div>
-                <a href="https://g.page/r/SEU_LINK_DO_GOOGLE/review" 
-                   target="_blank"
-                   class="btn-secondary py-3 px-6 rounded-full font-semibold">
-                    <i class="fas fa-star mr-2"></i>Deixar Avaliação
-                </a>
-            </div>
-        </div>
 
-        <!-- Container do Widget Elfsight -->
-        <div class="max-w-6xl mx-auto">
-            <div class="bg-white rounded-xl shadow-lg p-6 md:p-8">
-                <!-- Widget Elfsight -->
-                <script src="https://elfsightcdn.com/platform.js" async></script>
-                <div class="elfsight-app-c33de3c0-2ec0-4b50-8749-49a42255f09b" data-elfsight-app-lazy></div>
-                
-                <!-- Fallback caso o widget não carregue -->
-                <div id="widget-fallback" class="hidden text-center py-8">
-                    <i class="fas fa-comments text-4xl text-gray-400 mb-4"></i>
-                    <h3 class="text-xl font-semibold text-gray-700 mb-2">Avaliações do Google</h3>
-                    <p class="text-gray-600 mb-4">Confira nossas avaliações diretamente no Google</p>
-                    <a href="https://g.page/r/SEU_LINK_DO_GOOGLE/review" 
-                       target="_blank"
-                       class="btn-primary py-3 px-8 rounded font-semibold inline-block">
-                        <i class="fab fa-google mr-2"></i>Ver no Google
+    <!-- Seção de Avaliações Google com Elfsight -->
+    <section class="content-section light-bg py-16">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Avaliações no Google</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">O que nossos clientes dizem sobre nossos serviços</p>
+
+                <!-- Rating Geral -->
+                <div class="flex items-center justify-center mt-8 space-x-6">
+                    <div class="flex items-center bg-white rounded-full px-6 py-3 shadow-lg">
+                        <div class="flex text-yellow-400 mr-3">
+                            <i class="fas fa-star text-lg"></i>
+                            <i class="fas fa-star text-lg"></i>
+                            <i class="fas fa-star text-lg"></i>
+                            <i class="fas fa-star text-lg"></i>
+                            <i class="fas fa-star-half-alt text-lg"></i>
+                        </div>
+                        <span class="text-xl font-bold text-gray-800">4.8</span>
+                        <span class="text-gray-600 ml-2">(42 avaliações)</span>
+                    </div>
+                    <a href="https://g.page/r/SEU_LINK_DO_GOOGLE/review" target="_blank"
+                        class="btn-secondary py-3 px-6 rounded-full font-semibold">
+                        <i class="fas fa-star mr-2"></i>Deixar Avaliação
+                    </a>
+                </div>
+            </div>
+
+            <!-- Container do Widget Elfsight -->
+            <div class="max-w-6xl mx-auto">
+                <div class="bg-white rounded-xl shadow-lg p-6 md:p-8">
+                    <!-- Widget Elfsight -->
+                    <script src="https://elfsightcdn.com/platform.js" async></script>
+                    <div class="elfsight-app-c33de3c0-2ec0-4b50-8749-49a42255f09b" data-elfsight-app-lazy></div>
+
+                    <!-- Fallback caso o widget não carregue -->
+                    <div id="widget-fallback" class="hidden text-center py-8">
+                        <i class="fas fa-comments text-4xl text-gray-400 mb-4"></i>
+                        <h3 class="text-xl font-semibold text-gray-700 mb-2">Avaliações do Google</h3>
+                        <p class="text-gray-600 mb-4">Confira nossas avaliações diretamente no Google</p>
+                        <a href="https://g.page/r/SEU_LINK_DO_GOOGLE/review" target="_blank"
+                            class="btn-primary py-3 px-8 rounded font-semibold inline-block">
+                            <i class="fab fa-google mr-2"></i>Ver no Google
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Links adicionais -->
+            <div class="text-center mt-8">
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="https://www.google.com/maps/place/SEU_ENDERECO" target="_blank"
+                        class="text-blue-600 hover:text-blue-800 font-semibold flex items-center justify-center">
+                        <i class="fas fa-map-marker-alt mr-2"></i>Ver no Google Maps
+                    </a>
+                    <span class="hidden sm:block text-gray-400">•</span>
+                    <a href="https://search.google.com/local/reviews?placeid=SEU_PLACE_ID" target="_blank"
+                        class="text-blue-600 hover:text-blue-800 font-semibold flex items-center justify-center">
+                        <i class="fas fa-external-link-alt mr-2"></i>Ver todas as avaliações
                     </a>
                 </div>
             </div>
         </div>
-
-        <!-- Links adicionais -->
-        <div class="text-center mt-8">
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="https://www.google.com/maps/place/SEU_ENDERECO" 
-                   target="_blank"
-                   class="text-blue-600 hover:text-blue-800 font-semibold flex items-center justify-center">
-                    <i class="fas fa-map-marker-alt mr-2"></i>Ver no Google Maps
-                </a>
-                <span class="hidden sm:block text-gray-400">•</span>
-                <a href="https://search.google.com/local/reviews?placeid=SEU_PLACE_ID" 
-                   target="_blank"
-                   class="text-blue-600 hover:text-blue-800 font-semibold flex items-center justify-center">
-                    <i class="fas fa-external-link-alt mr-2"></i>Ver todas as avaliações
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
+    </section>
 
     <!-- Contato -->
     <section id="contato" class="content-section">
@@ -1793,6 +2125,21 @@
 
     <!-- Scripts -->
     <script>
+
+
+        function toggleSeeMore(button) {
+    const dropdownMenu = button.closest('.dropdown-mobile');
+    const hiddenItems = dropdownMenu.querySelectorAll('.hidden-mobile');
+    
+    dropdownMenu.classList.toggle('expanded');
+    button.classList.toggle('expanded');
+    
+    if (button.classList.contains('expanded')) {
+        button.innerHTML = 'Ver menos <i class="fas fa-chevron-up"></i>';
+    } else {
+        button.innerHTML = 'Ver mais áreas <i class="fas fa-chevron-down"></i>';
+    }
+}
 
 
         // Sistema de dropdown mobile
