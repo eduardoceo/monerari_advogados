@@ -35,7 +35,6 @@
             color: var(--primary-blue);
         }
 
-
         /* Novos estilos para o dropdown */
         .dropdown-menu {
             position: absolute;
@@ -147,13 +146,6 @@
                 margin-top: 0.5rem;
                 width: 100%;
                 grid-template-columns: 1fr;
-                max-height: 300px;
-                overflow-y: hidden;
-            }
-
-            .dropdown-menu.expanded {
-                max-height: 60vh;
-                overflow-y: auto;
             }
 
             .dropdown-menu::before {
@@ -162,58 +154,15 @@
 
             .dropdown-item {
                 min-height: auto;
-                padding: 0.7rem 1rem;
-                margin-bottom: 0.25rem;
-            }
-
-            .dropdown-item.hidden-mobile {
-                display: none;
-            }
-
-            .dropdown-menu.expanded .dropdown-item.hidden-mobile {
-                display: flex;
-            }
-
-            .see-more-btn {
-                display: flex;
-                align-items: center;
-                justify-content: center;
                 padding: 0.8rem 1rem;
-                background: rgba(255, 255, 255, 0.1);
-                border: 1px solid rgba(255, 255, 255, 0.2);
-                border-radius: 8px;
-                color: white;
-                font-size: 0.9rem;
-                font-weight: 500;
-                margin-top: 0.5rem;
-                transition: all 0.3s ease;
-                cursor: pointer;
-                width: 100%;
-            }
-
-            .see-more-btn:hover {
-                background: rgba(255, 255, 255, 0.2);
-                color: #c9a96a;
-            }
-
-            .see-more-btn i {
-                margin-left: 0.5rem;
-                transition: transform 0.3s ease;
-            }
-
-            .see-more-btn.expanded i {
-                transform: rotate(180deg);
             }
         }
 
         /* Ajustes para telas menores */
         @media (max-width: 768px) {
             .dropdown-menu {
-                max-height: 250px;
-            }
-
-            .dropdown-menu.expanded {
-                max-height: 50vh;
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
             }
         }
 
@@ -1287,157 +1236,15 @@
                         <i class="fas fa-building mr-3 w-5 text-center"></i>
                         Quem Somos
                     </a>
-                    <!-- Dropdown Mobile Áreas de Atuação -->
-<div class="dropdown-mobile-container">
-    <button id="dropdown-mobile-button"
-        class="nav-link-mobile text-white hover:text-[#c9a96a] transition-all duration-300 font-medium py-3 border-b border-white/5 w-full text-left flex justify-between items-center">
-        <div class="flex items-center">
-            <i class="fas fa-gavel mr-3 w-5 text-center"></i>
-            Áreas de Atuação
-        </div>
-        <i class="fas fa-chevron-down text-xs dropdown-arrow transition-transform duration-300"></i>
-    </button>
-
-    <div id="dropdown-mobile" class="dropdown-mobile bg-white/5 rounded-lg mt-2 ml-8">
-        <!-- Primeiros 5 itens visíveis -->
-        <a href="direito-tributario.html" class="dropdown-item text-white hover:text-[#c9a96a]">
-            <div class="dropdown-icon bg-white/10">
-                <i class="fas fa-file-invoice-dollar"></i>
-            </div>
-            <div>
-                <div class="font-semibold">Tributário</div>
-                <div class="text-xs text-gray-300 mt-1">Planejamento e contencioso</div>
-            </div>
-        </a>
-
-        <a href="direito-trabalho.html" class="dropdown-item text-white hover:text-[#c9a96a]">
-            <div class="dropdown-icon bg-white/10">
-                <i class="fas fa-briefcase"></i>
-            </div>
-            <div>
-                <div class="font-semibold">Trabalhista</div>
-                <div class="text-xs text-gray-300 mt-1">Relações trabalhistas</div>
-            </div>
-        </a>
-
-        <a href="direito-societario.html" class="dropdown-item text-white hover:text-[#c9a96a]">
-            <div class="dropdown-icon bg-white/10">
-                <i class="fas fa-users"></i>
-            </div>
-            <div>
-                <div class="font-semibold">Societário</div>
-                <div class="text-xs text-gray-300 mt-1">Sociedades e negócios</div>
-            </div>
-        </a>
-
-        <a href="direito-lgpd.html" class="dropdown-item text-white hover:text-[#c9a96a]">
-            <div class="dropdown-icon bg-white/10">
-                <i class="fas fa-shield-alt"></i>
-            </div>
-            <div>
-                <div class="font-semibold">LGPD</div>
-                <div class="text-xs text-gray-300 mt-1">Proteção de dados</div>
-            </div>
-        </a>
-
-        <a href="direito-empresarial.html" class="dropdown-item text-white hover:text-[#c9a96a]">
-            <div class="dropdown-icon bg-white/10">
-                <i class="fas fa-building"></i>
-            </div>
-            <div>
-                <div class="font-semibold">Empresarial</div>
-                <div class="text-xs text-gray-300 mt-1">Consultoria e contratos</div>
-            </div>
-        </a>
-
-        <!-- Itens ocultos inicialmente -->
-        <a href="direito-compliance.html" class="dropdown-item text-white hover:text-[#c9a96a] hidden-mobile">
-            <div class="dropdown-icon bg-white/10">
-                <i class="fas fa-clipboard-check"></i>
-            </div>
-            <div>
-                <div class="font-semibold">Compliance</div>
-                <div class="text-xs text-gray-300 mt-1">Conformidade regulatória</div>
-            </div>
-        </a>
-
-        <a href="contencioso-civel.html" class="dropdown-item text-white hover:text-[#c9a96a] hidden-mobile">
-            <div class="dropdown-icon bg-white/10">
-                <i class="fas fa-balance-scale"></i>
-            </div>
-            <div>
-                <div class="font-semibold">Contencioso Cível</div>
-                <div class="text-xs text-gray-300 mt-1">Litígios civis</div>
-            </div>
-        </a>
-
-        <a href="contencioso-estrategico.html" class="dropdown-item text-white hover:text-[#c9a96a] hidden-mobile">
-            <div class="dropdown-icon bg-white/10">
-                <i class="fas fa-chess"></i>
-            </div>
-            <div>
-                <div class="font-semibold">Contencioso Estratégico</div>
-                <div class="text-xs text-gray-300 mt-1">Soluções estratégicas</div>
-            </div>
-        </a>
-
-        <a href="direito-aduaneiro.html" class="dropdown-item text-white hover:text-[#c9a96a] hidden-mobile">
-            <div class="dropdown-icon bg-white/10">
-                <i class="fas fa-ship"></i>
-            </div>
-            <div>
-                <div class="font-semibold">Aduaneiro e Comércio Internacional</div>
-                <div class="text-xs text-gray-300 mt-1">Comércio exterior</div>
-            </div>
-        </a>
-
-        <a href="direito-contratos.html" class="dropdown-item text-white hover:text-[#c9a96a] hidden-mobile">
-            <div class="dropdown-icon bg-white/10">
-                <i class="fas fa-file-contract"></i>
-            </div>
-            <div>
-                <div class="font-semibold">Contratos</div>
-                <div class="text-xs text-gray-300 mt-1">Elaboração e revisão</div>
-            </div>
-        </a>
-
-        <a href="direito-consultivo.html" class="dropdown-item text-white hover:text-[#c9a96a] hidden-mobile">
-            <div class="dropdown-icon bg-white/10">
-                <i class="fas fa-comments"></i>
-            </div>
-            <div>
-                <div class="font-semibold">Consultivo</div>
-                <div class="text-xs text-gray-300 mt-1">Orientação jurídica</div>
-            </div>
-        </a>
-
-        <a href="recuperacao-creditos.html" class="dropdown-item text-white hover:text-[#c9a96a] hidden-mobile">
-            <div class="dropdown-icon bg-white/10">
-                <i class="fas fa-hand-holding-usd"></i>
-            </div>
-            <div>
-                <div class="font-semibold">Recuperação de Créditos</div>
-                <div class="text-xs text-gray-300 mt-1">Cobrança e execução</div>
-            </div>
-        </a>
-
-        <a href="esg-sustentabilidade.html" class="dropdown-item text-white hover:text-[#c9a96a] hidden-mobile">
-            <div class="dropdown-icon bg-white/10">
-                <i class="fas fa-leaf"></i>
-            </div>
-            <div>
-                <div class="font-semibold">ESG e Sustentabilidade Corporativa</div>
-                <div class="text-xs text-gray-300 mt-1">Sustentabilidade empresarial</div>
-            </div>
-        </a>
-
-        <!-- Botão Ver Mais -->
-        <button class="see-more-btn" onclick="toggleSeeMore(this)">
-            Ver mais áreas
-            <i class="fas fa-chevron-down"></i>
-        </button>
-    </div>
-</div>
+                    
+                    <!-- Link direto para Áreas de Atuação -->
+                    <a href="#areas-atuacao"
+                        class="nav-link-mobile text-white hover:text-[#c9a96a] transition-all duration-300 font-medium py-3 border-b border-white/5 w-full text-left flex items-center">
+                        <div class="flex items-center">
+                            <i class="fas fa-gavel mr-3 w-5 text-center"></i>
+                            Áreas de Atuação
+                        </div>
+                    </a>
 
                     <a href="#contato"
                         class="nav-link-mobile text-white hover:text-[#c9a96a] transition-all duration-300 font-medium py-3">
@@ -1695,17 +1502,7 @@
 
                 <!-- Rating Geral -->
                 <div class="flex items-center justify-center mt-8 space-x-6">
-                    <div class="flex items-center bg-white rounded-full px-6 py-3 shadow-lg">
-                        <div class="flex text-yellow-400 mr-3">
-                            <i class="fas fa-star text-lg"></i>
-                            <i class="fas fa-star text-lg"></i>
-                            <i class="fas fa-star text-lg"></i>
-                            <i class="fas fa-star text-lg"></i>
-                            <i class="fas fa-star-half-alt text-lg"></i>
-                        </div>
-                        <span class="text-xl font-bold text-gray-800">4.8</span>
-                        <span class="text-gray-600 ml-2">(42 avaliações)</span>
-                    </div>
+                    
                     <a href="https://g.page/r/SEU_LINK_DO_GOOGLE/review" target="_blank"
                         class="btn-secondary py-3 px-6 rounded-full font-semibold">
                         <i class="fas fa-star mr-2"></i>Deixar Avaliação
@@ -1863,206 +1660,7 @@
         </div>
     </section>
 
-    <!-- Dúvidas Frequentes -->
-    <section id="duvidas-frequentes" class="content-section light-bg">
-        <div class="container mx-auto px-6 md:px-12">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Dúvidas Frequentes</h2>
-                <div class="section-divider"></div>
-                <p class="max-w-2xl mx-auto text-gray-600">Encontre respostas para as perguntas mais comuns sobre nossos
-                    serviços jurídicos</p>
-            </div>
-
-            <div class="max-w-4xl mx-auto">
-                <!-- FAQ Item 1 -->
-                <div
-                    class="faq-item bg-white rounded-xl shadow-lg mb-6 overflow-hidden transition-all duration-300 hover:shadow-xl">
-                    <button
-                        class="faq-question w-full text-left p-6 flex justify-between items-center cursor-pointer transition-all duration-300 hover:bg-blue-50">
-                        <h3 class="text-lg md:text-xl font-semibold text-blue-900 pr-4">
-                            De quais documentos eu preciso para entrar com uma ação?
-                        </h3>
-                        <i class="fas fa-chevron-down text-gold-500 transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-answer overflow-hidden transition-all duration-300">
-                        <div class="p-6 pt-0 border-t border-gray-100">
-                            <p class="text-gray-700 leading-relaxed">
-                                Normalmente você irá precisar apresentar ao seu advogado um documento com foto,
-                                comprovante de residência,
-                                precisará ainda assinar o contrato de honorários, uma procuração, declaração de
-                                hipossuficiência
-                                (para requerer a justiça gratuita – necessário que traga o comprovante de renda dos
-                                últimos 3 meses)
-                                e o mais importante, as provas!
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 2 -->
-                <div
-                    class="faq-item bg-white rounded-xl shadow-lg mb-6 overflow-hidden transition-all duration-300 hover:shadow-xl">
-                    <button
-                        class="faq-question w-full text-left p-6 flex justify-between items-center cursor-pointer transition-all duration-300 hover:bg-blue-50">
-                        <h3 class="text-lg md:text-xl font-semibold text-blue-900 pr-4">
-                            Se eu não gosto do meu atual advogado, eu posso trocar?
-                        </h3>
-                        <i class="fas fa-chevron-down text-gold-500 transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-answer overflow-hidden transition-all duration-300">
-                        <div class="p-6 pt-0 border-t border-gray-100">
-                            <p class="text-gray-700 leading-relaxed">
-                                Sim, os clientes que não se sentirem satisfeitos com os seus atuais advogados podem
-                                realizar a troca,
-                                entretanto, o antigo advogado deve ser informado com antecedência e ainda, o novo
-                                advogado irá cobrar
-                                valores para continuação dos serviços já prestados.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 3 -->
-                <div
-                    class="faq-item bg-white rounded-xl shadow-lg mb-6 overflow-hidden transition-all duration-300 hover:shadow-xl">
-                    <button
-                        class="faq-question w-full text-left p-6 flex justify-between items-center cursor-pointer transition-all duration-300 hover:bg-blue-50">
-                        <h3 class="text-lg md:text-xl font-semibold text-blue-900 pr-4">
-                            Como um advogado cível pode me ajudar?
-                        </h3>
-                        <i class="fas fa-chevron-down text-gold-500 transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-answer overflow-hidden transition-all duration-300">
-                        <div class="p-6 pt-0 border-t border-gray-100">
-                            <p class="text-gray-700 leading-relaxed">
-                                Um advogado cível trata de todos os negócios e relações entre pessoas e ainda aborda
-                                algumas relações
-                                entre pessoas físicas e pessoas jurídicas. Nesse sentido, o advogado civilista pode te
-                                auxiliar em
-                                contratos, relações com vizinhos ou clientes, relações familiares, inventário ou
-                                partilha de bens e
-                                até mesmo em relações à bancos, todas estas áreas estão incluídas no direito cível!
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 4 -->
-                <div
-                    class="faq-item bg-white rounded-xl shadow-lg mb-6 overflow-hidden transition-all duration-300 hover:shadow-xl">
-                    <button
-                        class="faq-question w-full text-left p-6 flex justify-between items-center cursor-pointer transition-all duration-300 hover:bg-blue-50">
-                        <h3 class="text-lg md:text-xl font-semibold text-blue-900 pr-4">
-                            Como será a comunicação entre nós durante o processo?
-                        </h3>
-                        <i class="fas fa-chevron-down text-gold-500 transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-answer overflow-hidden transition-all duration-300">
-                        <div class="p-6 pt-0 border-t border-gray-100">
-                            <p class="text-gray-700 leading-relaxed">
-                                A comunicação acompanha a demanda e as possibilidade do cliente, ou seja, caso seja
-                                melhor ao cliente
-                                um atendimento presencial, nos colocamos à disposição para atendê-lo. Caso prefira um
-                                atendimento 100%
-                                remoto, contamos inclusive com "Whatsapp" 24 horas por dia. Providenciamos todo o
-                                acompanhamento
-                                necessário ao cliente!
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 5 -->
-                <div
-                    class="faq-item bg-white rounded-xl shadow-lg mb-6 overflow-hidden transition-all duration-300 hover:shadow-xl">
-                    <button
-                        class="faq-question w-full text-left p-6 flex justify-between items-center cursor-pointer transition-all duration-300 hover:bg-blue-50">
-                        <h3 class="text-lg md:text-xl font-semibold text-blue-900 pr-4">
-                            Quanto tempo demora o processo?
-                        </h3>
-                        <i class="fas fa-chevron-down text-gold-500 transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-answer overflow-hidden transition-all duration-300">
-                        <div class="p-6 pt-0 border-t border-gray-100">
-                            <p class="text-gray-700 leading-relaxed">
-                                Esta pergunta varia muito com os problemas enfrentados pelo cliente e ainda tende a
-                                variar conforme
-                                a área do direito, a cidade em que o processo vai tramitar e até mesmo o tipo de ação
-                                que será realizada.
-                                Existem processos que são resolvidos em 6 meses e existem processos que demoram cerca de
-                                5 anos para
-                                serem finalizados. Atualmente os processos tendem a ser mais rápidos.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 6 -->
-                <div
-                    class="faq-item bg-white rounded-xl shadow-lg mb-6 overflow-hidden transition-all duration-300 hover:shadow-xl">
-                    <button
-                        class="faq-question w-full text-left p-6 flex justify-between items-center cursor-pointer transition-all duration-300 hover:bg-blue-50">
-                        <h3 class="text-lg md:text-xl font-semibold text-blue-900 pr-4">
-                            Quais as etapas/próximos passos após a primeira agenda com o Advogado?
-                        </h3>
-                        <i class="fas fa-chevron-down text-gold-500 transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-answer overflow-hidden transition-all duration-300">
-                        <div class="p-6 pt-0 border-t border-gray-100">
-                            <p class="text-gray-700 leading-relaxed">
-                                O primeiro contato com o advogado serve para que possamos identificar o seu problema e
-                                buscar uma
-                                solução jurídica prática (não necessariamente entrar com uma ação). Feita esta análise,
-                                será necessária
-                                a assinatura e a entrega de certa documentação. Durante o prosseguimento do processo, o
-                                advogado que
-                                te atender, irá direcionando todas as necessidades solicitadas pelo Juiz, facilitando o
-                                processo.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 7 -->
-                <div
-                    class="faq-item bg-white rounded-xl shadow-lg mb-6 overflow-hidden transition-all duration-300 hover:shadow-xl">
-                    <button
-                        class="faq-question w-full text-left p-6 flex justify-between items-center cursor-pointer transition-all duration-300 hover:bg-blue-50">
-                        <h3 class="text-lg md:text-xl font-semibold text-blue-900 pr-4">
-                            Como funciona o atendimento do escritório?
-                        </h3>
-                        <i class="fas fa-chevron-down text-gold-500 transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-answer overflow-hidden transition-all duration-300">
-                        <div class="p-6 pt-0 border-t border-gray-100">
-                            <p class="text-gray-700 leading-relaxed">
-                                O atendimento no escritório é 100% personalizado ao cliente, sem prazo de duração, nosso
-                                objetivo é
-                                esclarecer as dúvidas e resolver os problemas dos clientes. Em um primeiro momento
-                                buscamos identificar
-                                problemas e encontrar a melhor solução para estes. É muito importante que o cliente, ao
-                                comparecer
-                                no escritório, traga todos os documentos que ache relevante para o seu
-                                problema/processo.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- CTA Section -->
-            <div class="text-center mt-12">
-                <div class="bg-gradient-to-r from-blue-50 to-gold-50 rounded-2xl p-8 max-w-2xl mx-auto">
-                    <h3 class="text-2xl font-bold text-blue-900 mb-4">Ainda tem dúvidas?</h3>
-                    <p class="text-gray-600 mb-6">Entre em contato conosco para esclarecer todas as suas questões</p>
-                    <a href="#contato" class="btn-primary py-3 px-8 rounded font-semibold inline-block">
-                        <i class="fas fa-envelope mr-2"></i>Fale Conosco
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
+   
     <!-- Footer -->
     <footer class="blue-bg text-white py-12">
         <div class="container mx-auto px-6 md:px-12">
@@ -2125,177 +1723,139 @@
 
     <!-- Scripts -->
     <script>
-
-
-        function toggleSeeMore(button) {
-    const dropdownMenu = button.closest('.dropdown-mobile');
-    const hiddenItems = dropdownMenu.querySelectorAll('.hidden-mobile');
-    
-    dropdownMenu.classList.toggle('expanded');
-    button.classList.toggle('expanded');
-    
-    if (button.classList.contains('expanded')) {
-        button.innerHTML = 'Ver menos <i class="fas fa-chevron-up"></i>';
-    } else {
-        button.innerHTML = 'Ver mais áreas <i class="fas fa-chevron-down"></i>';
-    }
-}
-
-
-        // Sistema de dropdown mobile
-        document.getElementById('dropdown-mobile-button').addEventListener('click', function () {
-            const dropdown = document.getElementById('dropdown-mobile');
-            dropdown.classList.toggle('open');
-        });
-
-        // Fechar dropdown mobile ao clicar em um item
-        document.querySelectorAll('#dropdown-mobile .dropdown-item').forEach(item => {
-            item.addEventListener('click', function () {
-                const dropdown = document.getElementById('dropdown-mobile');
-                dropdown.classList.remove('open');
-                // Fechar menu mobile completo
-                document.getElementById('mobile-menu').classList.add('hidden');
-            });
-        });
-
-        // Fechar menu mobile ao clicar em links normais
-        document.querySelectorAll('.nav-link-mobile').forEach(link => {
-            link.addEventListener('click', function () {
-                // Verificar se não é o botão do dropdown
-                if (!this.id || this.id !== 'dropdown-mobile-button') {
-                    document.getElementById('mobile-menu').classList.add('hidden');
-                }
-            });
-        });
-
-        // Fechar dropdown quando o menu mobile for fechado
-        document.getElementById('mobile-menu-button').addEventListener('click', function () {
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
-            if (mobileMenu.classList.contains('hidden')) {
-                const dropdown = document.getElementById('dropdown-mobile');
-                dropdown.classList.remove('open');
-            }
-        });
 
-        // Sistema de FAQ interativo
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', function () {
-                const faqItem = this.parentElement;
-                const isActive = faqItem.classList.contains('active');
-
-                // Fechar todas as FAQs
-                document.querySelectorAll('.faq-item').forEach(item => {
-                    item.classList.remove('active');
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
                 });
-
-                // Abrir a FAQ clicada se não estava ativa
-                if (!isActive) {
-                    faqItem.classList.add('active');
-                }
-            });
-        });
-
-        // Abrir a primeira FAQ por padrão
-        document.querySelector('.faq-item')?.classList.add('active');
-
-        // Navbar scroll effect
-        window.addEventListener('scroll', function () {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
             }
-        });
 
-        // Mobile menu toggle
-        document.getElementById('mobile-menu-button').addEventListener('click', function () {
-            const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    // Close mobile menu if open
-                    const mobileMenu = document.getElementById('mobile-menu');
+            // Fechar menu mobile ao clicar em links
+            document.querySelectorAll('.nav-link-mobile').forEach(link => {
+                link.addEventListener('click', function() {
                     mobileMenu.classList.add('hidden');
+                });
+            });
 
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
+            // Sistema de FAQ interativo
+            document.querySelectorAll('.faq-question').forEach(question => {
+                question.addEventListener('click', function() {
+                    const faqItem = this.parentElement;
+                    const isActive = faqItem.classList.contains('active');
+
+                    // Fechar todas as FAQs
+                    document.querySelectorAll('.faq-item').forEach(item => {
+                        item.classList.remove('active');
                     });
-                }
-            });
-        });
 
-        // Form submission
-        document.querySelector('.contact-form').addEventListener('submit', function (e) {
-            e.preventDefault();
-            alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
-            this.reset();
-        });
-
-        // Animação de entrada para elementos
-        function isElementInViewport(el) {
-            const rect = el.getBoundingClientRect();
-            return (
-                rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8 &&
-                rect.bottom >= 0
-            );
-        }
-
-        function handleScrollAnimation() {
-            const elements = document.querySelectorAll('.fade-in, .stagger-item');
-
-            elements.forEach((element, index) => {
-                if (isElementInViewport(element)) {
-                    if (element.classList.contains('stagger-item')) {
-                        setTimeout(() => {
-                            element.classList.add('visible');
-                        }, index * 100);
-                    } else {
-                        element.classList.add('visible');
+                    // Abrir a FAQ clicada se não estava ativa
+                    if (!isActive) {
+                        faqItem.classList.add('active');
                     }
+                });
+            });
+
+            // Abrir a primeira FAQ por padrão
+            document.querySelector('.faq-item')?.classList.add('active');
+
+            // Navbar scroll effect
+            window.addEventListener('scroll', function() {
+                const navbar = document.querySelector('.navbar');
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
                 }
             });
-        }
 
-        // Inicializar animações na carga da página
-        window.addEventListener('load', handleScrollAnimation);
-        window.addEventListener('scroll', handleScrollAnimation);
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
 
-        // Inicializar elementos com classe fade-in
-        document.querySelectorAll('.fade-in').forEach(el => {
-            el.classList.add('visible');
-        });
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
 
-        // Sistema de abas para serviços
-        document.querySelectorAll('.services-tab').forEach(tab => {
-            tab.addEventListener('click', function () {
-                // Remover classe active de todas as abas
-                document.querySelectorAll('.services-tab').forEach(t => {
-                    t.classList.remove('active');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        // Close mobile menu if open
+                        if (mobileMenu) {
+                            mobileMenu.classList.add('hidden');
+                        }
+
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
                 });
+            });
 
-                // Adicionar classe active à aba clicada
-                this.classList.add('active');
+            // Form submission
+            document.querySelector('.contact-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
+                this.reset();
+            });
 
-                // Esconder todos os conteúdos
-                document.querySelectorAll('.services-content').forEach(content => {
-                    content.classList.remove('active');
+            // Animação de entrada para elementos
+            function isElementInViewport(el) {
+                const rect = el.getBoundingClientRect();
+                return (
+                    rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8 &&
+                    rect.bottom >= 0
+                );
+            }
+
+            function handleScrollAnimation() {
+                const elements = document.querySelectorAll('.fade-in, .stagger-item');
+
+                elements.forEach((element, index) => {
+                    if (isElementInViewport(element)) {
+                        if (element.classList.contains('stagger-item')) {
+                            setTimeout(() => {
+                                element.classList.add('visible');
+                            }, index * 100);
+                        } else {
+                            element.classList.add('visible');
+                        }
+                    }
                 });
+            }
 
-                // Mostrar conteúdo correspondente
-                const tabId = this.getAttribute('data-tab');
-                document.getElementById(`${tabId}-content`).classList.add('active');
+            // Inicializar animações na carga da página
+            window.addEventListener('load', handleScrollAnimation);
+            window.addEventListener('scroll', handleScrollAnimation);
+
+            // Inicializar elementos com classe fade-in
+            document.querySelectorAll('.fade-in').forEach(el => {
+                el.classList.add('visible');
+            });
+
+            // Sistema de abas para serviços
+            document.querySelectorAll('.services-tab').forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Remover classe active de todas as abas
+                    document.querySelectorAll('.services-tab').forEach(t => {
+                        t.classList.remove('active');
+                    });
+
+                    // Adicionar classe active à aba clicada
+                    this.classList.add('active');
+
+                    // Esconder todos os conteúdos
+                    document.querySelectorAll('.services-content').forEach(content => {
+                        content.classList.remove('active');
+                    });
+
+                    // Mostrar conteúdo correspondente
+                    const tabId = this.getAttribute('data-tab');
+                    document.getElementById(`${tabId}-content`).classList.add('active');
+                });
             });
         });
     </script>

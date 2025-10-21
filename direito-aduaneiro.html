@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Direito Aduaneiro - Monenari Advocacia</title>
+    <title>Monenari Advocacia - Áreas de Atuação</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link
@@ -35,13 +35,153 @@
             color: var(--primary-blue);
         }
 
+        /* Novos estilos para o dropdown */
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 16px;
+            padding: 1.5rem;
+            width: 800px;
+            max-width: 90vw;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.75rem;
+        }
+
+        .dropdown-menu::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-bottom: 8px solid rgba(255, 255, 255, 0.95);
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .dropdown-mobile {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .dropdown-mobile.open {
+            max-height: 600px;
+        }
+
+        .dropdown-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 1rem;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            color: var(--primary-blue);
+            text-decoration: none;
+            margin-bottom: 0;
+            min-height: 80px;
+        }
+
+        .dropdown-item:hover {
+            background: rgba(184, 154, 92, 0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .dropdown-icon {
+            width: 32px;
+            height: 32px;
+            background: rgba(184, 154, 92, 0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            color: var(--secondary-gold);
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .dropdown-item:hover .dropdown-icon {
+            background: var(--secondary-gold);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .dropdown-arrow {
+            transition: transform 0.3s ease;
+        }
+
+        .dropdown-mobile.open .dropdown-arrow {
+            transform: rotate(180deg);
+        }
+
+        /* Melhorias para mobile */
+        @media (max-width: 1024px) {
+            .dropdown-menu {
+                position: static;
+                transform: none;
+                background: rgba(255, 255, 255, 0.05);
+                backdrop-filter: none;
+                box-shadow: none;
+                border: none;
+                padding: 0;
+                margin-top: 0.5rem;
+                width: 100%;
+                grid-template-columns: 1fr;
+            }
+
+            .dropdown-menu::before {
+                display: none;
+            }
+
+            .dropdown-item {
+                min-height: auto;
+                padding: 0.8rem 1rem;
+            }
+        }
+
+        /* Ajustes para telas menores */
+        @media (max-width: 768px) {
+            .dropdown-menu {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .dropdown-menu {
+                max-height: 200px;
+            }
+
+            .dropdown-menu.expanded {
+                max-height: 45vh;
+            }
+        }
+
         .hero-section {
-            background: linear-gradient(135deg, rgba(10, 31, 61, 0.85) 0%, rgba(10, 31, 61, 0.75) 100%), url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background: linear-gradient(135deg, rgba(10, 31, 61, 0.85) 0%, rgba(10, 31, 61, 0.75) 100%), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
             position: relative;
-            
         }
 
         .hero-section::before {
@@ -645,7 +785,6 @@
             transform: translateY(-5px);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
         }
-        
 
         .nav-link-mobile {
             transition: all 0.3s ease;
@@ -840,86 +979,6 @@
             color: #1e3a5f !important;
         }
 
-        /* Dropdown styles */
-        .dropdown {
-            position: relative;
-        }
-
-        .dropdown-menu {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 280px;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(10px);
-            transition: all 0.3s ease;
-            z-index: 1000;
-            padding: 1rem 0;
-        }
-
-        .dropdown:hover .dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .dropdown-item {
-            display: flex;
-            align-items: center;
-            padding: 1rem 1.5rem;
-            color: var(--primary-blue);
-            transition: all 0.3s ease;
-            border-bottom: 1px solid #f1f5f9;
-        }
-
-        .dropdown-item:last-child {
-            border-bottom: none;
-        }
-
-        .dropdown-item:hover {
-            background: rgba(184, 154, 92, 0.1);
-            color: var(--primary-blue);
-        }
-
-        .dropdown-icon {
-            width: 40px;
-            height: 40px;
-            background: rgba(184, 154, 92, 0.1);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 1rem;
-            color: var(--secondary-gold);
-            font-size: 1.2rem;
-        }
-
-        /* Dropdown mobile */
-        .dropdown-mobile {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-        }
-
-        .dropdown-mobile.open {
-            max-height: 500px;
-        }
-
-        .dropdown-mobile .dropdown-item {
-            padding: 0.8rem 1rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .dropdown-mobile .dropdown-icon {
-            width: 35px;
-            height: 35px;
-            font-size: 1rem;
-        }
-
         /* Responsividade */
         @media (max-width: 768px) {
             .services-tab {
@@ -935,17 +994,10 @@
 
             .hero-section h1 {
                 font-size: 2.5rem;
-                 color: white !important;
-                 text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
             }
 
             .hero-section p {
                 font-size: 1.125rem;
-            }
-
-            .dropdown-menu {
-                width: 240px;
-                left: -50px;
             }
         }
 
@@ -977,11 +1029,6 @@
         .text-6xl {
             font-size: 3.75rem;
         }
-
-        /* Rotação para setas */
-        .rotate-180 {
-            transform: rotate(180deg);
-        }
     </style>
 </head>
 
@@ -1010,7 +1057,7 @@
 
                 <!-- Menu Desktop -->
                 <div class="hidden lg:flex space-x-8">
-                    <a href="index.html#quem-somos"
+                    <a href="index.html"
                         class="nav-link text-white hover:text-[#c9a96a] transition-all duration-300 font-medium text-sm uppercase tracking-wide">
                         Quem Somos
                     </a>
@@ -1028,28 +1075,8 @@
                                     <i class="fas fa-file-invoice-dollar"></i>
                                 </div>
                                 <div>
-                                    <div class="font-semibold">Direito Tributário</div>
+                                    <div class="font-semibold">Tributário</div>
                                     <div class="text-xs text-gray-600 mt-1">Planejamento e contencioso</div>
-                                </div>
-                            </a>
-
-                            <a href="direito-aduaneiro.html" class="dropdown-item">
-                                <div class="dropdown-icon">
-                                    <i class="fas fa-ship"></i>
-                                </div>
-                                <div>
-                                    <div class="font-semibold">Direito Aduaneiro</div>
-                                    <div class="text-xs text-gray-600 mt-1">Comércio exterior</div>
-                                </div>
-                            </a>
-
-                            <a href="direito-empresarial.html" class="dropdown-item">
-                                <div class="dropdown-icon">
-                                    <i class="fas fa-building"></i>
-                                </div>
-                                <div>
-                                    <div class="font-semibold">Direito Empresarial</div>
-                                    <div class="text-xs text-gray-600 mt-1">Consultoria e contratos</div>
                                 </div>
                             </a>
 
@@ -1058,18 +1085,125 @@
                                     <i class="fas fa-briefcase"></i>
                                 </div>
                                 <div>
-                                    <div class="font-semibold">Direito do Trabalho</div>
+                                    <div class="font-semibold">Trabalhista</div>
                                     <div class="text-xs text-gray-600 mt-1">Relações trabalhistas</div>
+                                </div>
+                            </a>
+
+                            <a href="direito-societario.html" class="dropdown-item">
+                                <div class="dropdown-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold">Societário</div>
+                                    <div class="text-xs text-gray-600 mt-1">Sociedades e negócios</div>
+                                </div>
+                            </a>
+
+                            <a href="direito-lgpd.html" class="dropdown-item">
+                                <div class="dropdown-icon">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold">LGPD</div>
+                                    <div class="text-xs text-gray-600 mt-1">Proteção de dados</div>
+                                </div>
+                            </a>
+
+                            <a href="direito-empresarial.html" class="dropdown-item">
+                                <div class="dropdown-icon">
+                                    <i class="fas fa-building"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold">Empresarial</div>
+                                    <div class="text-xs text-gray-600 mt-1">Consultoria e contratos</div>
+                                </div>
+                            </a>
+
+                            <a href="direito-compliance.html" class="dropdown-item">
+                                <div class="dropdown-icon">
+                                    <i class="fas fa-clipboard-check"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold">Compliance</div>
+                                    <div class="text-xs text-gray-600 mt-1">Conformidade regulatória</div>
+                                </div>
+                            </a>
+
+                            <a href="contencioso-civel.html" class="dropdown-item">
+                                <div class="dropdown-icon">
+                                    <i class="fas fa-balance-scale"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold">Contencioso Cível</div>
+                                    <div class="text-xs text-gray-600 mt-1">Litígios civis</div>
+                                </div>
+                            </a>
+
+                            <a href="contencioso-estrategico.html" class="dropdown-item">
+                                <div class="dropdown-icon">
+                                    <i class="fas fa-chess"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold">Contencioso Estratégico</div>
+                                    <div class="text-xs text-gray-600 mt-1">Soluções estratégicas</div>
+                                </div>
+                            </a>
+
+                            <a href="direito-aduaneiro.html" class="dropdown-item">
+                                <div class="dropdown-icon">
+                                    <i class="fas fa-ship"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold">Aduaneiro e Comércio Internacional</div>
+                                    <div class="text-xs text-gray-600 mt-1">Comércio exterior</div>
+                                </div>
+                            </a>
+
+                            <a href="direito-contratos.html" class="dropdown-item">
+                                <div class="dropdown-icon">
+                                    <i class="fas fa-file-contract"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold">Contratos</div>
+                                    <div class="text-xs text-gray-600 mt-1">Elaboração e revisão</div>
+                                </div>
+                            </a>
+
+                            <a href="direito-consultivo.html" class="dropdown-item">
+                                <div class="dropdown-icon">
+                                    <i class="fas fa-comments"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold">Consultivo</div>
+                                    <div class="text-xs text-gray-600 mt-1">Orientação jurídica</div>
+                                </div>
+                            </a>
+
+                            <a href="recuperacao-creditos.html" class="dropdown-item">
+                                <div class="dropdown-icon">
+                                    <i class="fas fa-hand-holding-usd"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold">Recuperação de Créditos</div>
+                                    <div class="text-xs text-gray-600 mt-1">Cobrança e execução</div>
+                                </div>
+                            </a>
+
+                            <a href="esg-sustentabilidade.html" class="dropdown-item">
+                                <div class="dropdown-icon">
+                                    <i class="fas fa-leaf"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold">ESG e Sustentabilidade Corporativa</div>
+                                    <div class="text-xs text-gray-600 mt-1">Sustentabilidade empresarial</div>
                                 </div>
                             </a>
                         </div>
                     </div>
-                   
-                    <a href="index.html#porque-nos-escolhem"
-                        class="nav-link text-white hover:text-[#c9a96a] transition-all duration-300 font-medium text-sm uppercase tracking-wide">
-                        Por que nos Escolher
-                    </a>
-                    <a href="index.html#contato"
+
+
+                    <a href="#contato"
                         class="nav-link text-white hover:text-[#c9a96a] transition-all duration-300 font-medium text-sm uppercase tracking-wide">
                         Contato
                     </a>
@@ -1086,6 +1220,7 @@
 
                 <!-- Botão Menu Mobile -->
                 <div class="lg:hidden flex items-center space-x-4">
+                    <!-- Botão WhatsApp removido da navbar mobile conforme solicitado -->
                     <button id="mobile-menu-button"
                         class="text-white p-2 rounded-lg hover:bg-white/10 transition-colors duration-300">
                         <i class="fas fa-bars text-xl"></i>
@@ -1096,72 +1231,22 @@
             <!-- Menu Mobile -->
             <div id="mobile-menu" class="hidden lg:hidden mobile-menu bg-[#0a1f3d] border-t border-white/10 py-4 px-6">
                 <div class="flex flex-col space-y-2">
-                    <!-- Opção Voltar para Página Principal -->
-                    <a href="index.html"
-                        class="nav-link-mobile text-white hover:text-[#c9a96a] transition-all duration-300 font-medium py-3 border-b border-white/5 bg-white/5 rounded-lg">
-                        <i class="fas fa-arrow-left mr-3 w-5 text-center"></i>
-                        Voltar para Página Principal
-                    </a>
-
-                    <a href="index.html#quem-somos"
+                    <a href="#quem-somos"
                         class="nav-link-mobile text-white hover:text-[#c9a96a] transition-all duration-300 font-medium py-3 border-b border-white/5">
                         <i class="fas fa-building mr-3 w-5 text-center"></i>
                         Quem Somos
                     </a>
-                    <!-- Dropdown Mobile Áreas de Atuação -->
-                    <div class="dropdown-mobile-container">
-                        <button id="dropdown-mobile-button"
-                            class="nav-link-mobile text-white hover:text-[#c9a96a] transition-all duration-300 font-medium py-3 border-b border-white/5 w-full text-left flex justify-between items-center">
-                            <div class="flex items-center">
-                                <i class="fas fa-gavel mr-3 w-5 text-center"></i>
-                                Áreas de Atuação
-                            </div>
-                            <i class="fas fa-chevron-down text-xs dropdown-arrow transition-transform duration-300"></i>
-                        </button>
 
-                        <div id="dropdown-mobile" class="dropdown-mobile bg-white/5 rounded-lg mt-2 ml-8">
-                            <a href="direito-tributario.html" class="dropdown-item text-white hover:text-[#c9a96a]">
-                                <div class="dropdown-icon bg-white/10">
-                                    <i class="fas fa-file-invoice-dollar"></i>
-                                </div>
-                                <div>
-                                    <div class="font-semibold">Direito Tributário</div>
-                                    <div class="text-xs text-gray-300 mt-1">Planejamento e contencioso</div>
-                                </div>
-                            </a>
-
-                            <a href="direito-aduaneiro.html" class="dropdown-item text-white hover:text-[#c9a96a]">
-                                <div class="dropdown-icon bg-white/10">
-                                    <i class="fas fa-ship"></i>
-                                </div>
-                                <div>
-                                    <div class="font-semibold">Direito Aduaneiro</div>
-                                    <div class="text-xs text-gray-300 mt-1">Comércio exterior</div>
-                                </div>
-                            </a>
-
-                            <a href="direito-empresarial.html" class="dropdown-item text-white hover:text-[#c9a96a]">
-                                <div class="dropdown-icon bg-white/10">
-                                    <i class="fas fa-building"></i>
-                                </div>
-                                <div>
-                                    <div class="font-semibold">Direito Empresarial</div>
-                                    <div class="text-xs text-gray-300 mt-1">Consultoria e contratos</div>
-                                </div>
-                            </a>
-
-                            <a href="direito-trabalho.html" class="dropdown-item text-white hover:text-[#c9a96a]">
-                                <div class="dropdown-icon bg-white/10">
-                                    <i class="fas fa-briefcase"></i>
-                                </div>
-                                <div>
-                                    <div class="font-semibold">Direito do Trabalho</div>
-                                    <div class="text-xs text-gray-300 mt-1">Relações trabalhistas</div>
-                                </div>
-                            </a>
+                    <!-- Link direto para Áreas de Atuação -->
+                    <a href="#areas-atuacao"
+                        class="nav-link-mobile text-white hover:text-[#c9a96a] transition-all duration-300 font-medium py-3 border-b border-white/5 w-full text-left flex items-center">
+                        <div class="flex items-center">
+                            <i class="fas fa-gavel mr-3 w-5 text-center"></i>
+                            Áreas de Atuação
                         </div>
-                    </div>
-                    <a href="index.html#contato"
+                    </a>
+
+                    <a href="#contato"
                         class="nav-link-mobile text-white hover:text-[#c9a96a] transition-all duration-300 font-medium py-3">
                         <i class="fas fa-phone mr-3 w-5 text-center"></i>
                         Contato
@@ -1187,198 +1272,271 @@
         </nav>
     </header>
 
-    <!-- Hero Section Específica para Direito Aduaneiro -->
+    <!-- Hero Section Específica para Aduaneiro e Comércio Internacional -->
     <section class="hero-section pt-48 pb-20 text-white">
         <div class="container mx-auto px-6 md:px-12 text-center">
-            <h1 class="text-white text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight fade-in">Direito Aduaneiro</h1>
-            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto opacity-90 fade-in">Assessoria especializada em
-                comércio exterior, importação, exportação e regulamentação de operações aduaneiras com segurança
-                jurídica e eficiência.</p>
-            <a href="#contato" class="btn-secondary py-3 px-8 rounded font-semibold inline-block text-lg">
-                <i class="fas fa-ship mr-2"></i>Consultoria Aduaneira
-            </a>
+            <h1 class="text-white text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight fade-in">
+                Direito <span class="gold-accent">Aduaneiro</span> e Comércio Internacional
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-4xl mx-auto opacity-90 fade-in">
+                Assessoria completa e estratégica em operações de comércio exterior e legislação aduaneira
+            </p>
         </div>
     </section>
 
-    <!-- Conteúdo Específico da Área -->
+    <!-- Conteúdo Principal -->
     <section class="content-section light-bg">
         <div class="container mx-auto px-6 md:px-12">
-            <div class="flex flex-col lg:flex-row gap-10">
-                <div class="lg:w-2/3">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Especialistas em Direito Aduaneiro</h2>
-                    <p class="mb-6 text-gray-700 text-lg">O Direito Aduaneiro é fundamental para empresas que atuam no
-                        comércio internacional, envolvendo complexas regulamentações tributárias, cambiais e
-                        administrativas que exigem conhecimento técnico especializado.</p>
+            <div class="max-w-4xl mx-auto">
+                <!-- Introdução -->
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Excelência em Comércio Exterior</h2>
+                    <div class="section-divider"></div>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        Nossa Área de Direito Aduaneiro e Comércio Internacional atua de forma integrada com as áreas
+                        de Direito Tributário Estratégico, Tributário Contencioso e Direito Internacional, oferecendo
+                        assessoria completa tanto em questões consultivas quanto na defesa de controvérsias.
+                    </p>
+                </div>
 
-                    <div class="mb-8">
-                        <h3 class="text-2xl font-bold mb-4 gold-accent">Nossos Serviços em Direito Aduaneiro</h3>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div class="flex items-start">
-                                <i class="fas fa-check-circle gold-accent text-xl mr-3 mt-1"></i>
-                                <div>
-                                    <h4 class="font-semibold text-gray-800">Assessoria em Importação</h4>
-                                    <p class="text-gray-600">Planejamento e execução de operações de importação</p>
+                <!-- Abordagem Integrada -->
+                <div class="bg-white rounded-2xl shadow-lg p-8 mb-12 border-l-4 border-[#b89a5c]">
+                    <h3 class="text-2xl font-bold mb-6 text-center" style="color: var(--secondary-gold)">Atuação
+                        Multidisciplinar</h3>
+                    <p class="text-gray-700 text-lg leading-relaxed text-center">
+                        Estrutura integrada que combina expertise técnica em direito aduaneiro, tributário e
+                        internacional,
+                        permitindo uma assessoria estratégica e completa para operações de comércio exterior.
+                    </p>
+                </div>
+
+                <!-- Áreas de Atuação em Contencioso -->
+                <div class="mb-12">
+                    <h3 class="text-2xl font-bold mb-8 text-center" style="color: var(--secondary-gold)">Atuação
+                        Contenciosa</h3>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <!-- Fraudes e Infrações -->
+                        <div class="bg-white rounded-xl shadow-md p-6 border border-gray-100">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 rounded-lg flex items-center justify-center mr-4"
+                                    style="background-color: rgba(184, 154, 92, 0.1)">
+                                    <i class="fas fa-shield-alt text-xl" style="color: var(--secondary-gold)"></i>
                                 </div>
+                                <h4 class="font-semibold text-lg">Fraudes e Infrações</h4>
                             </div>
-                            <div class="flex items-start">
-                                <i class="fas fa-check-circle gold-accent text-xl mr-3 mt-1"></i>
-                                <div>
-                                    <h4 class="font-semibold text-gray-800">Assessoria em Exportação</h4>
-                                    <p class="text-gray-600">Otimização de processos de exportação e drawback</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start">
-                                <i class="fas fa-check-circle gold-accent text-xl mr-3 mt-1"></i>
-                                <div>
-                                    <h4 class="font-semibold text-gray-800">Regimes Aduaneiros Especiais</h4>
-                                    <p class="text-gray-600">Admissão temporária, entreposto aduaneiro e outros</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start">
-                                <i class="fas fa-check-circle gold-accent text-xl mr-3 mt-1"></i>
-                                <div>
-                                    <h4 class="font-semibold text-gray-800">Contencioso Aduaneiro</h4>
-                                    <p class="text-gray-600">Defesa em autuações e processos administrativos</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start">
-                                <i class="fas fa-check-circle gold-accent text-xl mr-3 mt-1"></i>
-                                <div>
-                                    <h4 class="font-semibold text-gray-800">Classificação Fiscal</h4>
-                                    <p class="text-gray-600">Análise e definição de NCM de mercadorias</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start">
-                                <i class="fas fa-check-circle gold-accent text-xl mr-3 mt-1"></i>
-                                <div>
-                                    <h4 class="font-semibold text-gray-800">Valoração Aduaneira</h4>
-                                    <p class="text-gray-600">Consultoria em métodos de valoração e preços de
-                                        transferência</p>
-                                </div>
-                            </div>
+                            <p class="text-gray-600">
+                                Representação em casos de interposição fraudulenta de terceiros, infrações relativas
+                                à prestação de informações aduaneiras, classificação tarifária e infrações cambiais.
+                            </p>
                         </div>
-                    </div>
 
-                    <div class="mb-8">
-                        <h3 class="text-2xl font-bold mb-4 gold-accent">Benefícios do Nosso Atendimento</h3>
-                        <div class="bg-white p-6 rounded-lg shadow-md">
-                            <ul class="space-y-3">
-                                <li class="flex items-start">
-                                    <i class="fas fa-shield-alt gold-accent mr-3 mt-1"></i>
-                                    <span class="text-gray-700">Redução de riscos em operações de comércio
-                                        exterior</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fas fa-chart-line gold-accent mr-3 mt-1"></i>
-                                    <span class="text-gray-700">Otimização de custos em operações aduaneiras</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fas fa-balance-scale gold-accent mr-3 mt-1"></i>
-                                    <span class="text-gray-700">Defesa técnica especializada em processos
-                                        administrativos</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fas fa-clock gold-accent mr-3 mt-1"></i>
-                                    <span class="text-gray-700">Agilidade na liberação de mercadorias e
-                                        desembaraço</span>
-                                </li>
-                            </ul>
+                        <!-- Liberação de Cargas -->
+                        <div class="bg-white rounded-xl shadow-md p-6 border border-gray-100">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 rounded-lg flex items-center justify-center mr-4"
+                                    style="background-color: rgba(184, 154, 92, 0.1)">
+                                    <i class="fas fa-shipping-fast text-xl" style="color: var(--secondary-gold)"></i>
+                                </div>
+                                <h4 class="font-semibold text-lg">Liberação de Cargas</h4>
+                            </div>
+                            <p class="text-gray-600">
+                                Atuação na liberação de cargas retidas por questionamentos fiscais ou aduaneiros,
+                                garantindo agilidade e segurança nas operações de comércio exterior.
+                            </p>
                         </div>
                     </div>
                 </div>
 
-                <div class="lg:w-1/3">
-                    <div class="bg-white p-6 rounded-lg shadow-md sticky top-24">
-                        <h3 class="text-xl font-bold mb-4">Solicitar Consultoria</h3>
-                        <p class="text-gray-600 mb-4">Entre em contato para uma avaliação personalizada da sua operação
-                            aduaneira.</p>
-                        <a href="#contato"
-                            class="btn-primary py-3 px-6 rounded font-semibold w-full text-center block mb-4">
-                            <i class="fas fa-envelope mr-2"></i>Agendar Consulta
-                        </a>
-                        <div class="text-center text-sm text-gray-500">
-                            <p><i class="fas fa-clock gold-accent mr-1"></i> Resposta em até 24h</p>
+                <!-- Casos Especializados -->
+                <div class="grid md:grid-cols-2 gap-8 mb-12">
+                    <div class="bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-lg flex items-center justify-center mr-4"
+                                style="background-color: rgba(184, 154, 92, 0.1)">
+                                <i class="fas fa-file-invoice-dollar text-xl" style="color: var(--secondary-gold)"></i>
+                            </div>
+                            <h3 class="text-xl font-bold">Questões Tributárias</h3>
+                        </div>
+                        <ul class="text-gray-700 space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-sm mt-1 mr-2" style="color: var(--secondary-gold)"></i>
+                                <span>Subfaturamento na importação</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-sm mt-1 mr-2" style="color: var(--secondary-gold)"></i>
+                                <span>Isenção, redução ou suspensão de tributos</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-sm mt-1 mr-2" style="color: var(--secondary-gold)"></i>
+                                <span>Questões documentais e de fatura comercial</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-lg flex items-center justify-center mr-4"
+                                style="background-color: rgba(184, 154, 92, 0.1)">
+                                <i class="fas fa-boxes text-xl" style="color: var(--secondary-gold)"></i>
+                            </div>
+                            <h3 class="text-xl font-bold">Operações Logísticas</h3>
+                        </div>
+                        <ul class="text-gray-700 space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-sm mt-1 mr-2" style="color: var(--secondary-gold)"></i>
+                                <span>Vistoria aduaneira e liberação de cargas</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-sm mt-1 mr-2" style="color: var(--secondary-gold)"></i>
+                                <span>Danos, avarias, faltas ou extravios</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-sm mt-1 mr-2" style="color: var(--secondary-gold)"></i>
+                                <span>Documentos de manifesto e exigências</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Assessoria Consultiva -->
+                <div class="bg-white rounded-2xl shadow-lg p-8 mb-12 border border-gray-100">
+                    <h3 class="text-2xl font-bold mb-6 text-center" style="color: var(--secondary-gold)">Assessoria
+                        Consultiva e Regulatória</h3>
+                    <p class="text-gray-700 text-lg leading-relaxed text-center">
+                        Oferecemos suporte completo na área de Aduaneiro e Comércio Internacional, desde a habilitação
+                        até o acompanhamento de operações complexas de comércio exterior.
+                    </p>
+                </div>
+
+                <!-- Serviços Consultivos -->
+                <div class="rounded-2xl p-8 mb-12" style="background-color: rgba(10, 31, 61, 0.05)">
+                    <h3 class="text-2xl font-bold mb-6 text-center">Serviços Consultivos</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <i class="fas fa-check-circle mt-1 mr-3" style="color: var(--secondary-gold)"></i>
+                                <div>
+                                    <h4 class="font-semibold">Habilitação no Siscomex (Radar)</h4>
+                                    <p class="text-sm text-gray-600">Assessoria completa no processo de habilitação</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-check-circle mt-1 mr-3" style="color: var(--secondary-gold)"></i>
+                                <div>
+                                    <h4 class="font-semibold">Regimes Aduaneiros Especiais</h4>
+                                    <p class="text-sm text-gray-600">Implantação e acompanhamento</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-check-circle mt-1 mr-3" style="color: var(--secondary-gold)"></i>
+                                <div>
+                                    <h4 class="font-semibold">Classificação Fiscal</h4>
+                                    <p class="text-sm text-gray-600">Mercadorias e produtos industrializados</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <i class="fas fa-check-circle mt-1 mr-3" style="color: var(--secondary-gold)"></i>
+                                <div>
+                                    <h4 class="font-semibold">Compliance Tributário-Aduaneiro</h4>
+                                    <p class="text-sm text-gray-600">Programas de conformidade personalizados</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-check-circle mt-1 mr-3" style="color: var(--secondary-gold)"></i>
+                                <div>
+                                    <h4 class="font-semibold">Desembaraço Aduaneiro</h4>
+                                    <p class="text-sm text-gray-600">Assessoria especializada</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-check-circle mt-1 mr-3" style="color: var(--secondary-gold)"></i>
+                                <div>
+                                    <h4 class="font-semibold">Logística Internacional</h4>
+                                    <p class="text-sm text-gray-600">Otimização de operações</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                </div>
+
+                <!-- Diferencial Competitivo -->
+                <div class="grid md:grid-cols-2 gap-8 mb-12">
+                    <div class="bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-lg flex items-center justify-center mr-4"
+                                style="background-color: rgba(184, 154, 92, 0.1)">
+                                <i class="fas fa-chess-knight text-xl" style="color: var(--secondary-gold)"></i>
+                            </div>
+                            <h3 class="text-xl font-bold">Visão Estratégica Integrada</h3>
+                        </div>
+                        <p class="text-gray-700">
+                            Combinação única entre expertise técnica em direito aduaneiro, tributário e internacional,
+                            permitindo análise completa dos riscos e oportunidades nas operações de comércio exterior.
+                        </p>
+                    </div>
+
+                    <div class="bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-lg flex items-center justify-center mr-4"
+                                style="background-color: rgba(184, 154, 92, 0.1)">
+                                <i class="fas fa-bullseye text-xl" style="color: var(--secondary-gold)"></i>
+                            </div>
+                            <h3 class="text-xl font-bold">Foco em Resultados</h3>
+                        </div>
+                        <p class="text-gray-700">
+                            Atendimento personalizado e altamente eficiente, voltado à mitigação de riscos e à
+                            maximização de oportunidades no cenário global do comércio exterior.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Especialidades -->
+                <div class="bg-white rounded-2xl shadow-lg p-8 mb-12 border border-gray-100">
+                    <h3 class="text-2xl font-bold mb-6 text-center" style="color: var(--secondary-gold)">Especialidades
+                    </h3>
+                    <div class="grid md:grid-cols-3 gap-4 text-center">
+                        <div>
+                            <i class="fas fa-balance-scale text-2xl mb-3" style="color: var(--secondary-gold)"></i>
+                            <h4 class="font-semibold mb-2">Legislação Aduaneira</h4>
+                            <p class="text-sm text-gray-600">Domínio completo da normativa</p>
+                        </div>
+                        <div>
+                            <i class="fas fa-globe-americas text-2xl mb-3" style="color: var(--secondary-gold)"></i>
+                            <h4 class="font-semibold mb-2">Comércio Internacional</h4>
+                            <p class="text-sm text-gray-600">Visão global das operações</p>
+                        </div>
+                        <div>
+                            <i class="fas fa-chart-line text-2xl mb-3" style="color: var(--secondary-gold)"></i>
+                            <h4 class="font-semibold mb-2">Estratégia Tributária</h4>
+                            <p class="text-sm text-gray-600">Otimização fiscal legal</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Compromisso -->
+                <div class="rounded-2xl p-8 text-white text-center" style="background-color: var(--primary-blue)">
+                    <h3 class="text-white text-2xl font-bold mb-4">Nosso Compromisso</h3>
+                    <p class="text-xl leading-relaxed">
+                        Transformar complexidade em previsibilidade, oferecendo soluções jurídicas sob medida que
+                        garantam o crescimento sustentável e competitivo dos negócios no comércio internacional.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Seção de Contato -->
+    <!-- CTA Section -->
     <section id="contato" class="content-section blue-bg text-white">
-        <div class="container mx-auto px-6 md:px-12">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6 text-center">Entre em Contato</h2>
-            <br><br>
-            
-
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                <div>
-                    <h3 class="text-2xl font-bold mb-6">Informações de Contato</h3>
-                    <div class="space-y-6">
-                        <div class="contact-info-item">
-                            <div class="flex items-start">
-                                <i class="fas fa-map-marker-alt text-xl gold-accent mr-4 mt-1"></i>
-                                <div>
-                                    <h4 class="font-semibold text-lg">Endereço</h4>
-                                    <p class="text-gray-700">Rua Rio Grande do Sul, 790<br>Anita Garibaldi,
-                                        Joinville/SC<br>CEP: 89.203-570</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="contact-info-item">
-                            <div class="flex items-start">
-                                <i class="fas fa-phone text-xl gold-accent mr-4 mt-1"></i>
-                                <div>
-                                    <h4 class="font-semibold text-lg">Telefone</h4>
-                                    <p class="text-gray-700">(47) 3804-7322</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="contact-info-item">
-                            <div class="flex items-start">
-                                <i class="fas fa-envelope text-xl gold-accent mr-4 mt-1"></i>
-                                <div>
-                                    <h4 class="font-semibold text-lg">E-mail</h4>
-                                    <p class="text-gray-700">Monenari.adv@gmail.com</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="mt-8">
-                        <h4 class="font-semibold text-lg mb-4">Horário de Atendimento</h4>
-                        <p class="text-gray-700">Segunda a Sexta: 8h às 18h</p>
-                        <p class="text-gray-700">Sábado: 8h às 12h</p>
-                    </div>
-                </div>
-
-                <div>
-                    <h3 class="text-2xl font-bold mb-6">Envie uma Mensagem</h3>
-                    <form class="contact-form space-y-4">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div>
-                                <input type="text" placeholder="Seu Nome" class="w-full" required>
-                            </div>
-                            <div>
-                                <input type="email" placeholder="Seu E-mail" class="w-full" required>
-                            </div>
-                        </div>
-                        <div>
-                            <input type="text" placeholder="Assunto" class="w-full" required>
-                        </div>
-                        <div>
-                            <textarea placeholder="Sua Mensagem" rows="5" class="w-full" required></textarea>
-                        </div>
-                        <button type="submit" class="btn-secondary py-3 px-8 rounded font-semibold w-full">
-                            <i class="fas fa-paper-plane mr-2"></i>Enviar Mensagem
-                        </button>
-                    </form>
-                </div>
+        <div class="container mx-auto px-6 md:px-12 text-center">
+                <a href="tel:+554738047322" class="btn-primary py-4 px-8 rounded-lg font-semibold text-lg">
+                    <i class="fas fa-phone mr-2"></i>Falar com Especialista
+                </a>
             </div>
         </div>
     </section>
-
     <!-- Footer -->
     <footer class="blue-bg text-white py-12">
         <div class="container mx-auto px-6 md:px-12">
@@ -1444,7 +1602,7 @@
         document.getElementById('dropdown-mobile-button').addEventListener('click', function () {
             const dropdown = document.getElementById('dropdown-mobile');
             dropdown.classList.toggle('open');
-            
+
             // Rotacionar a seta
             const arrow = this.querySelector('.dropdown-arrow');
             arrow.classList.toggle('rotate-180');
@@ -1455,11 +1613,11 @@
             item.addEventListener('click', function () {
                 const dropdown = document.getElementById('dropdown-mobile');
                 dropdown.classList.remove('open');
-                
+
                 // Resetar a seta
                 const arrow = document.querySelector('#dropdown-mobile-button .dropdown-arrow');
                 arrow.classList.remove('rotate-180');
-                
+
                 // Fechar menu mobile completo
                 document.getElementById('mobile-menu').classList.add('hidden');
             });
@@ -1481,7 +1639,7 @@
             if (mobileMenu.classList.contains('hidden')) {
                 const dropdown = document.getElementById('dropdown-mobile');
                 dropdown.classList.remove('open');
-                
+
                 // Resetar a seta
                 const arrow = document.querySelector('#dropdown-mobile-button .dropdown-arrow');
                 arrow.classList.remove('rotate-180');
